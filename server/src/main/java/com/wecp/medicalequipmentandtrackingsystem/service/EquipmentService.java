@@ -13,5 +13,14 @@ import java.util.List;
 
 
 public class EquipmentService {
-    
+    @Autowired
+    EquipmentRepository equipmentRepository;
+
+    public Equipment createEquipment(Equipment equipment){
+     return equipmentRepository.save(equipment);
+    }
+
+    public List<Equipment> getAllEquipment(){
+        return equipmentRepository.findAll();
+    }
 }

@@ -1,6 +1,5 @@
 package com.wecp.medicalequipmentandtrackingsystem.jwt;
 
-
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.User;
 import com.wecp.medicalequipmentandtrackingsystem.repository.UserRepository;
 import io.jsonwebtoken.Claims;
@@ -15,5 +14,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class JwtUtil {
+
+    public String genrateToken()
+    {
+
+    }
 
 }
