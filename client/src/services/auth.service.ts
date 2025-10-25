@@ -12,11 +12,13 @@ export class AuthService {
 
   // Method to save token received from login
   saveToken(token: string) {
-  //please complete this
+   this.token=token;
+   localStorage.setItem('authToken',token);
+   this.isLoggedIn=true;
   }
    SetRole(role:any)
   {
-     //please complete this
+     localStorage.setItem('role',role);
   }
   get getRole ():string|null
   {
@@ -24,14 +26,19 @@ export class AuthService {
   }
   // Method to retrieve login status
   get getLoginStatus(): boolean {
-  
+  const token=localStorage.getItem('authToken');
+  return token!==null;
       //please complete this
    
   }
   getToken(): string | null {
-  //please complete this
+  
+  return localStorage.getItem('authToken');
   }
   logout(){
-    //please complete this
+localStorage.removeItem('authToken');
+localStorage.removeItem('role');
+this.token = null;
+this.isLoggedIn = false;
    }
 }
