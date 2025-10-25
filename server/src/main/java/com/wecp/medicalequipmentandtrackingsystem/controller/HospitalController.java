@@ -64,12 +64,14 @@ public class HospitalController {
         
     }
 
+    // return all equipments of hospital with response code = 200 OK
     @GetMapping("/api/hospital/equipment/{hospitalId}")
     public ResponseEntity<List<Equipment>> getAllEquipmentsOfHospital(@PathVariable Long hospitalId) {
         // return all equipments of hospital with response code = 200 OK
         return new ResponseEntity<>(equipmentService.getAllEquipment(), HttpStatus.OK);
     }
 
+    // schedule maintenance for the equipment and return the scheduled maintenance with status code 201 = CREATED;
     @PostMapping("/api/hospital/maintenance/schedule")
     public ResponseEntity<Maintenance> scheduleMaintenance
             (@RequestParam Long equipmentId, @RequestBody Maintenance maintenance) {
@@ -77,9 +79,11 @@ public class HospitalController {
         return new ResponseEntity<>(maintenanceService.createMaintenance(equipmentId, maintenance), HttpStatus.CREATED);
     }
 
+     // place order for the equipment and return the placed order with status code 201 = CREATED;
     @PostMapping("/api/hospital/order")
     public ResponseEntity<Order> placeOrder(@RequestParam Long equipmentId, @RequestBody Order order) {
         // place order for the equipment and return the placed order with status code 201 = CREATED;
         return new ResponseEntity<>(orderService.createOrder(equipmentId, order), HttpStatus.CREATED);
     }
 }
+
