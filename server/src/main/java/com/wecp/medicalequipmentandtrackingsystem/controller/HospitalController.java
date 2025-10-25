@@ -18,35 +18,56 @@ import java.util.List;
 
 
 public class HospitalController {
-
+     @Autowired
+     EquipmentService equipmentService;
+     
+     // create hospital and return the created hospital with status code 201 = CREATED;
     @PostMapping("/api/hospital/create")
     public ResponseEntity<Hospital> createHospital(@RequestBody Hospital hospital) {
-        // create hospital and return the created hospital with status code 201 = CREATED;
+      
     }
-
+    
+     // return all hospitals with response code = 200 ok
     @GetMapping("/api/hospitals")
     public ResponseEntity<List<Hospital>> getAllHospitals() {
-        // return all hospitals with response code = 200 ok
+       
     }
 
+     // add equipment to the hospital and return the added equipment with status code 201 = CREATED;
     @PostMapping("/api/hospital/equipment")
     public ResponseEntity<Equipment> addEquipment(@RequestParam Long hospitalId, @RequestBody Equipment equipment) {
-        // add equipment to the hospital and return the added equipment with status code 201 = CREATED;
+         Equipment equip = equipmentService.createEquipment(equipment);
+         if(equip == null){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+         }
+         else{
+            return new ResponseEntity<Equipment>(equip, HttpStatus.CREATED);
+         }
     }
 
+    // return all equipments of hospital with response code = 200 OK
     @GetMapping("/api/hospital/equipment/{hospitalId}")
     public ResponseEntity<List<Equipment>> getAllEquipmentsOfHospital(@PathVariable Long hospitalId) {
-        // return all equipments of hospital with response code = 200 OK
+        List<Equipment> eqlist = equipmentService.getAllEquipment();
+        if(eqlist == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        else{
+            return new ResponseEntity<List<Equipment>>(eqlist, HttpStatus.OK);
+        }
     }
 
+    // schedule maintenance for the equipment and return the scheduled maintenance with status code 201 = CREATED;
     @PostMapping("/api/hospital/maintenance/schedule")
     public ResponseEntity<Maintenance> scheduleMaintenance
             (@RequestParam Long equipmentId, @RequestBody Maintenance maintenance) {
-        // schedule maintenance for the equipment and return the scheduled maintenance with status code 201 = CREATED;
+        
     }
 
+     // place order for the equipment and return the placed order with status code 201 = CREATED;
     @PostMapping("/api/hospital/order")
     public ResponseEntity<Order> placeOrder(@RequestParam Long equipmentId, @RequestBody Order order) {
-        // place order for the equipment and return the placed order with status code 201 = CREATED;
+       
     }
 }
+
