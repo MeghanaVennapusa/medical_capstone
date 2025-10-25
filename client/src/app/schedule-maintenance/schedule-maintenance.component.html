@@ -1,1 +1,101 @@
-//todo: complete missing code..
+<div class="container mt-4"></div>
+    <h2 class="mb-3">Scheduled Maintenance</h2>
+  
+    <!-- Info Box -->
+    <div class="info-box mb-3">
+      <span class="info-text">Scheduled Maintenance of Equipment</span>
+    </div>
+  
+    <!-- Success Message -->
+    <div *ngIf="showMessage" class="alert alert-success">
+      {{ responseMessage }}
+    </div>
+  
+    <!-- Error Message -->
+    <div *ngIf="showError" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+  
+    <!-- Form -->
+    <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <!-- Hospital Dropdown -->
+        <div class="col-md-6 mb-3">
+          <label>Hospitals</label>
+          <select class="form-control" formControlName="hospitalId" (change)="onHospitalSelect()">
+            <option value="">Please Choose</option>
+            <option *ngFor="let hospital of hospitalList" [value]="hospital.id">{{ hospital.name }}</option>
+          </select>
+          <div *ngIf="itemForm.get('hospitalId')?.errors?.['required']" class="text-danger">
+            Hospital is required.
+          </div>
+        </div>
+  
+        <!-- Scheduled Date -->
+        <div class="col-md-6 mb-3">
+          <label>Scheduled Date</label>
+          <input type="date" class="form-control" formControlName="scheduledDate" />
+          <div *ngIf="itemForm.get('scheduledDate')?.errors?.['required']" class="text-danger">
+            Scheduled date is required.
+          </div>
+          <div *ngIf="itemForm.get('scheduledDate')?.errors?.['invalidDate']" class="text-danger">
+            Scheduled date cannot be in the past.
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <!-- Equipment Dropdown -->
+        <div class="col-md-6 mb-3">
+          <label>Equipment</label>
+          <select class="form-control" formControlName="equipmentId">
+            <option value="">Please Choose</option>
+            <option *ngFor="let equipment of equipmentList" [value]="equipment.id">{{ equipment.name }}</option>
+          </select>
+          <div *ngIf="itemForm.get('equipmentId')?.errors?.['required']" class="text-danger">
+            Equipment is required.
+          </div>
+        </div>
+  
+        <!-- Completed Date -->
+        <div class="col-md-6 mb-3">
+          <label>Completed Date</label>
+          <input type="date" class="form-control" formControlName="completedDate" />
+          <div *ngIf="itemForm.get('completedDate')?.errors?.['required']" class="text-danger">
+            Completed date is required.
+          </div>
+          <div *ngIf="itemForm.get('completedDate')?.errors?.['invalidDate']" class="text-danger">
+            Completed date cannot be in the past.
+          </div>
+          <div *ngIf="itemForm.errors?.['invalidOrder']" class="text-danger">
+            Completed date cannot be before scheduled date.
+          </div>
+        </div>
+      </div>
+  
+      <!-- Description -->
+      <div class="mb-3">
+        <label>Description</label>
+        <input type="text" class="form-control" formControlName="description" placeholder="Description" />
+        <div *ngIf="itemForm.get('description')?.errors?.['required']" class="text-danger">
+          Description is required.
+        </div>
+      </div>
+  
+      <!-- Status -->
+      <div class="mb-3">
+        <label>Status</label>
+        <select class="form-control" formControlName="status">
+          <option value="">Choose Status</option>
+          <option value="Initiated">Initiated</option>
+          <option value="Pending">Pending</option>
+          <option value="Completed">Completed</option>
+        </select>
+        <div *ngIf="itemForm.get('status')?.errors?.['required']" class="text-danger">
+          Status is required.
+        </div>
+      </div>
+  
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary w-100" [disabled]="itemForm.invalid">Submit</button>
+    </form>

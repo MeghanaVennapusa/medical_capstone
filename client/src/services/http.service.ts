@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment.development';
-import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +31,7 @@ export class HttpService {
   getAllMaintenances(): Observable<any[]> {
     return this.http.get<any[]>(`${this.serverName}/api/technician/maintenance`);
   }
+  
 
   // Update maintenance by ID
   updateMaintenance(maintenanceId: number, maintenance: any): Observable<any> {
@@ -42,7 +42,19 @@ export class HttpService {
   getMaintenanceById(maintenanceId: number): Observable<any> {
     return this.http.get<any>(`${this.serverName}/api/technician/maintenance/${maintenanceId}`);
   }
-
+  getAllHospitals(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.serverName}/api/hospitals`);
+  }
+  
+  // Get equipment by hospital ID
+  getEquipmentByHospital(hospitalId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.serverName}/api/equipment/hospital/${hospitalId}`);
+  }
+  
+  // Schedule maintenance
+  scheduleMaintenance(data: any): Observable<any> {
+    return this.http.post<any>(`${this.serverName}/api/technician/maintenance`, data);
+  }
 
  
 
@@ -54,4 +66,5 @@ export class HttpService {
     return this.http.put<any>(`${this.serverName}/order/update/${orderId}`,{status:newStatus});
   }
   
+}
 }
