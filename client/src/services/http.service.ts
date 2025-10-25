@@ -9,6 +9,25 @@ import { AuthService } from './auth.service';
 })
 export class HttpService {
   public serverName=environment.apiUrl;
-//todo: complete missing code.. 
-  
-}
+  constructor(private http:HttpClient)
+  {
+
+  }
+
+  login(credentials: any): Observable<any> {
+    return this.http.post<any>(`${this.serverName}/api/user/login`, credentials);
+  }
+
+  createHospital(hospital:any) :Observable<any>
+  {
+   return this.http.post<any>(`${this.serverName}/api/hospitals`,hospital);
+  }
+  getHospital() :Observable<any>
+  {
+    return this.http.get<any>(`${this.serverName}/api/hospitals`);
+  }
+  addEquipment(equipment :any):Observable<any> 
+  {
+    return this.http.post<any>(`${this.serverName}/api/hospital/equipment`,equipment.hospitalId,equipment);
+  }
+  }

@@ -11,5 +11,6 @@ import { HttpService } from '../../services/http.service';
 })
 export class RegistrationComponent 
 //doto: complete missing code..
+{
 
-
+}
