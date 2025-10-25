@@ -11,7 +11,20 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
-
+@Service
 public class EquipmentService {
-    
+    @Autowired
+    EquipmentRepository equipmentRepository;
+    @Autowired
+    HospitalRepository hospitalRepository;
+
+    public Equipment createEquipment(Equipment equipment){
+
+     return equipmentRepository.save(equipment);
+
+    }
+
+    public List<Equipment> getAllEquipment(){
+        return equipmentRepository.findAll();
+    }
 }

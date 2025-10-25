@@ -1,0 +1,49 @@
+.container {
+    max-width: 95%;
+  }
+  
+  .table {
+    font-size: 14px;
+  }
+  
+  .table th, .table td {
+    vertical-align: middle;
+  }
+  
+  .btn-warning {
+    font-weight: bold;
+    color: #000;
+  }
+  
+  .modal-content {
+    border-radius: 8px;
+  }
+  
+  .modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .modal-title {
+    font-weight: 600;
+  }
+  
+  form .form-control {
+    font-size: 14px;
+  }
+  
+  form button {
+    margin-top: 10px;
+  }
+
+  .info-box {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 10px 15px;
+    border-radius: 4px;
+  }
+  
+  .info-text {
+    font-weight: 500;
+    font-size: 16px;
+  }

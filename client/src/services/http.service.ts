@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment.development';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -25,4 +26,16 @@ export class HttpService {
   getMaintenanceById(maintenanceId: number): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/api/technician/maintenance/${maintenanceId}`);
   }
+
+
+ 
+
+  getOrders():Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}/orders`);
+  }
+
+  updateOrderStatus(orderId:number,newStatus:string):Observable<any>{
+    return this.http.put<any>(`${this.baseUrl}/order/update/${orderId}`,{status:newStatus});
+  }
+  
 }
