@@ -46,10 +46,10 @@ private JwtUtil jwtUtil;
                 new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
 
          UserDetails userDetails=userService.loadUserByUsername(loginRequest.getUsername());
-         String token=jwtUtil.genrateToken(loginRequest.getUsername());
+         String token=jwtUtil.generateToken(loginRequest.getUsername());
          User user=userService.getUserByUsername(loginRequest.getUsername());
        
-   LoginResponse response = new LoginResponse(token,user.getUsername(),user.getEmail(),user.getRole());
+   LoginResponse response = new LoginResponse(token,userDetails.getUsername(),user.getEmail(),user.getRole());
           return new ResponseEntity<>(response, HttpStatus.OK);
 
     }

@@ -39,10 +39,11 @@ export class LoginComponent implements OnInit {
   
           // Save token using AuthService
           this.authService.saveToken(response.token);
-  
+          // console.log(response);
           // Save other user details 
-          localStorage.setItem("role", response.roles);
-          localStorage.setItem("user_id", response.userId);
+          // this.authService.SetRole(response.roles);
+          localStorage.setItem("role", response.role);
+          localStorage.setItem("username", response.username);
   
           console.log(localStorage.getItem("role"));
   
