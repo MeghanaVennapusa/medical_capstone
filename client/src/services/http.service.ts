@@ -7,37 +7,63 @@ import { environment } from '../environments/environment.development';
   providedIn: 'root'
 })
 export class HttpService {
-  private baseUrl = `${environment.apiUrl}`;
+  private serverName = `${environment.apiUrl}`;
 
   constructor(private http: HttpClient) {}
+  login(credentials: any): Observable<any> {
+    return this.http.post<any>(`${this.serverName}/api/user/login`, credentials);
+  }
+
+  createHospital(hospital:any) :Observable<any>
+  {
+   return this.http.post<any>(`${this.serverName}/api/hospitals`,hospital);
+  }
+  getHospital() :Observable<any>
+  {
+    return this.http.get<any>(`${this.serverName}/api/hospitals`);
+  }
+  addEquipment(equipment :any):Observable<any> 
+  {
+    return this.http.post<any>(`${this.serverName}/api/hospital/equipment`,equipment.hospitalId,equipment);
+  }
 
   // Get all maintenance records
   getAllMaintenances(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/api/technician/maintenance`);
+    return this.http.get<any[]>(`${this.serverName}/api/technician/maintenance`);
   }
+  
 
   // Update maintenance by ID
   updateMaintenance(maintenanceId: number, maintenance: any): Observable<any> {
-    return this.http.put<any>(`${this.baseUrl}/api/technician/maintenance/update/${maintenanceId}`, maintenance);
+    return this.http.put<any>(`${this.serverName}/api/technician/maintenance/update/${maintenanceId}`, maintenance);
   }
 
   // Optional: Get maintenance by ID (if needed later)
   getMaintenanceById(maintenanceId: number): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/api/technician/maintenance/${maintenanceId}`);
+    return this.http.get<any>(`${this.serverName}/api/technician/maintenance/${maintenanceId}`);
+  }
+  getAllHospitals(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.serverName}/api/hospitals`);
+  }
+  
+  // Get equipment by hospital ID
+  getEquipmentByHospital(hospitalId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.serverName}/api/equipment/hospital/${hospitalId}`);
+  }
+  
+  // Schedule maintenance
+  scheduleMaintenance(data: any): Observable<any> {
+    return this.http.post<any>(`${this.serverName}/api/technician/maintenance`, data);
   }
 
-  // Get all hospitals
-getAllHospitals(): Observable<any[]> {
-  return this.http.get<any[]>(`${this.baseUrl}/api/hospitals`);
-}
+ 
 
-// Get equipment by hospital ID
-getEquipmentByHospital(hospitalId: number): Observable<any[]> {
-  return this.http.get<any[]>(`${this.baseUrl}/api/equipment/hospital/${hospitalId}`);
-}
+  getOrders():Observable<any>{
+    return this.http.get<any>(`${this.serverName}/orders`);
+  }
 
-// Schedule maintenance
-scheduleMaintenance(data: any): Observable<any> {
-  return this.http.post<any>(`${this.baseUrl}/api/technician/maintenance`, data);
-}
+  updateOrderStatus(orderId:number,newStatus:string):Observable<any>{
+    return this.http.put<any>(`${this.serverName}/order/update/${orderId}`,{status:newStatus});
+  }
+  
 }

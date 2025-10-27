@@ -7,6 +7,7 @@ import { HttpService } from '../../services/http.service';
   templateUrl: './schedule-maintenance.component.html',
   styleUrls: ['./schedule-maintenance.component.scss']
 })
+
 export class ScheduleMaintenanceComponent implements OnInit {
 
   itemForm !: FormGroup;
@@ -92,3 +93,4 @@ export class ScheduleMaintenanceComponent implements OnInit {
     }
   }
 }
+

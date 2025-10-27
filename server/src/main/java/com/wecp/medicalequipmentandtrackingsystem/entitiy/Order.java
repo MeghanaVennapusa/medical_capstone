@@ -2,6 +2,9 @@ package com.wecp.medicalequipmentandtrackingsystem.entitiy;
 
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 @Entity
@@ -13,10 +16,11 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     Date orderDate;
 
     //Pending , Shipped , Delivered
-    String status;  
+    String status = "Pending";  
     
     int quantity;
     

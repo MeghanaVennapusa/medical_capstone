@@ -18,6 +18,8 @@ public class OrderService {
 
     @Autowired
     OrderRepository orderRepository;
+    @Autowired
+    EquipmentRepository equipmentRepository;
 
     //Constructor DI
     public OrderService(OrderRepository orderRepository){
@@ -40,8 +42,12 @@ public class OrderService {
         }else{
             throw new RuntimeException("Order not found!");
         }
-
+    }
+    public Order createOrder(Long equipmentId, Order order)
+    {
+        order.setEquipment(equipmentRepository.findById(equipmentId).get());
         
+        return orderRepository.save(order);
     }
 
 

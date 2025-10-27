@@ -1,5 +1,8 @@
 package com.wecp.medicalequipmentandtrackingsystem.entitiy;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 @Entity
@@ -10,8 +13,12 @@ public class Maintenance {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     Date scheduledDate;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
     Date completedDate;
+
     String description;
     String status;
 

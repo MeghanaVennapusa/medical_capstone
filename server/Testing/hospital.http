@@ -1,0 +1,94 @@
+###
+POST http://localhost:5000/api/user/register
+Content-Type: application/json
+
+{
+    "username" : "oyeshreyas",
+    "password" : "Aditya@335",
+    "email" : "shreyas2@gmail.com",
+    "role" : "HOSPITAL"
+}
+
+###
+
+POST http://localhost:5000/api/user/login
+Content-Type: application/json
+
+{
+    "username" : "oyeshreyas",
+    "password" : "Aditya@335"
+}
+
+### HOSPITAL CRUD
+
+POST http://localhost:5000/api/hospital/create
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJveWVzaHJleWFzIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNTQwOTA4LCJleHAiOjE3NjE2MjczMDh9.4GEs9v_SDNHVHKJtqlJoaHOuy1dCzNfsixh9zNnWknU8LXNMaGi0q1RWZ9lXu7ahPOf3T2h1K41YZ9dgJtZcAA
+Content-Type: application/json
+
+
+{
+    "name" : "Apollo",
+    "location" : "Kalinga , Odisha"
+}
+
+###
+
+GET http://localhost:5000/api/hospitals
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJveWVzaHJleWFzIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNTQwOTA4LCJleHAiOjE3NjE2MjczMDh9.4GEs9v_SDNHVHKJtqlJoaHOuy1dCzNfsixh9zNnWknU8LXNMaGi0q1RWZ9lXu7ahPOf3T2h1K41YZ9dgJtZcAA
+
+###
+
+POST http://localhost:5000/api/hospital/equipment?hospitalId=1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJveWVzaHJleWFzIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNTQwOTA4LCJleHAiOjE3NjE2MjczMDh9.4GEs9v_SDNHVHKJtqlJoaHOuy1dCzNfsixh9zNnWknU8LXNMaGi0q1RWZ9lXu7ahPOf3T2h1K41YZ9dgJtZcAA
+Content-Type: application/json
+
+{
+    "name" : "BP Machine",
+    "description" : "BP Checking"
+}
+
+###
+
+GET http://localhost:5000/api/hospital/equipment/1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJveWVzaHJleWFzIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNTQwOTA4LCJleHAiOjE3NjE2MjczMDh9.4GEs9v_SDNHVHKJtqlJoaHOuy1dCzNfsixh9zNnWknU8LXNMaGi0q1RWZ9lXu7ahPOf3T2h1K41YZ9dgJtZcAA
+
+###
+
+POST http://localhost:5000/api/hospital/maintenance/schedule?equipmentId=1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJveWVzaHJleWFzIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNTQwOTA4LCJleHAiOjE3NjE2MjczMDh9.4GEs9v_SDNHVHKJtqlJoaHOuy1dCzNfsixh9zNnWknU8LXNMaGi0q1RWZ9lXu7ahPOf3T2h1K41YZ9dgJtZcAA
+Content-Type: application/json
+
+{
+
+    "description" : "It was glitching , reparing starting tomorrow",
+    "scheduledDate" : "2025-10-23",
+    "hospital" : {
+        "name" : "Apollo"
+    }
+
+}
+
+###
+
+POST http://localhost:5000/api/hospital/order?equipmentId=1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJveWVzaHJleWFzIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNTQwOTA4LCJleHAiOjE3NjE2MjczMDh9.4GEs9v_SDNHVHKJtqlJoaHOuy1dCzNfsixh9zNnWknU8LXNMaGi0q1RWZ9lXu7ahPOf3T2h1K41YZ9dgJtZcAA
+Content-Type: application/json
+
+{
+
+    "orderDate" : "2025-10-27",
+    "status" : "Pending",
+    "quantity" : 15,
+    "equipment" : {
+
+        "hospital" : {
+            
+        }
+
+    }
+
+}
+
+
+
+

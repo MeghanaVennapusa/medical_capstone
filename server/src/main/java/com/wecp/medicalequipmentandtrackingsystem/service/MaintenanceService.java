@@ -17,6 +17,8 @@ public class MaintenanceService {
 
     @Autowired
     MaintenanceRepository maintenanceRepository;
+    @Autowired
+    EquipmentRepository equipmentRepository;
 
     // Constructor Injection for the repository
     public MaintenanceService(MaintenanceRepository maintenanceRepository){
@@ -29,15 +31,24 @@ public class MaintenanceService {
     }
 
     //update's the maintenance using maintenanceId (done by technician)
-    public Maintenance updateMaintenance(long maintenanceId , Maintenance updatedMaintenance){
-        Maintenance existingMaintenance = maintenanceRepository.findById(maintenanceId).get();
-
-        if(existingMaintenance != null){
-            updatedMaintenance = existingMaintenance;
-            return maintenanceRepository.save(updatedMaintenance);
-        }else{
-            throw new RuntimeException("Maintenance not found!");
-        }
+    public Maintenance updateMaintenance(long maintenanceId, Maintenance updatedMaintenance) {
+        Maintenance existingMaintenance = maintenanceRepository.findById(maintenanceId)
+            .orElseThrow(() -> new RuntimeException("Maintenance not found!"));
+    
+        // Update only the necessary fields
+        existingMaintenance.setCompletedDate(updatedMaintenance.getCompletedDate());
+        existingMaintenance.setStatus(updatedMaintenance.getStatus());
+        // Add other fields as needed
+    
+        return maintenanceRepository.save(existingMaintenance);
     }
+    
+
+    public Maintenance createMaintenance(Long equipmentId, Maintenance maintenance)
+    {
+        maintenance.setEquipment(equipmentRepository.findById(equipmentId).get());
+        return maintenanceRepository.save(maintenance);
+    }
+
     
 }

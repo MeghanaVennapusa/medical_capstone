@@ -12,3 +12,4 @@ import { AuthService } from '../../services/auth.service';
 export class RequestequipmentComponent 
 //todo: complete missing code..
 
+{}
