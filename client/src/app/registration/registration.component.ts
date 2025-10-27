@@ -16,7 +16,7 @@ export class RegistrationComponent
   formModel:any={role:null,email:'',password:'',username:''}; 
   showMessage:boolean=false; 
   responseMessage: any; 
-    constructor(private fb:FormBuilder){
+    constructor(private fb:FormBuilder, private httpService: HttpService){
       this.itemForm = this.fb.group({
         username : ['',[Validators.required]],
         email : ['',[Validators.required,Validators.email]],
@@ -36,8 +36,17 @@ export class RegistrationComponent
   onSubmit(){
     if(this.itemForm.valid){
       console.log('Form Submitted',this.itemForm.value);
-      this.itemForm.reset()
+      
       this.showMessage= !this.showMessage;
+      this.httpService.register(this.itemForm.value).subscribe({
+        next:(response)=>{
+          this.itemForm.reset()
+          console.log("Registered sucessfully!",response)
+        },
+        error:(err)=>{
+       console.log("Error",err)
+        }
+      })
     }
     else{
       this.itemForm.markAllAsTouched();

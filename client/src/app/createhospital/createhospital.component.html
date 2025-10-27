@@ -1,4 +1,3 @@
-<!-- Hospital Creation Form -->
 <h2>Create Hospital</h2>
 <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
   <label for="name">Hospital Name</label>
@@ -7,24 +6,22 @@
     <small *ngIf="itemForm.get('name')?.hasError('required')">Hospital name is required.</small>
     <small *ngIf="itemForm.get('name')?.hasError('minlength')">Minimum 6 characters required.</small>
   </div>
-
+ 
   <label for="location">Location</label>
   <input id="location" formControlName="location" type="text" />
   <div *ngIf="itemForm.get('location')?.invalid && itemForm.get('location')?.touched" class="error">
     <small *ngIf="itemForm.get('location')?.hasError('required')">Location is required.</small>
     <small *ngIf="itemForm.get('location')?.hasError('minlength')">Minimum 6 characters required.</small>
   </div>
-
+ 
   <button type="submit" [disabled]="itemForm.invalid">Create Hospital</button>
 </form>
-
-<!-- Error or Success Messages -->
+ 
 <div *ngIf="showError" class="error">{{ errorMessage }}</div>
 <div *ngIf="responseMessage" class="success">{{ responseMessage }}</div>
-
+ 
 <hr />
-
-<!-- Hospital List with Assign Equipment Button -->
+ 
 <h2>Hospital List</h2>
 <ul>
   <li *ngFor="let hospital of hospitalList">
@@ -32,27 +29,33 @@
     <button (click)="Addequipment(hospital)">Assign Equipment</button>
   </li>
 </ul>
-
-<!-- Equipment Assignment Form -->
+ 
 <div *ngIf="showEquipmentForm">
   <h3>Assign Equipment to {{ assignModel?.name }}</h3>
   <form [formGroup]="equipmentForm" (ngSubmit)="submitEquipment()">
-    <label for="equipmentName">Equipment Name</label>
-    <input id="equipmentName" formControlName="equipmentName" type="text" />
-    <div *ngIf="equipmentForm.get('equipmentName')?.invalid && equipmentForm.get('equipmentName')?.touched" class="error">
-      <small *ngIf="equipmentForm.get('equipmentName')?.hasError('required')">Equipment name is required.</small>
-      <small *ngIf="equipmentForm.get('equipmentName')?.hasError('minlength')">Minimum 2 characters required.</small>
+    <label for="name">Equipment Name</label>
+    <input id="name" formControlName="name" type="text" />
+    <div *ngIf="equipmentForm.get('name')?.invalid && equipmentForm.get('name')?.touched" class="error">
+      <small *ngIf="equipmentForm.get('name')?.hasError('required')">Equipment name is required.</small>
+      <small *ngIf="equipmentForm.get('name')?.hasError('minlength')">Minimum 2 characters required.</small>
     </div>
-
+ 
+    <label for="description">Description</label>
+    <input id="description" formControlName="description" type="text" />
+    <div *ngIf="equipmentForm.get('description')?.invalid && equipmentForm.get('description')?.touched" class="error">
+      <small *ngIf="equipmentForm.get('description')?.hasError('required')">Description is required.</small>
+      <small *ngIf="equipmentForm.get('description')?.hasError('minlength')">Minimum 2 characters required.</small>
+    </div>
+ 
     <label for="hospitalId">Hospital ID</label>
     <input id="hospitalId" formControlName="hospitalId" type="text" readonly />
     <div *ngIf="equipmentForm.get('hospitalId')?.invalid && equipmentForm.get('hospitalId')?.touched" class="error">
       <small>Hospital ID is required.</small>
     </div>
-
+ 
     <button type="submit" [disabled]="equipmentForm.invalid">Assign</button>
     <button type="button" (click)="showEquipmentForm = false">Cancel</button>
   </form>
-
+ 
   <div *ngIf="showMessage" class="success">{{ showMessage }}</div>
 </div>

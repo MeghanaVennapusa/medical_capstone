@@ -14,26 +14,24 @@ import java.util.Optional;
 
 @Service
 public class EquipmentService {
-    @Autowired
-    EquipmentRepository equipmentRepository;
 
-    @Autowired
-    HospitalRepository hospitalRepository;
+    private final EquipmentRepository equipmentRepository;
+    public EquipmentService(EquipmentRepository equipmentRepository) {
+        this.equipmentRepository = equipmentRepository;
+    }
 
-    
     //call save method grom jps repository to save equipment object
-    public Equipment createEquipment(Equipment equipment){
-        Optional<Hospital> hosp = hospitalRepository.findById(equipment.getHospital().getId());
-        if(hosp.isPresent()){
-            equipment.setHospital(hosp.get());
-            return equipmentRepository.save(equipment);
-
+    public Equipment createEquipment(Equipment equipment) {
+        if (equipment == null) {
+            throw new IllegalArgumentException("Equipment object is null");
         }
-        else{
-            throw new RuntimeException("Hospital ID is not present");
+    
+        if (equipment.getHospital() == null || equipment.getHospital().getId() == null) {
+            throw new IllegalArgumentException("Hospital information is missing in equipment");
         }
-
-     
+    
+        // Proceed with saving
+        return equipmentRepository.save(equipment);
     }
      
     //call findAll method from the jpa repository

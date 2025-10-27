@@ -23,7 +23,7 @@ export class ScheduleMaintenanceComponent implements OnInit {
   constructor(private fb: FormBuilder, private httpService: HttpService) {
     this.itemForm = this.fb.group({
       hospitalId: ['', Validators.required],
-      equipmentId: ['', Validators.required],
+      id: ['', Validators.required],
       scheduledDate: ['', [Validators.required, this.dateValidator]],
       completedDate: ['', [Validators.required, this.dateValidator]],
       description: ['', Validators.required],

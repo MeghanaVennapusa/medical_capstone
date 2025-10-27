@@ -17,19 +17,25 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping(value = "/api/hospital")
 public class HospitalController {
 
-    @Autowired
-    HospitalService hospitalService;
-    @Autowired
-    EquipmentService equipmentService;
-    @Autowired
-    MaintenanceService maintenanceService;
-    @Autowired
-    OrderService orderService;
+    private final HospitalService hospitalService;
+    private final EquipmentService equipmentService;
+    private final MaintenanceService maintenanceService;
+    private final OrderService orderService;
+    
+    public HospitalController(HospitalService hospitalService, EquipmentService equipmentService,
+            MaintenanceService maintenanceService, OrderService orderService) {
+        this.hospitalService = hospitalService;
+        this.equipmentService = equipmentService;
+        this.maintenanceService = maintenanceService;
+        this.orderService = orderService;
+    }
+
 
     // create hospital and return the created hospital with status code 201 = CREATED;
-    @PostMapping("/api/hospital/create")
+    @PostMapping("/create")
     public ResponseEntity<Hospital> createHospital(@RequestBody Hospital hospital) {
         try{
             return new ResponseEntity<>(hospitalService.addHospital(hospital), HttpStatus.CREATED);
@@ -58,21 +64,26 @@ public class HospitalController {
     }
 
     // add equipment to the hospital and return the added equipment with status code 201 = CREATED;
-    @PostMapping("/api/hospital/equipment")
-    public ResponseEntity<Equipment> addEquipment(@RequestParam Long hospitalId, @RequestBody Equipment equipment) {
-        return new ResponseEntity<>(hospitalService.addEquipment(hospitalId , equipment), HttpStatus.CREATED);
-        
+    @PostMapping("/equipment")
+    public ResponseEntity<Equipment> addEquipment(@RequestParam Long hospitalId, @RequestBody Equipment equipment) throws Exception {
+        Hospital hospital = hospitalService.getHospitalById(hospitalId);
+        if (hospital == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    
+        equipment.setHospital(hospital); 
+        return new ResponseEntity<>(equipmentService.createEquipment(equipment), HttpStatus.CREATED);
     }
 
     // return all equipments of hospital with response code = 200 OK
-    @GetMapping("/api/hospital/equipment/{hospitalId}")
+    @GetMapping("/equipment/{hospitalId}")
     public ResponseEntity<List<Equipment>> getAllEquipmentsOfHospital(@PathVariable Long hospitalId) {
         // return all equipments of hospital with response code = 200 OK
         return new ResponseEntity<>(equipmentService.getAllEquipment(), HttpStatus.OK);
     }
 
     // schedule maintenance for the equipment and return the scheduled maintenance with status code 201 = CREATED;
-    @PostMapping("/api/hospital/maintenance/schedule")
+    @PostMapping("/maintenance/schedule")
     public ResponseEntity<Maintenance> scheduleMaintenance
             (@RequestParam Long equipmentId, @RequestBody Maintenance maintenance) {
         // schedule maintenance for the equipment and return the scheduled maintenance with status code 201 = CREATED;
@@ -80,7 +91,7 @@ public class HospitalController {
     }
 
      // place order for the equipment and return the placed order with status code 201 = CREATED;
-    @PostMapping("/api/hospital/order")
+    @PostMapping("/order")
     public ResponseEntity<Order> placeOrder(@RequestParam Long equipmentId, @RequestBody Order order) {
         // place order for the equipment and return the placed order with status code 201 = CREATED;
         return new ResponseEntity<>(orderService.createOrder(equipmentId, order), HttpStatus.CREATED);
