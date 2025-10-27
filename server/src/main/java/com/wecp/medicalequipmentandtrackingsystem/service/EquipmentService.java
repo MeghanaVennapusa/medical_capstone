@@ -12,7 +12,7 @@ import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
-
+@Service
 public class EquipmentService {
     @Autowired
     EquipmentRepository equipmentRepository;
