@@ -7,24 +7,23 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
-  IsLoggin:any=false;
+export class AppComponent implements OnInit {
+  IsLoggin = false;
   roleName: string | null = null;
-  constructor(private authService: AuthService, private router:Router){}
+
+  constructor(private authService: AuthService, private router: Router) {}
+
   ngOnInit(): void {
-    this.IsLoggin=this.authService.getLoginStatus;
-    this.roleName=this.authService.getRole;
-    if(this.IsLoggin==false)
-    {
-      this.router.navigateByUrl('/login'); 
-    
+    this.authService.loggedIn$.subscribe(status => this.IsLoggin = status);
+    this.authService.userRole$.subscribe(role => this.roleName = role);
+
+    if (!this.IsLoggin) {
+      this.router.navigateByUrl('/login');
     }
   }
- 
-  logout()
-{
-  this.authService.logout();
-  window.location.reload();
-}
 
+  logout() {
+    this.authService.logout();
+    this.router.navigateByUrl('/login');
+  }
 }
