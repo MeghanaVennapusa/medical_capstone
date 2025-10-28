@@ -1,0 +1,27 @@
+POST http://localhost:5000/api/user/register
+Content-Type: application/json
+
+{
+    "username": "meghana",
+    "password": "Meghana@127",
+    "email": "vmr@gmail.com",
+    "role": "HOSPITAL"
+}
+###
+
+POST http://localhost:5000/api/user/login
+Content-Type: application/json
+
+{
+    "username": "meghana",
+    "password": "Meghana@127"
+}
+###
+
+POST http://localhost:5000/api/user/login
+Content-Type: application/json
+
+{
+    "username": "meghanaa",
+    "password": "Meghana@127"
+}

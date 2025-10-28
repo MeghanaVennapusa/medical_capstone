@@ -22,40 +22,40 @@ Content-Type: application/json
 ### HOSPITAL CRUD
 
 POST http://localhost:5000/api/hospital/create
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJveWVzaHJleWFzIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNTQwOTA4LCJleHAiOjE3NjE2MjczMDh9.4GEs9v_SDNHVHKJtqlJoaHOuy1dCzNfsixh9zNnWknU8LXNMaGi0q1RWZ9lXu7ahPOf3T2h1K41YZ9dgJtZcAA
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJveWVzaHJleWFzIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNjQ1NTIzLCJleHAiOjE3NjE3MzE5MjN9.61QaqHs7hG0M5e2P67DjjpjlInKnpSIk0S2uGD1EkFV9JX6ngcKZ3uFRjHkPLLaQ1JQ8jHhSkF2XSHlMC8b77Q
 Content-Type: application/json
 
 
 {
-    "name" : "Apollo",
-    "location" : "Kalinga , Odisha"
+    "name" : "Sancheti",
+    "location" : "Pune , Maharashtra"
 }
 
 ###
 
 GET http://localhost:5000/api/hospitals
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJveWVzaHJleWFzIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNTQwOTA4LCJleHAiOjE3NjE2MjczMDh9.4GEs9v_SDNHVHKJtqlJoaHOuy1dCzNfsixh9zNnWknU8LXNMaGi0q1RWZ9lXu7ahPOf3T2h1K41YZ9dgJtZcAA
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJveWVzaHJleWFzIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNjQ1NTIzLCJleHAiOjE3NjE3MzE5MjN9.61QaqHs7hG0M5e2P67DjjpjlInKnpSIk0S2uGD1EkFV9JX6ngcKZ3uFRjHkPLLaQ1JQ8jHhSkF2XSHlMC8b77Q
 
 ###
 
-POST http://localhost:5000/api/hospital/equipment?hospitalId=1
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJveWVzaHJleWFzIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNTQwOTA4LCJleHAiOjE3NjE2MjczMDh9.4GEs9v_SDNHVHKJtqlJoaHOuy1dCzNfsixh9zNnWknU8LXNMaGi0q1RWZ9lXu7ahPOf3T2h1K41YZ9dgJtZcAA
+POST http://localhost:5000/api/hospital/equipment?hospitalId=4
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJveWVzaHJleWFzIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNjQ1NTIzLCJleHAiOjE3NjE3MzE5MjN9.61QaqHs7hG0M5e2P67DjjpjlInKnpSIk0S2uGD1EkFV9JX6ngcKZ3uFRjHkPLLaQ1JQ8jHhSkF2XSHlMC8b77Q
 Content-Type: application/json
 
 {
-    "name" : "BP Machine",
-    "description" : "BP Checking"
+    "name" : "Xray Machine",
+    "description" : "Advanced Xray - Machine"
 }
 
 ###
 
-GET http://localhost:5000/api/hospital/equipment/1
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJveWVzaHJleWFzIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNTQwOTA4LCJleHAiOjE3NjE2MjczMDh9.4GEs9v_SDNHVHKJtqlJoaHOuy1dCzNfsixh9zNnWknU8LXNMaGi0q1RWZ9lXu7ahPOf3T2h1K41YZ9dgJtZcAA
+GET http://localhost:5000/api/hospital/equipment/4
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJveWVzaHJleWFzIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNjQ1NTIzLCJleHAiOjE3NjE3MzE5MjN9.61QaqHs7hG0M5e2P67DjjpjlInKnpSIk0S2uGD1EkFV9JX6ngcKZ3uFRjHkPLLaQ1JQ8jHhSkF2XSHlMC8b77Q
 
 ###
 
-POST http://localhost:5000/api/hospital/maintenance/schedule?equipmentId=1
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJveWVzaHJleWFzIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNTQwOTA4LCJleHAiOjE3NjE2MjczMDh9.4GEs9v_SDNHVHKJtqlJoaHOuy1dCzNfsixh9zNnWknU8LXNMaGi0q1RWZ9lXu7ahPOf3T2h1K41YZ9dgJtZcAA
+POST http://localhost:5000/api/hospital/maintenance/schedule?equipmentId=2
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJveWVzaHJleWFzIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNjQ1NTIzLCJleHAiOjE3NjE3MzE5MjN9.61QaqHs7hG0M5e2P67DjjpjlInKnpSIk0S2uGD1EkFV9JX6ngcKZ3uFRjHkPLLaQ1JQ8jHhSkF2XSHlMC8b77Q
 Content-Type: application/json
 
 {
@@ -87,6 +87,34 @@ Content-Type: application/json
 
     }
 
+}
+
+###
+
+POST http://localhost:5000/api/hospital/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJveWVzaHJleWFzIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNjU0ODU3LCJleHAiOjE3NjE3NDEyNTd9.bVLrEboYYVm99yBqyxcNpzhFsf2Pr_AI6LqcjIKy9wpz5vS-3SGcWG9LzKOAtyHW0rGCZ5z3ITu-gyAWXxYKGg
+ 
+{
+    "name":"Hospital",
+    "location": "chennai",
+    "equipmentList":[
+        {
+            "name": "eq1",
+            "description":"eq1",
+            "hospital" : {
+                
+            }
+        },
+        {
+            "name": "eq2",
+            "description":"eq2",
+            "hospital" : {
+
+            }
+        }
+    ]
+ 
 }
 
 

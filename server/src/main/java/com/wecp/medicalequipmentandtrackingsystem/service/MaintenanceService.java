@@ -1,16 +1,12 @@
 package com.wecp.medicalequipmentandtrackingsystem.service;
 
-
-import com.wecp.medicalequipmentandtrackingsystem.entitiy.Equipment;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Maintenance;
 import com.wecp.medicalequipmentandtrackingsystem.repository.EquipmentRepository;
 import com.wecp.medicalequipmentandtrackingsystem.repository.MaintenanceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MaintenanceService {
@@ -36,6 +32,7 @@ public class MaintenanceService {
             .orElseThrow(() -> new RuntimeException("Maintenance not found!"));
     
         // Update only the necessary fields
+        existingMaintenance.setDescription(updatedMaintenance.getDescription());
         existingMaintenance.setCompletedDate(updatedMaintenance.getCompletedDate());
         existingMaintenance.setStatus(updatedMaintenance.getStatus());
         // Add other fields as needed
@@ -48,6 +45,10 @@ public class MaintenanceService {
     {
         maintenance.setEquipment(equipmentRepository.findById(equipmentId).get());
         return maintenanceRepository.save(maintenance);
+    }
+
+    public Optional<Maintenance> findById(Long maintenanceId) {
+        return maintenanceRepository.findById(maintenanceId);
     }
 
     

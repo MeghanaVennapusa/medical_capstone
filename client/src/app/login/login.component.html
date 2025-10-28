@@ -2,18 +2,18 @@
   <h3>Please enter your useranme and password!</h3>
 <div class="login-form-container">
     
-      <form [formGroup]="ItemForm" (ngSubmit)="onSubmit()" >
+      <form [formGroup]="itemForm" (ngSubmit)="onSubmit()" >
          
               <label for="username">Username</label> <br>
               <input id="username" formControlName="username" type="text" placeholder="Enter Username"/> <br>
-               <div *ngIf="ItemForm.get('username')?.invalid && ItemForm.get('username')?.touched" class="error">
-                  <small *ngIf="ItemForm.get('username')?.hasError('required')">Username is required.</small>
+               <div *ngIf="itemForm.get('username')?.invalid && itemForm.get('username')?.touched" class="error">
+                  <small *ngIf="itemForm.get('username')?.hasError('required')">Username is required.</small>
               </div>
               <label for="password">Password</label>  <br>
               <input id="password" formControlName="password" type="password" placeholder="Enter Password"/> <br>
-              <div *ngIf="ItemForm.get('password')?.invalid && ItemForm.get('password')?.touched" class="error">
+              <div *ngIf="itemForm.get('password')?.invalid && itemForm.get('password')?.touched" class="error">
             </div>
-          <button type="submit"[disabled]="ItemForm.invalid">Login</button>
+          <button type="submit"[disabled]="itemForm.invalid">Login</button>
   
           <div class="form-footer">
               <p>

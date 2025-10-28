@@ -1,6 +1,7 @@
 package com.wecp.medicalequipmentandtrackingsystem.service;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Equipment;
@@ -22,12 +23,19 @@ public class HospitalService {
         return hospitalRepository.findAll();
     }
 
-    public Hospital addHospital(Hospital hospital) throws Exception{
-        Hospital existingHospital=hospitalRepository.findByNameAndLocation(hospital.getName(), hospital.getLocation());
-        if(existingHospital != null){
+    public Hospital addHospital(Hospital hospital) throws Exception {
+        Hospital existingHospital = hospitalRepository.findByNameAndLocation(hospital.getName(), hospital.getLocation());
+        if (existingHospital != null) {
             throw new RuntimeException("Hospital already with same name and location");
         }
-        return hospitalRepository.save(hospital);
+    
+        if (!hospital.getEquipmentList().isEmpty()) {
+            for (Equipment equipment : hospital.getEquipmentList()) {
+                equipment.setHospital(hospital); // Set the hospital reference
+            }
+        }
+    
+        return hospitalRepository.save(hospital); // Save hospital and cascade to equipment
     }
 
     public Hospital getHospitalById(Long id) throws Exception{
@@ -40,6 +48,11 @@ public class HospitalService {
     
         equipment.setHospital(hsptl); // Set the relationship
         return equipmentRepository.save(equipment); // Save only the equipment
+    }
+    public List<Equipment> getAllEquipmentsById(Long hospitalId){
+ 
+        return hospitalRepository.findById(hospitalId).get().getEquipmentList();
+ 
     }
     
     
