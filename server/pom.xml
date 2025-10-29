@@ -81,10 +81,6 @@
 		<dependency>
     <groupId>org.projectlombok</groupId>
     <artifactId>lombok</artifactId>
-<<<<<<< HEAD
-=======
-    <version>1.18.30</version> 
->>>>>>> origin/shobith
     <scope>provided</scope>
 </dependency>
 	</dependencies>

@@ -63,11 +63,11 @@ export class HttpService {
 
  
 
-  getOrders():Observable<any>{
+  getorders():Observable<any>{
     return this.http.get<any>(`${this.serverName}/orders`);
   }
 
-  updateOrderStatus(orderId:number,newStatus:string):Observable<any>{
+  UpdateOrderStatus(orderId:number,newStatus:string):Observable<any>{
     return this.http.put<any>(`${this.serverName}/order/update/${orderId}`,{status:newStatus});
   }
   
