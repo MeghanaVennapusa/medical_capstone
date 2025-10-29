@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpService } from '../../services/http.service';
 import { AuthService } from '../../services/auth.service';
+import { catchError, of, tap } from 'rxjs';
 
 
 
@@ -12,7 +13,51 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
- ///todo: complete missing code
+
+  itemForm!:FormGroup;
+  errorMessage: string="";
+  successMessage:string="";
+  constructor(private fb:FormBuilder,private authService:AuthService,private router:Router,private httpService:HttpService)
+  {
+
+  }
+  ngOnInit(): void {
+  
+    this.itemForm=this.fb.group(
+      {
+        username:["",Validators.required],
+        password:["",Validators.required]
+      }
+    );
+  }
+  onSubmit(): void {
+    if (this.itemForm.valid) {
+      const formData = this.itemForm.value;
+      this.httpService.login(formData).pipe(
+        tap((response) => {
+          console.log(response);
+  
+          // Save token using AuthService
+          this.authService.saveToken(response.token);
+          this.authService.setRole(response.role);
+       
+          localStorage.setItem("role", response.role);
+          localStorage.setItem("username", response.username);
+  
+          console.log(localStorage.getItem("role"));
+  
+          // Navigate to dashboard
+          this.router.navigate(['/dashboard']);
+        }),
+        catchError((error) => {
+          this.errorMessage = 'Invalid username or password';
+          console.error("Login error:", error);
+          return of(null);
+        })
+      ).subscribe();
+    } else {
+      this.errorMessage = 'Please fill out the form correctly.';
+    }
+  }
+
 }
-
-

@@ -1,0 +1,102 @@
+<div class="container mt-4"></div>
+  <h2 class="mb-3">Manage Maintenance</h2>
+
+  <!-- Header Section -->
+  <div class="info-box mb-3">
+    <span class="info-text">Maintenance Information</span>
+  </div>
+
+  <!-- Table -->
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Sr#</th>
+        <th>Scheduled Date</th>
+        <th>Completion Date</th>
+        <th>Status</th>
+        <th>Equipment</th>
+        <th>Hospital</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let maintenance of maintenanceList; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ maintenance.scheduledDate | date:'dd-MMM-yyyy' }}</td>
+        <td>{{ maintenance.completedDate | date:'dd-MMM-yyyy' }}</td>
+        <td>{{ maintenance.status }}</td>
+        <td>
+          Id: {{ maintenance.equipment?.id }}<br>
+          Name: {{ maintenance.equipment?.name }}<br>
+          Description: {{ maintenance.equipment?.description }}
+        </td>
+        <td>
+          Id: {{ maintenance.equipment?.hospital?.id }}<br>
+          Name: {{ maintenance.equipment?.hospital?.name }}<br>
+          Description: {{ maintenance.equipment?.hospital?.location }}
+        </td>
+        <td>
+          <button class="btn btn-warning" (click)="edit(maintenance)">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Modal -->
+  <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Update Maintenance</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="itemForm" (ngSubmit)="update()">
+            <!-- Scheduled Date -->
+            <div class="mb-3">
+              <label>Scheduled Date</label>
+              <input type="date" class="form-control" formControlName="scheduledDate" />
+              <div *ngIf="itemForm.get('scheduledDate')?.errors?.['invalidDate']" class="text-danger">
+                Scheduled date cannot be in the past.
+              </div>
+              <div *ngIf="itemForm.get('scheduledDate')?.errors?.['required']" class="text-danger">
+                Scheduled date is required.
+              </div>
+            </div>
+
+            <!-- Completed Date -->
+            <div class="mb-3">
+              <label>Completed Date</label>
+              <input type="date" class="form-control" formControlName="completedDate" />
+              <div *ngIf="itemForm.get('completedDate')?.errors?.['invalidDate']" class="text-danger">
+                Completed date cannot be in the past.
+              </div>
+              <div *ngIf="itemForm.get('completedDate')?.errors?.['required']" class="text-danger">
+                Completed date is required.
+              </div>
+            </div>
+
+            <!-- Description -->
+            <div class="mb-3">
+              <label>Description</label>
+              <input type="text" class="form-control" formControlName="description" />
+              <div *ngIf="itemForm.get('description')?.errors?.['required']" class="text-danger">
+                Description is required.
+              </div>
+            </div>
+
+            <!-- Status -->
+            <div class="mb-3">
+              <label>Status</label>
+              <input type="text" class="form-control" formControlName="status" />
+              <div *ngIf="itemForm.get('status')?.errors?.['required']" class="text-danger">
+                Status is required.
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" [disabled]="itemForm.invalid">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

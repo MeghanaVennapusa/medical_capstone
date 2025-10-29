@@ -1,0 +1,83 @@
+POST http://localhost:5000/api/user/register
+Content-Type: application/json
+
+{
+    "username": "meghana",
+    "password": "Meghana@127",
+    "email": "vmr@gmail.com",
+    "role": "HOSPITAL"
+}
+###
+
+POST http://localhost:5000/api/user/login
+Content-Type: application/json
+
+{
+    "username": "meghana",
+    "password": "Meghana@127"
+}
+###
+
+POST http://localhost:5000/api/user/login
+Content-Type: application/json
+
+{
+    "username": "meghanaa",
+    "password": "Meghana@127"
+}
+
+###
+//Post hospital 1
+POST http://localhost:5000/api/hospital/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZWdoYW5hIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNzQwNDIwLCJleHAiOjE3NjE4MjY4MjB9.RVOd8QHHHLJHm5dj7qzIg3bxd8-8dHpXvGMSXg1WWJm5rUjQIxjOcy77HQgK1qyj3X9A0e-Oje8X2xIneqmycg
+
+{
+    "name":"Hemanth",
+    "location":"Mumbai"
+}
+
+###
+//post hospital 2
+POST http://localhost:5000/api/hospital/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZWdoYW5hIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNzQwNDIwLCJleHAiOjE3NjE4MjY4MjB9.RVOd8QHHHLJHm5dj7qzIg3bxd8-8dHpXvGMSXg1WWJm5rUjQIxjOcy77HQgK1qyj3X9A0e-Oje8X2xIneqmycg
+
+{
+    "name":"Krishna",
+    "location":"Chennai"
+}
+
+###
+//add equipment to hospital1
+POST http://localhost:5000/api/hospital/equipment?hospitalId=1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZWdoYW5hIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNzQwNDIwLCJleHAiOjE3NjE4MjY4MjB9.RVOd8QHHHLJHm5dj7qzIg3bxd8-8dHpXvGMSXg1WWJm5rUjQIxjOcy77HQgK1qyj3X9A0e-Oje8X2xIneqmycg
+
+{
+    "name":"MRI Scan",
+    "description":"For scnanning"
+}
+
+###
+//adding equipment to hosp1
+POST http://localhost:5000/api/hospital/equipment?hospitalId=1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZWdoYW5hIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNzQwNDIwLCJleHAiOjE3NjE4MjY4MjB9.RVOd8QHHHLJHm5dj7qzIg3bxd8-8dHpXvGMSXg1WWJm5rUjQIxjOcy77HQgK1qyj3X9A0e-Oje8X2xIneqmycg
+
+{
+    "name":"MRI Scan2",
+    "description":"For checking"
+}
+
+###
+POST http://localhost:5000/api/hospital/equipment?hospitalId=2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZWdoYW5hIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNzQwNDIwLCJleHAiOjE3NjE4MjY4MjB9.RVOd8QHHHLJHm5dj7qzIg3bxd8-8dHpXvGMSXg1WWJm5rUjQIxjOcy77HQgK1qyj3X9A0e-Oje8X2xIneqmycg
+
+{
+    "name":"Laptop22",
+    "description":"For me"
+}
+
+

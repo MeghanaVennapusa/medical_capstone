@@ -1,37 +1,45 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  private loggedIn = new BehaviorSubject<boolean>(!!localStorage.getItem('authToken'));
+  private userRole = new BehaviorSubject<string | null>(localStorage.getItem('role'));
 
-  private token: string | null = null;
-  private isLoggedIn: boolean = false;
+  loggedIn$ = this.loggedIn.asObservable();
+  userRole$ = this.userRole.asObservable();
 
   constructor() {}
 
-  // Method to save token received from login
+  // Save token and update state
   saveToken(token: string) {
-  //please complete this
+    localStorage.setItem('authToken', token);
+    this.loggedIn.next(true);
   }
-   SetRole(role:any)
-  {
-     //please complete this
+
+  setRole(role: string) {
+    localStorage.setItem('role', role);
+    this.userRole.next(role);
   }
-  get getRole ():string|null
-  {
+
+  getLoginStatus(): boolean {
+    return !!localStorage.getItem('authToken');
+  }
+
+  getRole(): string | null {
     return localStorage.getItem('role');
   }
-  // Method to retrieve login status
-  get getLoginStatus(): boolean {
-  
-      //please complete this
-   
-  }
+
   getToken(): string | null {
-  //please complete this
+    return localStorage.getItem('authToken');
   }
-  logout(){
-    //please complete this
-   }
+
+  logout(): void {
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('role');
+    this.loggedIn.next(false);
+    this.userRole.next(null);
+  }
 }
