@@ -30,10 +30,10 @@ export class CreatehospitalComponent implements OnInit {
       name: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)]],
       location: ['', [Validators.required]]
     });
-
+ 
     this.getHospital();
   }
-
+ 
   onSubmit() {
     if (this.itemForm.valid) {
       this.httpService.createHospital(this.itemForm.value).subscribe({
@@ -76,9 +76,9 @@ export class CreatehospitalComponent implements OnInit {
   //     description: ['', [Validators.required, Validators.minLength(2)]],
   //     hospitalId: ['', Validators.required]
   //   });
-
+ 
   //   this.assignModel = hospital;
-
+ 
   //   this.equipmentForm.patchValue({
   //     hospitalId: hospital.id
   //   });
@@ -90,19 +90,19 @@ export class CreatehospitalComponent implements OnInit {
       description: ['', [Validators.required, Validators.minLength(2)]],
       hospitalId: ['', Validators.required]
     });
-  
+ 
     this.assignModel = hospital;
-  
+ 
     this.equipmentForm.patchValue({
       hospitalId: hospital.id
     });
   }
-  
+ 
   closeModal() {
     this.showEquipmentForm = false;
     this.equipmentForm.reset();
   }
-
+ 
   submitEquipment() {
     if (this.equipmentForm.valid) {
       this.httpService.addEquipment(this.equipmentForm.value, this.equipmentForm.get('hospitalId')).subscribe({
@@ -125,3 +125,5 @@ export class CreatehospitalComponent implements OnInit {
     }
   }
 }
+ 
+ 

@@ -4,25 +4,25 @@ import { Router } from '@angular/router';
 import { HttpService } from '../../services/http.service';
 import { AuthService } from '../../services/auth.service';
 import { catchError, of, tap } from 'rxjs';
-
-
-
+ 
+ 
+ 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+ 
   itemForm!:FormGroup;
   errorMessage: string="";
   successMessage:string="";
   constructor(private fb:FormBuilder,private authService:AuthService,private router:Router,private httpService:HttpService)
   {
-
+ 
   }
   ngOnInit(): void {
-  
+ 
     this.itemForm=this.fb.group(
       {
         username:["",Validators.required],
@@ -36,16 +36,16 @@ export class LoginComponent implements OnInit {
       this.httpService.login(formData).pipe(
         tap((response) => {
           console.log(response);
-  
+ 
           // Save token using AuthService
           this.authService.saveToken(response.token);
-          this.authService.setRole(response.role);
+         this.authService.SetRole(response.role);
        
           localStorage.setItem("role", response.role);
           localStorage.setItem("username", response.username);
-  
+ 
           console.log(localStorage.getItem("role"));
-  
+          console.log("Token:", this.authService.getToken());
           // Navigate to dashboard
           this.router.navigate(['/dashboard']);
         }),
@@ -59,5 +59,5 @@ export class LoginComponent implements OnInit {
       this.errorMessage = 'Please fill out the form correctly.';
     }
   }
-
+ 
 }
