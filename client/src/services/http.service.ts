@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../environments/environment.development';
+import { environment } from '../environments/environment';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -26,9 +27,9 @@ export class HttpService {
   {
     return this.http.get<any>(`${this.serverName}/api/hospitals`);
   }
-  addEquipment(equipment :any):Observable<any> 
-  {
-    return this.http.post<any>(`${this.serverName}/api/hospital/equipment`,equipment.hospitalId,equipment);
+  
+  addEquipment(equipment: any, hospitalId: any): Observable<any> {
+    return this.http.post<any>(`${this.serverName}/api/hospital/equipment?hospitalId=${equipment.hospitalId}`, equipment);
   }
 
   // Get all maintenance records
@@ -62,11 +63,11 @@ export class HttpService {
 
  
 
-  getOrders():Observable<any>{
+  getorders():Observable<any>{
     return this.http.get<any>(`${this.serverName}/orders`);
   }
 
-  updateOrderStatus(orderId:number,newStatus:string):Observable<any>{
+  UpdateOrderStatus(orderId:number,newStatus:string):Observable<any>{
     return this.http.put<any>(`${this.serverName}/order/update/${orderId}`,{status:newStatus});
   }
   

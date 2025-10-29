@@ -5,33 +5,34 @@ import com.wecp.medicalequipmentandtrackingsystem.entitiy.Equipment;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Hospital;
 import com.wecp.medicalequipmentandtrackingsystem.repository.EquipmentRepository;
 import com.wecp.medicalequipmentandtrackingsystem.repository.HospitalRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class EquipmentService {
+    
+    private EquipmentRepository equipmentRepository;
+    private HospitalRepository hospitalRepository;
 
-    private final EquipmentRepository equipmentRepository;
-    public EquipmentService(EquipmentRepository equipmentRepository) {
+    public EquipmentService(EquipmentRepository equipmentRepository, HospitalRepository hospitalRepository) {
         this.equipmentRepository = equipmentRepository;
+        this.hospitalRepository = hospitalRepository;
     }
 
     //call save method grom jps repository to save equipment object
-    public Equipment createEquipment(Equipment equipment) {
-        if (equipment == null) {
-            throw new IllegalArgumentException("Equipment object is null");
+    public Equipment createEquipment(Equipment equipment){
+        Optional<Hospital> hosp = hospitalRepository.findById(equipment.getHospital().getId());
+        if(hosp.isPresent()){
+            equipment.setHospital(hosp.get());
+            return equipmentRepository.save(equipment);
+
         }
-    
-        if (equipment.getHospital() == null || equipment.getHospital().getId() == null) {
-            throw new IllegalArgumentException("Hospital information is missing in equipment");
+        else{
+            throw new RuntimeException("Hospital ID is not present");
         }
-    
-        // Proceed with saving
-        return equipmentRepository.save(equipment);
+
+     
     }
      
     //call findAll method from the jpa repository

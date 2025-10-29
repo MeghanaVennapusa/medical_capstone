@@ -1,0 +1,7 @@
+POST http://localhost:5000/api/user/register
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZWdoYW5hIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNTQwNDE3LCJleHAiOjE3NjE2MjY4MTd9.azWtnSw9HI-fD3DFImLJfi8I-DHGatCAZzNDISI0jPsBndRRHpE4mHQuuvt7p8ctWFR3NZprXqipzMS0SyJ6zA
+
+{
+    
+}

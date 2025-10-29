@@ -41,24 +41,27 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter{
         auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
 
     }
+        protected void configure(HttpSecurity http) throws Exception {
+            http
+            .cors() // Enable CORS
+            .and()
+            .csrf().disable()
+            .authorizeRequests()
+            .antMatchers("/api/user/register", "/api/user/login").permitAll()
+            .antMatchers("/api/hospital/**").hasAnyAuthority("HOSPITAL")
+            .antMatchers("/api/hospitals/**").hasAnyAuthority("HOSPITAL")
+            .antMatchers("/api/supplier/**").hasAuthority("SUPPLIER")
+            .antMatchers("/api/technician/**").hasAuthority("TECHNICIAN")
+            .anyRequest().authenticated()
+            .and()
+            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-    protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable()
-                .authorizeRequests()
-                .antMatchers("/api/user/register", "/api/user/login").permitAll()
-                .antMatchers("/api/hospital/**").hasAnyAuthority("HOSPITAL")
-                .antMatchers("/api/supplier/**").hasAuthority("SUPPLIER")
-                .antMatchers("/api/technician/**").hasAuthority("TECHNICIAN")
-                .anyRequest().authenticated()
-                .and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
-    
+
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
-        
         return super.authenticationManagerBean();
     }
 

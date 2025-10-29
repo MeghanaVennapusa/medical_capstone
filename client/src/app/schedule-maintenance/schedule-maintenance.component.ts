@@ -23,12 +23,12 @@ export class ScheduleMaintenanceComponent implements OnInit {
   constructor(private fb: FormBuilder, private httpService: HttpService) {
     this.itemForm = this.fb.group({
       hospitalId: ['', Validators.required],
-      id: ['', Validators.required],
+      equipmentId: ['', Validators.required],
       scheduledDate: ['', [Validators.required, this.dateValidator]],
-      completedDate: ['', [Validators.required, this.dateValidator]],
+      completedDate: [{value : '' , disabled : true}],
       description: ['', Validators.required],
       status: ['', Validators.required]
-    }, { validators: this.completedAfterScheduledValidator });
+    });
   }
 
   ngOnInit(): void {
@@ -43,17 +43,7 @@ export class ScheduleMaintenanceComponent implements OnInit {
     }
     return null;
   }
-
-  // Validate completedDate >= scheduledDate
-  completedAfterScheduledValidator(group: FormGroup): { [key: string]: boolean } | null {
-    const scheduled = group.get('scheduledDate')?.value;
-    const completed = group.get('completedDate')?.value;
-    if (scheduled && completed && completed < scheduled) {
-      return { invalidOrder: true };
-    }
-    return null;
-  }
-
+  
   getHospital(): void {
     this.httpService.getAllHospitals().subscribe({
       next: (data) => this.hospitalList = data,
