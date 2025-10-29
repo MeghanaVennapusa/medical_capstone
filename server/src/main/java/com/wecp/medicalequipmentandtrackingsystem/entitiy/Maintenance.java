@@ -16,19 +16,19 @@ public class Maintenance {
 
     @Id // Define's the primary key in the table
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    long id;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date scheduledDate;
+    Date scheduledDate;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date completedDate;
+    Date completedDate;
 
     String description;
-    private String status;
+    String status;
 
     @ManyToOne // ManyToOne relationship
-    private Equipment equipment;
+    Equipment equipment;
 
     // parameterized constructor 1
     public Maintenance(Date scheduledDate, Date completedDate, String description, String status) {

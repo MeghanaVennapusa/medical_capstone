@@ -20,7 +20,8 @@ import { ScheduleMaintenanceComponent } from './schedule-maintenance/schedule-ma
 import { RequestequipmentComponent } from './requestequipment/requestequipment.component';
 import { MaintenanceComponent } from './maintenance/maintenance.component';
 import { OrdersComponent } from './orders/orders.component';
-// import { AuthInterceptor } from './auth.interceptors';
+import { AuthInterceptor } from './auth.interceptors';
+
 
 
 @NgModule({
@@ -46,11 +47,11 @@ import { OrdersComponent } from './orders/orders.component';
   ],
   providers: [HttpService,HttpClientModule,
     
-// {
-//   provide: HTTP_INTERCEPTORS,
-//   useClass: AuthInterceptor,
-//   multi: true
-// },
+{
+  provide: HTTP_INTERCEPTORS,
+  useClass: AuthInterceptor,
+  multi: true
+},
 
    ],
   bootstrap: [AppComponent]

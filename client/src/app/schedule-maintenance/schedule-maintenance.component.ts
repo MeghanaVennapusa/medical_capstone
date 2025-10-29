@@ -69,7 +69,7 @@ export class ScheduleMaintenanceComponent implements OnInit {
 
   onSubmit(): void {
     if (this.itemForm.valid) {
-      this.httpService.scheduleMaintenance(this.itemForm.value, this.itemForm.get('equipmentId')).subscribe({
+      this.httpService.scheduleMaintenance(this.itemForm.get('equipmentId')?.value , this.itemForm.value).subscribe({
         next: () => {
           this.responseMessage = 'Save Successfully';
           this.showMessage = true;

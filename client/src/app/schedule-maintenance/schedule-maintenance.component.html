@@ -24,7 +24,7 @@
           <label>Hospitals</label>
           <select class="form-control" formControlName="hospitalId" (change)="onHospitalSelect()">
             <option value="">Please Choose</option>
-            <option *ngFor="let hospital of hospitalList" [value]="hospital.id">{{ hospital.name }}</option>
+            <option *ngFor="let hospital of hospitalList" [value]="hospital.id">{{ hospital.name }} - {{ hospital.location }}</option>
           </select>
           <div *ngIf="itemForm.get('hospitalId')?.touched && itemForm.get('hospitalId')?.errors?.['required']" class="text-danger">
             Hospital is required.
@@ -79,8 +79,6 @@
         <select class="form-control" formControlName="status">
           <option value="">Choose Status</option>
           <option value="Initiated">Initiated</option>
-          <option value="Pending">Pending</option>
-          <option value="Completed">Completed</option>
         </select>
         <div *ngIf="itemForm.get('status')?.touched && itemForm.get('status')?.errors?.['required']" class="text-danger">
           Status is required.

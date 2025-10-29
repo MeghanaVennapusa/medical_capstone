@@ -3,6 +3,7 @@ package com.wecp.medicalequipmentandtrackingsystem.entitiy;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
@@ -22,7 +23,6 @@ public class Equipment {
     String name;
     String description;
     @ManyToOne
-    @JsonIgnore
     Hospital hospital;
     
 }
