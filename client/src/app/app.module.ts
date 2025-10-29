@@ -9,7 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { RegistrationComponent } from './registration/registration.component';
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpService } from '../services/http.service';
 import { DashbaordComponent } from './dashbaord/dashbaord.component';
 
@@ -20,8 +20,6 @@ import { ScheduleMaintenanceComponent } from './schedule-maintenance/schedule-ma
 import { RequestequipmentComponent } from './requestequipment/requestequipment.component';
 import { MaintenanceComponent } from './maintenance/maintenance.component';
 import { OrdersComponent } from './orders/orders.component';
-// import { AuthInterceptor } from './auth.interceptors';
-
 
 @NgModule({
   declarations: [
@@ -44,15 +42,7 @@ import { OrdersComponent } from './orders/orders.component';
     ReactiveFormsModule,
     HttpClientModule 
   ],
-  providers: [HttpService,HttpClientModule,
-    
-// {
-//   provide: HTTP_INTERCEPTORS,
-//   useClass: AuthInterceptor,
-//   multi: true
-// },
-
-   ],
+  providers: [HttpService,HttpClientModule ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

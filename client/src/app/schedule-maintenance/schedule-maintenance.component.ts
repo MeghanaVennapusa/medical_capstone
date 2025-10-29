@@ -23,12 +23,21 @@ export class ScheduleMaintenanceComponent implements OnInit {
   constructor(private fb: FormBuilder, private httpService: HttpService) {
     this.itemForm = this.fb.group({
       hospitalId: ['', Validators.required],
+<<<<<<< HEAD
       equipmentId: ['', Validators.required],
       scheduledDate: ['', [Validators.required, this.dateValidator]],
       completedDate: [{value : '' , disabled : true}],
       description: ['', Validators.required],
       status: ['', Validators.required]
     });
+=======
+      id: ['', Validators.required],
+      scheduledDate: ['', [Validators.required, this.dateValidator]],
+      completedDate: ['', [Validators.required, this.dateValidator]],
+      description: ['', Validators.required],
+      status: ['', Validators.required]
+    }, { validators: this.completedAfterScheduledValidator });
+>>>>>>> origin/shobith
   }
 
   ngOnInit(): void {
@@ -43,7 +52,21 @@ export class ScheduleMaintenanceComponent implements OnInit {
     }
     return null;
   }
+<<<<<<< HEAD
   
+=======
+
+  // Validate completedDate >= scheduledDate
+  completedAfterScheduledValidator(group: FormGroup): { [key: string]: boolean } | null {
+    const scheduled = group.get('scheduledDate')?.value;
+    const completed = group.get('completedDate')?.value;
+    if (scheduled && completed && completed < scheduled) {
+      return { invalidOrder: true };
+    }
+    return null;
+  }
+
+>>>>>>> origin/shobith
   getHospital(): void {
     this.httpService.getAllHospitals().subscribe({
       next: (data) => this.hospitalList = data,
@@ -69,7 +92,11 @@ export class ScheduleMaintenanceComponent implements OnInit {
 
   onSubmit(): void {
     if (this.itemForm.valid) {
+<<<<<<< HEAD
       this.httpService.scheduleMaintenance(this.itemForm.value, this.itemForm.get('equipmentId')).subscribe({
+=======
+      this.httpService.scheduleMaintenance(this.itemForm.value).subscribe({
+>>>>>>> origin/shobith
         next: () => {
           this.responseMessage = 'Save Successfully';
           this.showMessage = true;

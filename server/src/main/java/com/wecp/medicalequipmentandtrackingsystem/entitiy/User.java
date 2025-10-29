@@ -1,5 +1,4 @@
 package com.wecp.medicalequipmentandtrackingsystem.entitiy;
-
 import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

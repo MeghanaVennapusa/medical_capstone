@@ -29,7 +29,7 @@ export class OrdersComponent implements OnInit {
   }
  
   getOrders(): void {
-    this.orderService.getorders().subscribe({
+    this.orderService.getOrders().subscribe({
       next: (response) => {
         this.orderList = response;
        
@@ -70,7 +70,7 @@ export class OrdersComponent implements OnInit {
       return;
     }
  
-    this.orderService.UpdateOrderStatus(statusClicked, orderId).subscribe({
+    this.orderService.updateOrderStatus( orderId, statusClicked).subscribe({
       next: (response) => {
         this.responseMessage = 'Status updated.';
         this.showMessage = true;

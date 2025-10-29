@@ -39,16 +39,15 @@ export class LoginComponent implements OnInit {
   
           // Save token using AuthService
           this.authService.saveToken(response.token);
-          // console.log(response);
-          // Save other user details 
-          // this.authService.SetRole(response.roles);
+          this.authService.setRole(response.role);
+       
           localStorage.setItem("role", response.role);
           localStorage.setItem("username", response.username);
   
           console.log(localStorage.getItem("role"));
   
           // Navigate to dashboard
-          this.router.navigate(["dashboard"]);
+          this.router.navigate(['/dashboard']);
         }),
         catchError((error) => {
           this.errorMessage = 'Invalid username or password';

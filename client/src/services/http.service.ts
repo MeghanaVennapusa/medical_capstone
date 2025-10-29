@@ -10,107 +10,65 @@ import { AuthService } from './auth.service';
 export class HttpService {
   private serverName = `${environment.apiUrl}`;
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(private http: HttpClient) {}
 
-  private getHeaders(): HttpHeaders {
-    return new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Authorization': `Bearer ${this.authService.getToken()}`
-    });
+  register(credentials: any):Observable<any>{
+    return this.http.post<any>(`${this.serverName}/api/user/registration`,credentials)
   }
-
   login(credentials: any): Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    });
-    return this.http.post<any>(`${this.serverName}/api/user/login`, credentials, { headers });
+    return this.http.post<any>(`${this.serverName}/api/user/login`, credentials);
   }
 
-  register(credentials: any): Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    });
-    return this.http.post<any>(`${this.serverName}/api/user/register`, credentials, { headers });
+  createHospital(hospital:any) :Observable<any>
+  {
+   return this.http.post<any>(`${this.serverName}/api/hospitals`,hospital);
   }
-
-  createHospital(hospital: any): Observable<any> {
-    return this.http.post(`${this.serverName}/api/hospital/create`, hospital, {
-      headers: this.getHeaders()
-    });
+  getHospital() :Observable<any>
+  {
+    return this.http.get<any>(`${this.serverName}/api/hospitals`);
   }
-
-  getHospital(): Observable<any> {
-    return this.http.get<any>(`${this.serverName}/api/hospitals`, {
-      headers: this.getHeaders()
-    });
-  }
-
+  
   addEquipment(equipment: any, hospitalId: any): Observable<any> {
-    return this.http.post<any>(`${this.serverName}/api/hospital/equipment?hospitalId=${equipment.hospitalId}`, equipment , {
-      headers: this.getHeaders()
-    });
+    return this.http.post<any>(`${this.serverName}/api/hospital/equipment?hospitalId=${equipment.hospitalId}`, equipment);
   }
 
+  // Get all maintenance records
   getAllMaintenances(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.serverName}/api/technician/maintenance`, {
-      headers: this.getHeaders()
-    });
+    return this.http.get<any[]>(`${this.serverName}/api/technician/maintenance`);
+  }
+  
+
+  // Update maintenance by ID
+  updateMaintenance(maintenanceId: number, maintenance: any): Observable<any> {
+    return this.http.put<any>(`${this.serverName}/api/technician/maintenance/update/${maintenanceId}`, maintenance);
   }
 
-  updateMaintenance(maintenance: any, maintenanceId: number): Observable<any> {
-    return this.http.put<any>(`${this.serverName}/api/technician/maintenance/update/${maintenanceId}`, maintenance, {
-      headers: this.getHeaders()
-    });
-  }
-
+  // Optional: Get maintenance by ID (if needed later)
   getMaintenanceById(maintenanceId: number): Observable<any> {
-    return this.http.get<any>(`${this.serverName}/api/technician/maintenance/${maintenanceId}`, {
-      headers: this.getHeaders()
-    });
+    return this.http.get<any>(`${this.serverName}/api/technician/maintenance/${maintenanceId}`);
   }
-
   getAllHospitals(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.serverName}/api/hospitals`, {
-      headers: this.getHeaders()
-    });
+    return this.http.get<any[]>(`${this.serverName}/api/hospitals`);
   }
-
+  
+  // Get equipment by hospital ID
   getEquipmentByHospital(hospitalId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.serverName}/api/equipment/hospital/${hospitalId}`, {
-      headers: this.getHeaders()
-    });
+    return this.http.get<any[]>(`${this.serverName}/api/equipment/hospital/${hospitalId}`);
+  }
+  
+  // Schedule maintenance
+  scheduleMaintenance(data: any): Observable<any> {
+    return this.http.post<any>(`${this.serverName}/api/technician/maintenance`, data);
   }
 
-  scheduleMaintenance(data: any, equipmentId: any): Observable<any> {
-    return this.http.post<any>(`${this.serverName}/api/hospital/maintenance/schedule?equipmentId=${equipmentId}`, data, {
-      headers: this.getHeaders()
-    });
+ 
+
+  getOrders():Observable<any>{
+    return this.http.get<any>(`${this.serverName}/orders`);
   }
 
-  getMaintenance(): Observable<any> {
-    return this.http.get<any>(`${this.serverName}/api/technician/maintenance`, {
-      headers: this.getHeaders()
-    });
+  updateOrderStatus(orderId:number,newStatus:string):Observable<any>{
+    return this.http.put<any>(`${this.serverName}/order/update/${orderId}`,{status:newStatus});
   }
-
-  orderEquipment(order: any, equipmentId: any): Observable<any> {
-    return this.http.post<any>(`${this.serverName}/api/hospital/order?equipmentId=${equipmentId}`, order, {
-      headers: this.getHeaders()
-    });
-  }
-
-  getorders(): Observable<any> {
-    return this.http.get<any>(`${this.serverName}/api/supplier/orders`, {
-      headers: this.getHeaders()
-    });
-  }
-
-  UpdateOrderStatus(newStatus: string, orderId: number): Observable<any> {
-    return this.http.put<any>(`${this.serverName}/api/supplier/order/update/${orderId}?newStatus=${newStatus}`, {},
-      {headers: this.getHeaders()}
-    );
-  }
+  
 }
