@@ -105,4 +105,10 @@ public class HospitalController {
         // 201 = CREATED;
         return new ResponseEntity<>(orderService.createOrder(equipmentId, order), HttpStatus.CREATED);
     }
+
+    @GetMapping("/api/hospitalname/equipment/{hospital}")
+    public ResponseEntity<List<Equipment>> getAllEquipmentsOfHospitalByName(@PathVariable("hospital") String name) {
+        // return all equipments of hospital with response code = 200 OK
+        return new ResponseEntity<>(hospitalService.getAllEquipmentsByName(name), HttpStatus.OK);
+    }
 }

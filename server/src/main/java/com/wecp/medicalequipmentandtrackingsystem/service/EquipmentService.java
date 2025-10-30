@@ -20,6 +20,7 @@ public class EquipmentService {
         this.hospitalRepository = hospitalRepository;
     }
 
+    
     //call save method grom jps repository to save equipment object
     public Equipment createEquipment(Equipment equipment){
         Optional<Hospital> hosp = hospitalRepository.findById(equipment.getHospital().getId());
@@ -31,8 +32,6 @@ public class EquipmentService {
         else{
             throw new RuntimeException("Hospital ID is not present");
         }
-
-     
     }
      
     //call findAll method from the jpa repository

@@ -25,7 +25,6 @@ public class Equipment {
     String name;
     String description;
     @ManyToOne
-    @JsonIgnore
     Hospital hospital;
     
 }

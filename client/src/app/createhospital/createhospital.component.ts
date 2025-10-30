@@ -53,6 +53,8 @@ export class CreatehospitalComponent implements OnInit {
             {
               this.itemForm.reset();
               this.errorMessage="";
+              this.responseMessage="";
+              this.showError = false;
             },3000);
         }
       });
@@ -69,20 +71,7 @@ export class CreatehospitalComponent implements OnInit {
       }
     });
   }
-  // Addequipment(hospital: any) {
-  //   this.showEquipmentForm = true;
-  //   this.equipmentForm = this.equimentForm.group({
-  //     name: ['', [Validators.required, Validators.minLength(2)]],
-  //     description: ['', [Validators.required, Validators.minLength(2)]],
-  //     hospitalId: ['', Validators.required]
-  //   });
-
-  //   this.assignModel = hospital;
-
-  //   this.equipmentForm.patchValue({
-  //     hospitalId: hospital.id
-  //   });
-  // }
+ 
   addEquipment(hospital: any) {
     this.showEquipmentForm = true;
     this.equipmentForm = this.equimentForm.group({
@@ -97,12 +86,12 @@ export class CreatehospitalComponent implements OnInit {
       hospitalId: hospital.id
     });
   }
-  
+ 
   closeModal() {
     this.showEquipmentForm = false;
     this.equipmentForm.reset();
   }
-
+ 
   submitEquipment() {
     if (this.equipmentForm.valid) {
       this.httpService.addEquipment(this.equipmentForm.value, this.equipmentForm.get('hospitalId')).subscribe({
