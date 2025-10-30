@@ -16,6 +16,7 @@ import { OrdersComponent } from './orders/orders.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  //{ path: 'login', component: RequestequipmentComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'dashboard', component: DashbaordComponent },
   { path: 'createhospital', component: CreatehospitalComponent },  

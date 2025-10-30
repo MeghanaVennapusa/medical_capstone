@@ -1,15 +1,22 @@
 import { Injectable } from '@angular/core';
-
+import { BehaviorSubject } from 'rxjs';
+ 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
+ 
   private token: string | null = null;
   private isLoggedIn: boolean = false;
-
+  //for navbar
+  private loggedIn = new BehaviorSubject<boolean>(!!localStorage.getItem('authToken'));
+  private userRole = new BehaviorSubject<string | null>(localStorage.getItem('role'));
+ 
+  loggedIn$ = this.loggedIn.asObservable();
+  userRole$ = this.userRole.asObservable();
+ 
   constructor() {}
-
+ 
   // Method to save token received from login
   saveToken(token: string) {
    this.token=token;
@@ -32,7 +39,7 @@ export class AuthService {
    
   }
   getToken(): string | null {
-  
+ 
   return localStorage.getItem('authToken');
   }
   logout(){

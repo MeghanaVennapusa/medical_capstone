@@ -5,20 +5,20 @@ import com.wecp.medicalequipmentandtrackingsystem.entitiy.Equipment;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Hospital;
 import com.wecp.medicalequipmentandtrackingsystem.repository.EquipmentRepository;
 import com.wecp.medicalequipmentandtrackingsystem.repository.HospitalRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class EquipmentService {
-    @Autowired
-    EquipmentRepository equipmentRepository;
+    
+    private EquipmentRepository equipmentRepository;
+    private HospitalRepository hospitalRepository;
 
-    @Autowired
-    HospitalRepository hospitalRepository;
+    public EquipmentService(EquipmentRepository equipmentRepository, HospitalRepository hospitalRepository) {
+        this.equipmentRepository = equipmentRepository;
+        this.hospitalRepository = hospitalRepository;
+    }
 
     
     //call save method grom jps repository to save equipment object
