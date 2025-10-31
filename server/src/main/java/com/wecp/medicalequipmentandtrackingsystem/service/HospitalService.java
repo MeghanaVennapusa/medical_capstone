@@ -4,6 +4,7 @@ package com.wecp.medicalequipmentandtrackingsystem.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.wecp.medicalequipmentandtrackingsystem.dto.EquipmentDTO;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Equipment;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Hospital;
 import com.wecp.medicalequipmentandtrackingsystem.repository.EquipmentRepository;
@@ -24,9 +25,9 @@ public class HospitalService {
     }
 
     public Hospital addHospital(Hospital hospital) throws Exception {
-        Hospital existingHospital = hospitalRepository.findByNameAndLocation(hospital.getName(), hospital.getLocation());
+        Hospital existingHospital = hospitalRepository.findByName(hospital.getName());
         if (existingHospital != null) {
-            throw new RuntimeException("Hospital already with same name and location");
+            throw new RuntimeException("Hospital already with same name.");
         }
     
         if (!hospital.getEquipmentList().isEmpty()) {
@@ -54,6 +55,13 @@ public class HospitalService {
         return hospitalRepository.findById(hospitalId).get().getEquipmentList();
  
     }
+
+    public List<Equipment> getAllEquipmentsByName(String name){
+ 
+        return hospitalRepository.findByName(name).getEquipmentList();
+ 
+    }
+     
     
     
 }

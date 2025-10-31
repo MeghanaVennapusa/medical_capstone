@@ -30,10 +30,10 @@ export class CreatehospitalComponent implements OnInit {
       name: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)]],
       location: ['', [Validators.required]]
     });
- 
+
     this.getHospital();
   }
- 
+
   onSubmit() {
     if (this.itemForm.valid) {
       this.httpService.createHospital(this.itemForm.value).subscribe({
@@ -53,6 +53,8 @@ export class CreatehospitalComponent implements OnInit {
             {
               this.itemForm.reset();
               this.errorMessage="";
+              this.responseMessage="";
+              this.showError = false;
             },3000);
         }
       });
@@ -69,20 +71,7 @@ export class CreatehospitalComponent implements OnInit {
       }
     });
   }
-  // Addequipment(hospital: any) {
-  //   this.showEquipmentForm = true;
-  //   this.equipmentForm = this.equimentForm.group({
-  //     name: ['', [Validators.required, Validators.minLength(2)]],
-  //     description: ['', [Validators.required, Validators.minLength(2)]],
-  //     hospitalId: ['', Validators.required]
-  //   });
  
-  //   this.assignModel = hospital;
- 
-  //   this.equipmentForm.patchValue({
-  //     hospitalId: hospital.id
-  //   });
-  // }
   addEquipment(hospital: any) {
     this.showEquipmentForm = true;
     this.equipmentForm = this.equimentForm.group({
@@ -90,9 +79,9 @@ export class CreatehospitalComponent implements OnInit {
       description: ['', [Validators.required, Validators.minLength(2)]],
       hospitalId: ['', Validators.required]
     });
- 
+  
     this.assignModel = hospital;
- 
+  
     this.equipmentForm.patchValue({
       hospitalId: hospital.id
     });
@@ -125,5 +114,3 @@ export class CreatehospitalComponent implements OnInit {
     }
   }
 }
- 
- 

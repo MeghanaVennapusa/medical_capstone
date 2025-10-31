@@ -61,15 +61,19 @@ export class HttpService {
     return this.http.post<any>(`${this.serverName}/api/hospital/maintenance/schedule?equipmentId=${equipmentId}`, data);
   }
  
- 
- 
+
   getorders():Observable<any>{
     return this.http.get<any>(`${this.serverName}/orders`);
   }
- 
+
   UpdateOrderStatus(orderId:number,newStatus:string):Observable<any>{
     return this.http.put<any>(`${this.serverName}/order/update/${orderId}`,{status:newStatus});
   }
- 
+
+  //get equipments by hospital
+  getEquipmentsByHospitalName(hospital:String):any{
+    return this.http.get<any[]>(`${this.serverName}/api/hospitalname/equipment/${hospital}`);
+  }
+  
 }
  

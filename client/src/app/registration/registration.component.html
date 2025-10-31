@@ -39,9 +39,9 @@
         <label class="form-label">Role *</label>
         <select class="form-select" formControlName="role">
           <option value="">Choose Role</option>
-          <option value="hospital">HOSPITAL</option>
-          <option value="technician">TECHNICIAN</option>
-          <option value="supplier">SUPPLIER</option>
+          <option value="HOSPITAL">HOSPITAL</option>
+          <option value="TECHNICIAN">TECHNICIAN</option>
+          <option value="SUPPLIER">SUPPLIER</option>
         </select>
         <div *ngIf="f['role'].touched && f['role'].invalid" class="text-danger small">
           Please choose role

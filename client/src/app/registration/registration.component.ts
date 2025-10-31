@@ -16,7 +16,7 @@ export class RegistrationComponent
   formModel:any={role:null,email:'',password:'',username:''}; 
   showMessage:boolean=false; 
   responseMessage: any; 
-    constructor(private fb:FormBuilder, private httpService: HttpService){
+    constructor(private fb:FormBuilder, private httpService: HttpService, private router:Router){
       this.itemForm = this.fb.group({
         username : ['',[Validators.required]],
         email : ['',[Validators.required,Validators.email]],
@@ -33,22 +33,26 @@ export class RegistrationComponent
    return this.itemForm.controls;
   }
   
-  onSubmit(){
-    if(this.itemForm.valid){
-      console.log('Form Submitted',this.itemForm.value);
-      
-      this.showMessage= !this.showMessage;
+  onSubmit() {
+    if (this.itemForm.valid) {
       this.httpService.register(this.itemForm.value).subscribe({
-        next:(response)=>{
-          this.itemForm.reset()
-          console.log("Registered sucessfully!",response)
+        next: (response) => {
+          this.itemForm.reset();
+          this.showMessage = true;
+          this.responseMessage = "Registration successful! Redirecting to login...";
+
+          setTimeout(() => {
+            this.showMessage = false;
+            this.router.navigate(['login']);
+          }, 2000);
         },
-        error:(err)=>{
-       console.log("Error",err)
+        error: (err) => {
+          this.showMessage = true;
+          this.responseMessage = "Registration failed. Please try again.";
+          console.error("Error", err);
         }
-      })
-    }
-    else{
+      });
+    } else {
       this.itemForm.markAllAsTouched();
     }
   }

@@ -14,11 +14,11 @@ export class AppComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
  
   ngOnInit(): void {
-    // this.authService.loggedIn$.subscribe(status => this.IsLoggin = status);
-    // this.authService.userRole$.subscribe(role => this.roleName = role);
-    this.IsLoggin=this.authService.getLoginStatus;
-    this.roleName=this.authService.getRole;
-    if (this.IsLoggin=false) {
+    this.authService.loggedIn$.subscribe(status => this.IsLoggin = status);
+    this.authService.userRole$.subscribe(role => this.roleName = role);
+    // this.IsLoggin=this.authService.getLoginStatus;
+    // this.roleName=this.authService.getRole;
+    if (!this.IsLoggin) {
       this.router.navigateByUrl('/login');
     }
   }
@@ -27,6 +27,10 @@ export class AppComponent implements OnInit {
     this.authService.logout();
     this.router.navigateByUrl('/login');
    // this.roleName="";
+  //  localStorage.clear();
+  //  this.IsLoggin=false;
+  //  this.roleName=null;
+
   }
 }
  
