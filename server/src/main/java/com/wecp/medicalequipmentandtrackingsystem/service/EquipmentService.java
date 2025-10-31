@@ -3,6 +3,7 @@ package com.wecp.medicalequipmentandtrackingsystem.service;
 
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Equipment;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Hospital;
+import com.wecp.medicalequipmentandtrackingsystem.exceptions.ResourceNotFoundException;
 import com.wecp.medicalequipmentandtrackingsystem.repository.EquipmentRepository;
 import com.wecp.medicalequipmentandtrackingsystem.repository.HospitalRepository;
 import org.springframework.stereotype.Service;
@@ -39,5 +40,15 @@ public class EquipmentService {
     //call findAll method from the jpa repository
     public List<Equipment> getAllEquipment(){
         return equipmentRepository.findAll();
+    }
+
+
+    public Equipment getEquipmentById(Long equipmentId) {
+        if(equipmentRepository.findById(equipmentId).isEmpty()){
+            throw new ResourceNotFoundException("Equipment with ID : " + equipmentId + " does not exist");
+        }
+
+        return equipmentRepository.findById(equipmentId).get();
+        
     }
 }
