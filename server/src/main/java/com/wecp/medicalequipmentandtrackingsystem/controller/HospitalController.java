@@ -1,6 +1,7 @@
 package com.wecp.medicalequipmentandtrackingsystem.controller;
 
 import com.wecp.medicalequipmentandtrackingsystem.dto.EquipmentDTO;
+import com.wecp.medicalequipmentandtrackingsystem.dto.HospitalDTO;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Equipment;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Hospital;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Maintenance;
@@ -43,28 +44,35 @@ public class HospitalController {
     // create hospital and return the created hospital with status code 201 =
     // CREATED;
     @PostMapping("/api/hospital/create")
-    public ResponseEntity<Hospital> createHospital(@RequestBody Hospital hospital) {
+    public ResponseEntity<HospitalDTO> createHospital(@Valid @RequestBody HospitalDTO hospitalDTO) {
+        logger.info("Creating hospital: {}", hospitalDTO.getName());
         try {
-            return new ResponseEntity<>(hospitalService.addHospital(hospital), HttpStatus.CREATED);
-            // return new ResponseEntity<Hospital>(hospital, null)
+            HospitalDTO savedHospital = hospitalService.addHospital(hospitalDTO);
+            logger.info("Hospital created successfully with ID: {}", savedHospital.getId());
+            return new ResponseEntity<>(savedHospital, HttpStatus.CREATED);
         } catch (RuntimeException e) {
+            logger.error("Hospital creation failed: {}", e.getMessage());
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
+            logger.error("Unexpected error during hospital creation", e);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
     }
 
     // return all hospitals with response code = 200 ok
     @GetMapping("/api/hospitals")
-    public ResponseEntity<List<Hospital>> getAllHospitals() {
+    public ResponseEntity<List<HospitalDTO>> getAllHospitals() {
+        logger.info("Fetching all hospitals");
         try {
-            return new ResponseEntity<>(hospitalService.getAllHospitals(), HttpStatus.OK);
+            List<HospitalDTO> hospitals = hospitalService.getAllHospitals();
+            logger.info("Fetched {} hospitals", hospitals.size());
+            return new ResponseEntity<>(hospitals, HttpStatus.OK);
         } catch (Exception e) {
+            logger.error("Error fetching hospitals", e);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
     }
+    
 
     // add equipment to the hospital and return the added equipment with status code
     // 201 = CREATED;
