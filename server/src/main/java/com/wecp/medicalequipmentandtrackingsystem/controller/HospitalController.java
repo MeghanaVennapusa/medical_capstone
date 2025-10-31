@@ -4,6 +4,8 @@ import com.wecp.medicalequipmentandtrackingsystem.dto.EquipmentDTO;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Equipment;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Hospital;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Maintenance;
+import com.wecp.medicalequipmentandtrackingsystem.dto.MaintenanceScheduleDTO;
+import com.wecp.medicalequipmentandtrackingsystem.dto.Mapper;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Order;
 import com.wecp.medicalequipmentandtrackingsystem.service.EquipmentService;
 import com.wecp.medicalequipmentandtrackingsystem.service.HospitalService;
@@ -26,14 +28,16 @@ public class HospitalController {
 
     private HospitalService hospitalService;
     private MaintenanceService maintenanceService;
+    private EquipmentService equipmentService;
     private OrderService orderService;
     private static final Logger logger = LoggerFactory.getLogger(HospitalController.class);
 
     public HospitalController(HospitalService hospitalService, MaintenanceService maintenanceService,
-            OrderService orderService) {
+            OrderService orderService , EquipmentService equipmentService) {
         this.hospitalService = hospitalService;
         this.maintenanceService = maintenanceService;
         this.orderService = orderService;
+        this.equipmentService = equipmentService;
     }
 
     // create hospital and return the created hospital with status code 201 =
@@ -111,11 +115,10 @@ public class HospitalController {
     // schedule maintenance for the equipment and return the scheduled maintenance
     // with status code 201 = CREATED;
     @PostMapping("/api/hospital/maintenance/schedule")
-    public ResponseEntity<Maintenance> scheduleMaintenance(@RequestParam Long equipmentId,
-            @RequestBody Maintenance maintenance) {
-        // schedule maintenance for the equipment and return the scheduled maintenance
-        // with status code 201 = CREATED;
-        return new ResponseEntity<>(maintenanceService.createMaintenance(equipmentId, maintenance), HttpStatus.CREATED);
+    public ResponseEntity<Maintenance> scheduleMaintenance(@Valid @RequestBody MaintenanceScheduleDTO dto) {
+        Equipment equipment = equipmentService.getEquipmentById(dto.getEquipmentId());
+        Maintenance maintenance = Mapper.mapToEntity(dto, equipment);
+        return new ResponseEntity<>(maintenanceService.createMaintenance(equipment.getId(), maintenance), HttpStatus.CREATED);
     }
 
     // place order for the equipment and return the placed order with status code
