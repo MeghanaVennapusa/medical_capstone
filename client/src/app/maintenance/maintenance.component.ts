@@ -54,11 +54,7 @@ export class MaintenanceComponent implements OnInit {
       }
     });
   }
-
-  viewDetails(maintenance: any): void {
-    this.edit(maintenance); // For compatibility
-  }
-
+  
   edit(maintenance: any): void {
     this.maintenanceObj = maintenance;
     this.itemForm.patchValue({
