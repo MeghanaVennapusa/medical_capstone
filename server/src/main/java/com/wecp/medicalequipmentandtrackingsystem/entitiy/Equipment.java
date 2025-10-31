@@ -7,10 +7,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "equipments") // do not change table name
@@ -22,7 +25,6 @@ public class Equipment {
     String name;
     String description;
     @ManyToOne
-    @JsonIgnore
     Hospital hospital;
     
 }

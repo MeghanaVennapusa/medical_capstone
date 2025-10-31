@@ -26,14 +26,12 @@
         <td>{{ maintenance.completedDate | date:'dd-MMM-yyyy' }}</td>
         <td>{{ maintenance.status }}</td>
         <td>
-          Id: {{ maintenance.equipment?.id }}<br>
           Name: {{ maintenance.equipment?.name }}<br>
-          Description: {{ maintenance.equipment?.description }}
+          Description: {{ maintenance.description }}
         </td>
         <td>
-          Id: {{ maintenance.equipment?.hospital?.id }}<br>
           Name: {{ maintenance.equipment?.hospital?.name }}<br>
-          Description: {{ maintenance.equipment?.hospital?.location }}
+          Location: {{ maintenance.equipment?.hospital?.location }}
         </td>
         <td>
           <button class="btn btn-warning" (click)="edit(maintenance)">Edit</button>
@@ -71,9 +69,6 @@
               <div *ngIf="itemForm.get('completedDate')?.errors?.['invalidDate']" class="text-danger">
                 Completed date cannot be in the past.
               </div>
-              <div *ngIf="itemForm.get('completedDate')?.errors?.['required']" class="text-danger">
-                Completed date is required.
-              </div>
             </div>
 
             <!-- Description -->
@@ -84,11 +79,17 @@
                 Description is required.
               </div>
             </div>
-
+            
+            
             <!-- Status -->
             <div class="mb-3">
               <label>Status</label>
-              <input type="text" class="form-control" formControlName="status" />
+              <select class="form-control" formControlName="status">
+                <option value="">Choose Status</option>
+                <option value="Initiated">Initiated</option>
+                <option value="In Process">In Process</option>
+                <option value="Completed">Completed</option>
+              </select>
               <div *ngIf="itemForm.get('status')?.errors?.['required']" class="text-danger">
                 Status is required.
               </div>

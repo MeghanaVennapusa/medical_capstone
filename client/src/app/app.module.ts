@@ -21,7 +21,6 @@ import { RequestequipmentComponent } from './requestequipment/requestequipment.c
 import { MaintenanceComponent } from './maintenance/maintenance.component';
 import { OrdersComponent } from './orders/orders.component';
 import { AuthInterceptor } from './auth.interceptors';
-// import { AuthInterceptor } from './auth.interceptors';
 
 
 @NgModule({
