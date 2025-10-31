@@ -36,28 +36,40 @@ export class LoginComponent implements OnInit {
       this.httpService.login(formData).pipe(
         tap((response) => {
           console.log(response);
- 
+  
           // Save token using AuthService
           this.authService.saveToken(response.token);
-         this.authService.SetRole(response.role);
-       
+          this.authService.SetRole(response.role);
+  
           localStorage.setItem("role", response.role);
           localStorage.setItem("username", response.username);
- 
+  
           console.log(localStorage.getItem("role"));
           console.log("Token:", this.authService.getToken());
+  
           // Navigate to dashboard
           this.router.navigate(['/dashboard']);
         }),
         catchError((error) => {
           this.errorMessage = 'Invalid username or password';
           console.error("Login error:", error);
+  
+         
+          setTimeout(() => {
+            this.errorMessage = '';
+            this.itemForm.reset();
+          }, 2000);
+  
           return of(null);
         })
       ).subscribe();
     } else {
       this.errorMessage = 'Please fill out the form correctly.';
+  
+    
+      setTimeout(() => {
+        this.errorMessage = '';
+      }, 2000);
     }
   }
- 
 }

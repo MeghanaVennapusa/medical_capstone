@@ -32,6 +32,8 @@ public class EquipmentService {
         else{
             throw new RuntimeException("Hospital ID is not present");
         }
+
+     
     }
      
     //call findAll method from the jpa repository

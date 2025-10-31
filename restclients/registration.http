@@ -2,9 +2,9 @@ POST http://localhost:5000/api/user/register
 Content-Type: application/json
 
 {
-    "username": "meghana",
-    "password": "Meghana@127",
-    "email": "vmr@gmail.com",
+    "username": "cha",
+    "password": "Chaitu@123",
+    "email": "trdghjrrsedtygu.com",
     "role": "HOSPITAL"
 }
 ###

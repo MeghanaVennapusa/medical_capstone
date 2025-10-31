@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.util.UUID;
 
 import java.util.List;
 
@@ -65,26 +66,46 @@ public class HospitalController {
     // 201 = CREATED;
     @PostMapping("/api/hospital/equipment")
     public ResponseEntity<Equipment> addEquipment(@RequestParam Long hospitalId,
-           @Valid @RequestBody EquipmentDTO equipmentDTO) {
-        logger.info("Adding equipment: {}", equipmentDTO.getName());
+            @Valid @RequestBody EquipmentDTO equipmentDTO) {
+        String requestId = UUID.randomUUID().toString();
+        logger.info("[{}] Request to add equipment: {}", requestId, equipmentDTO.getName());
 
+        Equipment equipment = mapToEntity(equipmentDTO);
+        Equipment savedEquipment = hospitalService.addEquipment(hospitalId, equipment);
+
+        logger.info("[{}] Equipment '{}' added successfully for hospital ID: {}",
+                requestId, equipmentDTO.getName(), hospitalId);
+
+        return new ResponseEntity<>(savedEquipment, HttpStatus.CREATED);
+
+    }
+
+    private Equipment mapToEntity(EquipmentDTO equipmentDTO) {
         Equipment equipment = new Equipment();
         equipment.setName(equipmentDTO.getName());
         equipment.setDescription(equipmentDTO.getDescription());
-
         Hospital hospital = new Hospital();
+
         hospital.setId(equipmentDTO.getHospitalId());
+
         equipment.setHospital(hospital);
-        return new ResponseEntity<>(hospitalService.addEquipment(hospitalId, equipment), HttpStatus.CREATED);
+
+        return equipment;
 
     }
 
     // return all equipments of hospital with response code = 200 OK
     @GetMapping("/api/hospital/equipment/{hospitalId}")
     public ResponseEntity<List<Equipment>> getAllEquipmentsOfHospital(@PathVariable Long hospitalId) {
-        // return all equipments of hospital with response code = 200 OK
-        logger.info("Getting equipment for hospital ID: {}", hospitalId);
-        return new ResponseEntity<>(hospitalService.getAllEquipmentsById(hospitalId), HttpStatus.OK);
+       
+        String requestId = UUID.randomUUID().toString();
+        logger.info("[{}] Fetching all equipments for hospital ID: {}", requestId, hospitalId);
+
+        List<Equipment> equipments = hospitalService.getAllEquipmentsById(hospitalId);
+        logger.info("[{}] Retrieved {} equipments for hospital ID: {}", 
+                    requestId, equipments.size(), hospitalId);
+
+        return new ResponseEntity<>(equipments, HttpStatus.OK);
     }
 
     // schedule maintenance for the equipment and return the scheduled maintenance
