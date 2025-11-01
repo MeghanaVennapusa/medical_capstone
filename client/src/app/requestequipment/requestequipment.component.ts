@@ -18,6 +18,7 @@ export class RequestequipmentComponent implements OnInit {
   showMessage: any;
   responseMessage: any;
   equipmentList: any[] = [];
+  today = new Date().toISOString().split('T')[0];
 
   constructor(private fb: FormBuilder, private httpService: HttpService, private router:Router) {}
 
@@ -110,19 +111,19 @@ export class RequestequipmentComponent implements OnInit {
         next: () => {
           this.showMessage = true;
           this.responseMessage = 'Equipment request submitted successfully!';          
-          this.itemForm.reset({
-            hospital: '',
-            equipment: '',
-            quantity: '',
-            status: '',
-            orderDate: ''
-          });
-          this.router.navigate(['/requestequipment']);
+         this.itemForm.reset();
+         setTimeout(() => {
+          this.showMessage = false;
+         }, 2000);
+          // this.router.navigate(['/requestequipment']);
         },
         error: (err) => {
           console.error('Error details:', err);
           this.showError = true;
           this.errorMessage = 'Failed to request equipment';
+          setTimeout(() => {
+            this.errorMessage = false;
+           }, 2000);
         }
       });
     } else {

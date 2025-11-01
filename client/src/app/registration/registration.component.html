@@ -13,8 +13,11 @@
       <div class="mb-2">
         <label class="form-label fw-semibold">Username <span class="text-danger">*</span></label>
         <input type="text" class="form-control form-control-sm" formControlName="username" placeholder="Enter username">
-        <div *ngIf="f['username'].touched && f['username'].invalid" class="text-danger small mt-1">
-          Please enter username
+        <div *ngIf="f['username'].touched && f['username']?.errors?.['required']" class="text-danger small mt-1">
+          Username is required
+        </div>
+        <div *ngIf="f['username'].touched && f['username']?.errors?.['pattern']" class="text-danger small mt-1">
+          Username should not contain special characters
         </div>
         <div *ngIf="errorMessage?.username" class="text-danger small mt-1">{{errorMessage.username}}</div>
       </div>
