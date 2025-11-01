@@ -21,10 +21,5 @@ public class EquipmentDTO {
     @NotNull(message = "Hospital ID is required")
     private Long hospitalId;
 
-    public void setHospital(Hospital hsptl) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setHospital'");
-    }
-
     
 }

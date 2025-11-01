@@ -34,6 +34,7 @@
 #     "username": "Supplier1",
 #     "password": "Supplier123"
 # }
+
 # eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTdXBwbGllcjEiLCJyb2xlIjoiU1VQUExJRVIiLCJpYXQiOjE3NjE5MTE3MjcsImV4cCI6MTc2MTk5ODEyN30.rAOLZZvauf2MK_3ws1Kg8BRjmcd240SFfDX5GZCc3hfBTcbysrFiSdwrKsrBW9B69eQhiZtL2HTHb_g6mlG-4w
 
 # POST http://localhost:5000/api/hospital/create
@@ -89,3 +90,7 @@
 #   "status": "Delivered",
 #   "equipmentId": 1
 # }
+
+# GET http://localhost:5000/api/supplier/orders
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTdXBwbGllcjEiLCJyb2xlIjoiU1VQUExJRVIiLCJpYXQiOjE3NjE5ODE4NDIsImV4cCI6MTc2MjA2ODI0Mn0.EK7Pu02Q9WCu9ZwDEXK3sF27dIJrpWIkqkm4SAIevwNRxcAZ5KaJsj_0_KjntOdNY9z4jXYJKuOk8zv47ZTKOw

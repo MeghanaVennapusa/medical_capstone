@@ -74,10 +74,18 @@ export class ScheduleMaintenanceComponent implements OnInit {
           this.responseMessage = 'Save Successfully';
           this.showMessage = true;
           this.itemForm.reset();
+
+          setTimeout(()=>{
+          this.showMessage = false;
+          } , 2000);
         },
         error: () => {
-          this.showError = true;
           this.errorMessage = 'Failed to schedule maintenance';
+          this.showError = true;
+
+          setTimeout(()=>{
+            this.errorMessage = false;
+            } , 2000);
         }
       });
     }

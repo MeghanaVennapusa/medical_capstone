@@ -34,7 +34,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(UserAlreadyExists.class)
-    public ResponseEntity<String> handleUsernameAlreadyExists(UserAlreadyExists e) {
+    public ResponseEntity<String> handleUserAlreadyExists(UserAlreadyExists e) {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
 

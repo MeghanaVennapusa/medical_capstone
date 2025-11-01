@@ -31,5 +31,12 @@ public class OrderDTO {
 
     @NotNull(message = "Equipment ID is required")
     private Long equipmentId;
-    
+    private String equipmentName;
+    private String equipmentDescription;
+
+    // Hospital details
+    private Long hospitalId;
+    private String hospitalName;
+    private String hospitalLocation;
+
 }

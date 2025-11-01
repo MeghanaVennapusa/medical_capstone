@@ -21,6 +21,7 @@ import { RequestequipmentComponent } from './requestequipment/requestequipment.c
 import { MaintenanceComponent } from './maintenance/maintenance.component';
 import { OrdersComponent } from './orders/orders.component';
 import { AuthInterceptor } from './auth.interceptors';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { AuthInterceptor } from './auth.interceptors';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule 
+    HttpClientModule ,
+    NgxPaginationModule
   ],
   providers: [HttpService,HttpClientModule,
     
