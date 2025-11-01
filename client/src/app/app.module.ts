@@ -21,6 +21,7 @@ import { RequestequipmentComponent } from './requestequipment/requestequipment.c
 import { MaintenanceComponent } from './maintenance/maintenance.component';
 import { OrdersComponent } from './orders/orders.component';
 import { AuthInterceptor } from './auth.interceptors';
+import { PagenotfoundComponent } from './utilities/pagenotfound/pagenotfound.component';
 
 
 @NgModule({
@@ -29,13 +30,12 @@ import { AuthInterceptor } from './auth.interceptors';
     LoginComponent,
       RegistrationComponent,
       DashbaordComponent,
-  
-    
-      CreatehospitalComponent,
+  CreatehospitalComponent,
       ScheduleMaintenanceComponent,
       RequestequipmentComponent,
       MaintenanceComponent,
-      OrdersComponent
+      OrdersComponent,
+      PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
