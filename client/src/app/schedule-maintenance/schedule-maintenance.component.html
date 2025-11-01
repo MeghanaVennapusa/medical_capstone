@@ -33,12 +33,9 @@
         <!-- Scheduled Date -->
         <div class="col-md-6 mb-3">
           <label>Scheduled Date</label>
-          <input type="date" class="form-control" formControlName="scheduledDate" />
-          <div *ngIf="itemForm.get('scheduledDate')?.touched &&itemForm.get('scheduledDate')?.errors?.['required']" class="text-danger">
+          <input type="date" class="form-control" formControlName="scheduledDate" [min]="today"/>
+          <div *ngIf="itemForm.get('scheduledDate')?.touched && itemForm.get('scheduledDate')?.errors?.['required']" class="text-danger">
             Scheduled date is required.
-          </div>
-          <div *ngIf="itemForm.get('scheduledDate')?.errors?.['invalidDate']" class="text-danger">
-            Scheduled date cannot be in the past.
           </div>
         </div>
       </div>

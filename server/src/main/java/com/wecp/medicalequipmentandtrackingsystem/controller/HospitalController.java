@@ -14,7 +14,6 @@ import com.wecp.medicalequipmentandtrackingsystem.service.MaintenanceService;
 import com.wecp.medicalequipmentandtrackingsystem.service.OrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +30,7 @@ public class HospitalController {
     private MaintenanceService maintenanceService;
     private EquipmentService equipmentService;
     private OrderService orderService;
+    //Instantiating the Logger Object to use for Logging
     private static final Logger logger = LoggerFactory.getLogger(HospitalController.class);
 
     public HospitalController(HospitalService hospitalService, MaintenanceService maintenanceService,
@@ -124,9 +124,17 @@ public class HospitalController {
     // with status code 201 = CREATED;
     @PostMapping("/api/hospital/maintenance/schedule")
     public ResponseEntity<Maintenance> scheduleMaintenance(@Valid @RequestBody MaintenanceScheduleDTO dto) {
+
         Equipment equipment = equipmentService.getEquipmentById(dto.getEquipmentId());
+        logger.info("Fetched equipment details for ID: {}", dto.getEquipmentId());
+
         Maintenance maintenance = Mapper.mapToEntity(dto, equipment);
-        return new ResponseEntity<>(maintenanceService.createMaintenance(equipment.getId(), maintenance), HttpStatus.CREATED);
+        
+        Maintenance savedMaintenance = maintenanceService.createMaintenance(equipment.getId(), maintenance);
+        logger.info("Maintenance scheduled successfully with ID: {}", savedMaintenance.getId());
+        
+        return new ResponseEntity<>(savedMaintenance, HttpStatus.CREATED);
+
     }
 
     // place order for the equipment and return the placed order with status code

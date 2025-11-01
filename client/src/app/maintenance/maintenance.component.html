@@ -94,21 +94,11 @@
             <div class="mb-3">
               <label>Scheduled Date</label>
               <input type="date" class="form-control" formControlName="scheduledDate" />
-              <div *ngIf="itemForm.get('scheduledDate')?.errors?.['invalidDate']" class="text-danger">
-                Scheduled date cannot be in the past.
-              </div>
-              <div *ngIf="itemForm.get('scheduledDate')?.errors?.['required']" class="text-danger">
-                Scheduled date is required.
-              </div>
             </div>
 
-           
             <div class="mb-3">
               <label>Completed Date</label>
-              <input type="date" class="form-control" formControlName="completedDate" />
-              <div *ngIf="itemForm.get('completedDate')?.errors?.['invalidDate']" class="text-danger">
-                Completed date cannot be in the past.
-              </div>
+              <input type="date" class="form-control" formControlName="completedDate" [min]="maintenanceObj.scheduledDate?.split('T')[0]" />
             </div>
 
             <!-- Description -->

@@ -19,6 +19,7 @@ export class ScheduleMaintenanceComponent implements OnInit {
   showMessage: any;
   responseMessage: any;
   equipmentList: any[] = [];
+  today : string = new Date().toISOString().split('T')[0];
 
   constructor(private fb: FormBuilder, private httpService: HttpService) {
     this.itemForm = this.fb.group({
@@ -35,11 +36,18 @@ export class ScheduleMaintenanceComponent implements OnInit {
     this.getHospital();
   }
 
-  // Validate date is not in the past
   dateValidator(control: any): { [key: string]: boolean } | null {
-    const today = new Date().toISOString().split('T')[0];
-    if (control.value && control.value < today) {
-      return { invalidDate: true };
+    if (control.value) {
+      const selectedDate = new Date(control.value);
+      const today = new Date();
+  
+      // Normalize both dates to midnight for accurate comparison
+      selectedDate.setHours(0, 0, 0, 0);
+      today.setHours(0, 0, 0, 0);
+  
+      if (selectedDate < today) {
+        return { invalidDate: true };
+      }
     }
     return null;
   }

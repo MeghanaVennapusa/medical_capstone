@@ -2,11 +2,9 @@ package com.wecp.medicalequipmentandtrackingsystem.dto;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-import com.wecp.medicalequipmentandtrackingsystem.entitiy.Hospital;
-
 import lombok.Getter;
 import lombok.Setter;
+
 @Getter
 @Setter
 public class EquipmentDTO {
