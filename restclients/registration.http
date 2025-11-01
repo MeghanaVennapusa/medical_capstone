@@ -8,6 +8,21 @@ Content-Type: application/json
     "role": "HOSPITAL"
 }
 ###
+//create hospital admin meghana
+POST http://localhost:5000/api/user/register
+Content-Type: application/json
+
+{
+    "username": "meghana",
+    "password": "Meghana@127",
+    "email": "meghana@gmail.com",
+    "role": "HOSPITAL"
+}
+
+
+
+
+###
 
 POST http://localhost:5000/api/user/login
 Content-Type: application/json
@@ -30,7 +45,7 @@ Content-Type: application/json
 //Post hospital 1
 POST http://localhost:5000/api/hospital/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZWdoYW5hIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNzQwNDIwLCJleHAiOjE3NjE4MjY4MjB9.RVOd8QHHHLJHm5dj7qzIg3bxd8-8dHpXvGMSXg1WWJm5rUjQIxjOcy77HQgK1qyj3X9A0e-Oje8X2xIneqmycg
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZWdoYW5hIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxODUwMTgwLCJleHAiOjE3NjE5MzY1ODB9.9g4k9YVovGfbVIHT-kCAj0dzApgfr7WgD1F9ctp0J7xFUd5fc57b7qLlji7hT_2HRyeOb5mxe715wGgw1rn1rA
 
 {
     "name":"Hemanth",
@@ -41,7 +56,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZWdoYW5hIiwicm9sZSI6IkhPU
 //post hospital 2
 POST http://localhost:5000/api/hospital/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZWdoYW5hIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNzQwNDIwLCJleHAiOjE3NjE4MjY4MjB9.RVOd8QHHHLJHm5dj7qzIg3bxd8-8dHpXvGMSXg1WWJm5rUjQIxjOcy77HQgK1qyj3X9A0e-Oje8X2xIneqmycg
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZWdoYW5hIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxODUwMTgwLCJleHAiOjE3NjE5MzY1ODB9.9g4k9YVovGfbVIHT-kCAj0dzApgfr7WgD1F9ctp0J7xFUd5fc57b7qLlji7hT_2HRyeOb5mxe715wGgw1rn1rA
 
 {
     "name":"Krishna",
@@ -52,7 +67,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZWdoYW5hIiwicm9sZSI6IkhPU
 //add equipment to hospital1
 POST http://localhost:5000/api/hospital/equipment?hospitalId=1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZWdoYW5hIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNzQwNDIwLCJleHAiOjE3NjE4MjY4MjB9.RVOd8QHHHLJHm5dj7qzIg3bxd8-8dHpXvGMSXg1WWJm5rUjQIxjOcy77HQgK1qyj3X9A0e-Oje8X2xIneqmycg
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZWdoYW5hIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxODUwMTgwLCJleHAiOjE3NjE5MzY1ODB9.9g4k9YVovGfbVIHT-kCAj0dzApgfr7WgD1F9ctp0J7xFUd5fc57b7qLlji7hT_2HRyeOb5mxe715wGgw1rn1rA
 
 {
     "name":"MRI Scan",
@@ -63,7 +78,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZWdoYW5hIiwicm9sZSI6IkhPU
 //adding equipment to hosp1
 POST http://localhost:5000/api/hospital/equipment?hospitalId=1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZWdoYW5hIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNzQwNDIwLCJleHAiOjE3NjE4MjY4MjB9.RVOd8QHHHLJHm5dj7qzIg3bxd8-8dHpXvGMSXg1WWJm5rUjQIxjOcy77HQgK1qyj3X9A0e-Oje8X2xIneqmycg
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZWdoYW5hIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxODUwMTgwLCJleHAiOjE3NjE5MzY1ODB9.9g4k9YVovGfbVIHT-kCAj0dzApgfr7WgD1F9ctp0J7xFUd5fc57b7qLlji7hT_2HRyeOb5mxe715wGgw1rn1rA
 
 {
     "name":"MRI Scan2",
@@ -73,7 +88,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZWdoYW5hIiwicm9sZSI6IkhPU
 ###
 POST http://localhost:5000/api/hospital/equipment?hospitalId=2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZWdoYW5hIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxNzQwNDIwLCJleHAiOjE3NjE4MjY4MjB9.RVOd8QHHHLJHm5dj7qzIg3bxd8-8dHpXvGMSXg1WWJm5rUjQIxjOcy77HQgK1qyj3X9A0e-Oje8X2xIneqmycg
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtZWdoYW5hIiwicm9sZSI6IkhPU1BJVEFMIiwiaWF0IjoxNzYxODUwMTgwLCJleHAiOjE3NjE5MzY1ODB9.9g4k9YVovGfbVIHT-kCAj0dzApgfr7WgD1F9ctp0J7xFUd5fc57b7qLlji7hT_2HRyeOb5mxe715wGgw1rn1rA
 
 {
     "name":"Laptop22",
