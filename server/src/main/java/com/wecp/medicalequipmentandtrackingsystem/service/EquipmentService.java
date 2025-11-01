@@ -1,6 +1,5 @@
+
 package com.wecp.medicalequipmentandtrackingsystem.service;
-
-
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Equipment;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Hospital;
 import com.wecp.medicalequipmentandtrackingsystem.exceptions.ResourceNotFoundException;
@@ -12,7 +11,6 @@ import java.util.Optional;
 
 @Service
 public class EquipmentService {
-    
     private EquipmentRepository equipmentRepository;
     private HospitalRepository hospitalRepository;
 
@@ -21,34 +19,40 @@ public class EquipmentService {
         this.hospitalRepository = hospitalRepository;
     }
 
-    
-    //call save method grom jps repository to save equipment object
-    public Equipment createEquipment(Equipment equipment){
-        Optional<Hospital> hosp = hospitalRepository.findById(equipment.getHospital().getId());
-        if(hosp.isPresent()){
-            equipment.setHospital(hosp.get());
-            return equipmentRepository.save(equipment);
-
-        }
-        else{
-            throw new RuntimeException("Hospital ID is not present");
-        }
-
-     
+    public Equipment createEquipment(Long hospitalId, Equipment equipment) {
+        Hospital hospital = hospitalRepository.findById(hospitalId)
+                .orElseThrow(() -> new ResourceNotFoundException("Hospital with ID " + hospitalId + " not found"));
+        equipment.setHospital(hospital);
+        return equipmentRepository.save(equipment);
     }
-     
-    //call findAll method from the jpa repository
-    public List<Equipment> getAllEquipment(){
+
+    public List<Equipment> getEquipmentsByHospitalId(Long hospitalId) {
+        Hospital hospital = hospitalRepository.findById(hospitalId)
+                .orElseThrow(() -> new ResourceNotFoundException("Hospital with ID " + hospitalId + " not found"));
+        return hospital.getEquipmentList();
+
+    }
+
+
+    public List<Equipment> getAllEquipment() {
         return equipmentRepository.findAll();
     }
 
 
-    public Equipment getEquipmentById(Long equipmentId) {
-        if(equipmentRepository.findById(equipmentId).isEmpty()){
-            throw new ResourceNotFoundException("Equipment with ID : " + equipmentId + " does not exist");
-        }
 
-        return equipmentRepository.findById(equipmentId).get();
-        
+    public Equipment getEquipmentById(Long equipmentId) {
+        return equipmentRepository.findById(equipmentId)
+                .orElseThrow(() -> new ResourceNotFoundException("Equipment with ID " + equipmentId + " does not exist"));
     }
+
+
+
+    public List<Equipment> getEquipmentsByHospitalName(String hospitalName) {
+        Hospital hospital = hospitalRepository.findByName(hospitalName);
+        if (hospital == null) {
+            throw new ResourceNotFoundException("Hospital with name '" + hospitalName + "' not found");
+        }
+        return hospital.getEquipmentList();
+    }
+
 }

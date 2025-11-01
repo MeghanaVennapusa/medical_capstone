@@ -1,38 +1,46 @@
-<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
-  <div class="card shadow-lg border-0 rounded-4 p-4" style="max-width: 480px; width: 100%; ">
-    <h3 class="text-center mb-2 text-success fw-bold">Medical Equipment & Tracking System</h3>
-    <p class="text-center text-muted mb-4">Please enter your details below to register</p>
+<div class="container-fluid d-flex justify-content-center"
+  style="min-height: 100vh; background: linear-gradient(135deg, #e9f7ef, #f7f9fb); padding-top: 0 !important; margin-top: 0 !important;">
+  <div class="card shadow-lg border-0 rounded-4 p-3 align-self-start"
+    style="max-width: 450px; width: 100%; background-color: #ffffffee; margin-top: 20px !important;">
+    <h4 class="text-center mb-2 text-success fw-bold" style="font-size: 1.5rem;">
+      Medical Equipment & Tracking System
+    </h4>
+    <p class="text-center text-muted mb-3" style="font-size: 0.9rem;">
+      Please enter your details below to register
+    </p>
     <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
-      <div class="mb-1">
+      <div class="mb-2">
         <label class="form-label fw-semibold">Username <span class="text-danger">*</span></label>
-        <input type="text" class="form-control form-control" formControlName="username" placeholder="Enter username">
+        <input type="text" class="form-control form-control-sm" formControlName="username" placeholder="Enter username">
         <div *ngIf="f['username'].touched && f['username'].invalid" class="text-danger small mt-1">
           Please enter username
         </div>
         <div *ngIf="errorMessage?.username" class="text-danger small mt-1">{{errorMessage.username}}</div>
       </div>
-      <div class="mb-1">
+      <div class="mb-2">
         <label class="form-label fw-semibold">Email address <span class="text-danger">*</span></label>
-        <input type="email" class="form-control form-control" formControlName="email" placeholder="name@example.com">
+        <input type="email" class="form-control form-control-sm" formControlName="email" placeholder="name@example.com">
         <div *ngIf="f['email'].touched && f['email'].invalid" class="text-danger small mt-1">
           <div *ngIf="f['email'].errors?.['required']">Please enter an email.</div>
           <div *ngIf="f['email'].errors?.['email']">Please enter a valid email.</div>
-          <div *ngIf="errorMessage?.email" class="text-danger small mt-1">{{errorMessage.email}}</div>
         </div>
+        <div *ngIf="errorMessage?.email" class="text-danger small mt-1">{{errorMessage.email}}</div>
       </div>
-      <div class="mb-1">
+      <div class="mb-2">
         <label class="form-label fw-semibold">Password <span class="text-danger">*</span></label>
-        <input type="password" class="form-control form-control" formControlName="password"
+        <input type="password" class="form-control form-control-sm" formControlName="password"
           placeholder="Enter password">
         <div *ngIf="f['password'].touched && f['password'].invalid" class="text-danger small mt-1">
           <div *ngIf="f['password'].errors?.['required']">Please enter password.</div>
-          <div *ngIf="f['password'].errors?.['pattern']">Password must include an uppercase letter, a lowercase letter, a digit, and a special character.</div>
-          <div *ngIf="errorMessage?.password" class="text-danger small mt-1">{{errorMessage.password}}</div>
+          <div *ngIf="f['password'].errors?.['pattern']">
+            Password must include an uppercase, lowercase, digit, and special character.
+          </div>
         </div>
+        <div *ngIf="errorMessage?.password" class="text-danger small mt-1">{{errorMessage.password}}</div>
       </div>
-      <div class="mb-1">
+      <div class="mb-2">
         <label class="form-label fw-semibold">Role <span class="text-danger">*</span></label>
-        <select class="form-select form-select" formControlName="role">
+        <select class="form-select form-select-sm" formControlName="role">
           <option value="">Choose Role</option>
           <option value="HOSPITAL">Hospital</option>
           <option value="TECHNICIAN">Technician</option>
@@ -43,16 +51,17 @@
         </div>
         <div *ngIf="errorMessage?.role" class="text-danger small mt-1">{{errorMessage.role}}</div>
       </div>
-      <button type="submit" class="btn btn-success btn-lg w-100 rounded-3 shadow-sm">
+      <button type="submit" class="btn btn-success btn-sm w-100 rounded-3 shadow-sm mt-2">
         Register
       </button>
-      <div *ngIf="showMessage" class="alert alert-success text-center mt-3 rounded-3 shadow-sm" role="alert">
+      <div *ngIf="showMessage" class="alert alert-success text-center mt-2 rounded-3 shadow-sm" role="alert">
         ✅ You have successfully registered!
       </div>
-      <p class="mt-3 text-center">
+      <p class="mt-2 text-center small mb-0">
         Already have an account?
         <a routerLink="/login" class="text-decoration-none fw-semibold text-success">Login here</a>
       </p>
     </form>
   </div>
+
 </div>

@@ -17,8 +17,7 @@ public class EquipmentDTO {
 
     @Size(max = 200, message = "Description can be up to 200 characters")
     private String description;
-
-    @NotNull(message = "Hospital ID is required")
+    
     private Long hospitalId;
 
     
