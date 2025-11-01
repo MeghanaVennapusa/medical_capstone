@@ -34,6 +34,13 @@
       </tr>
     </thead>
     <tbody>
+
+      <tr *ngIf="paginatedMaintenance.length === 0">
+        <td colspan="7" class="text-center">No records found</td>
+        </tr>
+        <tr *ngFor="let maintenance of paginatedMaintenance; let i = index">
+      </tr>
+
       <tr *ngFor="let maintenance of paginatedMaintenance; let i = index">
         <td>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
         <td>{{ maintenance.scheduledDate | date:'dd-MMM-yyyy' }}</td>

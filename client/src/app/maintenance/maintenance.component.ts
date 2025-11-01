@@ -72,6 +72,7 @@ export class MaintenanceComponent implements OnInit {
     this.filteredMaintenanceList = this.maintenanceList.filter(m =>
       m.equipment?.hospital?.name?.toLowerCase().includes(term)
     );
+    this.currentPage = 1;
   }
 
   sortBy(column: string): void {
