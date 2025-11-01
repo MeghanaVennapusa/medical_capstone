@@ -25,7 +25,7 @@ export class ScheduleMaintenanceComponent implements OnInit {
     this.itemForm = this.fb.group({
       hospitalId: ['', Validators.required],
       equipmentId: ['', Validators.required],
-      scheduledDate: ['', [Validators.required, this.dateValidator]],
+      scheduledDate: ['', [Validators.required]],
       completedDate: [{value : '' , disabled : true}],
       description: ['', Validators.required],
       status: ['', Validators.required]
@@ -37,17 +37,9 @@ export class ScheduleMaintenanceComponent implements OnInit {
   }
 
   dateValidator(control: any): { [key: string]: boolean } | null {
-    if (control.value) {
-      const selectedDate = new Date(control.value);
-      const today = new Date();
-  
-      // Normalize both dates to midnight for accurate comparison
-      selectedDate.setHours(0, 0, 0, 0);
-      today.setHours(0, 0, 0, 0);
-  
-      if (selectedDate < today) {
-        return { invalidDate: true };
-      }
+    const today = new Date().toISOString().split('T')[0];
+    if (control.value && control.value < today) {
+      return { invalidDate: true };
     }
     return null;
   }
