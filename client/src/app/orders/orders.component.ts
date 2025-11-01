@@ -18,7 +18,7 @@ export class OrdersComponent implements OnInit {
   status: any = '';
   statusList: string[] = [];
   showModal: boolean = false;
-  constructor(private orderService: HttpService, private router: Router) {}
+  constructor(private orderService: HttpService, private router: Router) { }
   ngOnInit(): void {
     this.getOrders();
   }
@@ -26,10 +26,6 @@ export class OrdersComponent implements OnInit {
     this.orderService.getorders().subscribe({
       next: (response) => {
         this.orderList = response;
-        // const orderStatuses = this.orderList.map(order => order.status);
-        // const equipmentStatuses = this.orderList.map(order => order.equipment?.status);
-        // this.statusList = Array.from(new Set([...orderStatuses, ...equipmentStatuses]));
-        //this.statusList = Array.from(new Set(this.orderList.map(order => order.status)));
         this.showError = false;
       },
       error: (error) => {
@@ -50,13 +46,37 @@ export class OrdersComponent implements OnInit {
     this.showModal = false;
     this.statusModel = { newStatus: null };
   }
-  update(orderId: number,statusClicked:string): void {
-    if (!this.statusModel.newStatus || this.statusModel.newStatus.trim() === '') {
+  update(orderId: number, statusClicked: string): void {
+    // if (!this.statusModel.newStatus || this.statusModel.newStatus.trim() === '') {
+    //   this.showError = true;
+    //   this.errorMessage = 'Please select a status.';
+    //   return;
+    // }
+
+    const order = this.orderList.find(o => o.id === orderId);
+
+    if (!order) {
       this.showError = true;
-      this.errorMessage = 'Please select a status.';
+      this.errorMessage = 'Order not found.';
       return;
     }
-    this.orderService.UpdateOrderStatus(orderId,statusClicked).subscribe({
+    
+    // if (!order.equipment || !order.equipment.id) {
+    //   this.showError = true;
+    //   this.errorMessage = 'Equipment information is missing for this order.';
+    //   console.error('Missing equipment or equipment.id in order:', order);
+    //   return;
+    // }
+
+    const orderDTO = {
+      id: order.id,
+      orderDate: order.orderDate,
+      quantity: order.quantity,
+      status: statusClicked,
+      equipmentId: order.equipmentId // or order.equipmentId depending on your model
+    };
+
+    this.orderService.UpdateOrderStatus(orderId, orderDTO).subscribe({
       next: (response) => {
         this.responseMessage = 'Status updated.';
         this.showMessage = true;
