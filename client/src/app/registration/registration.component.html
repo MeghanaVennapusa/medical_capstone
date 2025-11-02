@@ -58,9 +58,12 @@
       <button type="submit" class="btn btn-success btn-sm w-100 rounded-3 shadow-sm mt-2">
         Register
       </button>
-      <div *ngIf="showMessage" class="alert alert-success text-center mt-2 rounded-3 shadow-sm" role="alert">
-        ✅ You have successfully registered!
-      </div>
+<div *ngIf="showMessage && responseMessage" class="alert alert-success text-center mt-2 rounded-3 shadow-sm" role="alert">
+  {{ responseMessage }}
+</div>
+<div *ngIf="showMessage && errorMessage && !responseMessage" class="alert alert-danger text-center mt-2 rounded-3 shadow-sm" role="alert">
+  ❌ Registration failed. {{ errorMessage?.message || 'Please try again.' }}
+</div>
       <p class="mt-2 text-center small mb-0">
         Already have an account?
         <a routerLink="/login" class="text-decoration-none fw-semibold text-success">Login here</a>

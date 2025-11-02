@@ -40,7 +40,8 @@ export class RegistrationComponent
         next: (response) => {
           this.itemForm.reset();
           this.showMessage = true;
-          this.responseMessage = "Registration successful! Redirecting to login...";
+          this.responseMessage = "✅ You have successfully registered!";
+          this.errorMessage = null;
 
           setTimeout(() => {
             this.showMessage = false;
@@ -49,7 +50,7 @@ export class RegistrationComponent
         },
         error: (err) => {
           this.showMessage = true;
-          this.responseMessage = "Registration failed. Please try again.";
+          this.responseMessage = null;
           this.errorMessage = err.error;
           
         }
