@@ -1,5 +1,7 @@
     package com.wecp.medicalequipmentandtrackingsystem.controller;
 
+    import com.wecp.medicalequipmentandtrackingsystem.dto.MaintenanceUpdateDTO;
+    import com.wecp.medicalequipmentandtrackingsystem.dto.Mapper;
     import com.wecp.medicalequipmentandtrackingsystem.entitiy.Maintenance;
     import com.wecp.medicalequipmentandtrackingsystem.service.MaintenanceService;
     import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,8 @@
 
     import java.util.List;
     import java.util.Optional;
+    
+    import javax.validation.Valid;
 
     @RestController
     public class TechnicianController {
@@ -46,18 +50,13 @@
         }
 
         // Update the maintenance record with the given id and return updated record with status code 200 OK;
-        @PutMapping("/api/technician/maintenance/update/{maintenanceId}")
-        public ResponseEntity<?> updateMaintenance(@PathVariable Long maintenanceId,
-                                            @RequestBody Maintenance updatedMaintenance) {
-            if (updatedMaintenance == null) {
-                logger.warn("maintenance to be updated cannot be null!");
-                return ResponseEntity.badRequest().body("Updated maintenance data cannot be null.");
-            }
-            
-            Maintenance maintenance = maintenanceService.updateMaintenance(maintenanceId, updatedMaintenance);
-            logger.info("maintenance updated successfully!");
-            return ResponseEntity.ok(maintenance);
+    @PutMapping("/api/technician/maintenance/update/{maintenanceId}")
+public ResponseEntity<Maintenance> updateMaintenance(@PathVariable Long maintenanceId,
+                                                     @Valid @RequestBody MaintenanceUpdateDTO dto) {
+    Maintenance maintenance = maintenanceService.findById(maintenanceId);
+    Mapper.updateEntityFromDto(dto, maintenance);
+    return ResponseEntity.ok(maintenanceService.updateMaintenance(maintenanceId, maintenance));
+}
 
-    }
 
     }

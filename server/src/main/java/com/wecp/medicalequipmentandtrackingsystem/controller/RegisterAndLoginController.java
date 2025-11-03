@@ -3,6 +3,7 @@ package com.wecp.medicalequipmentandtrackingsystem.controller;
 
 import com.wecp.medicalequipmentandtrackingsystem.dto.LoginRequest;
 import com.wecp.medicalequipmentandtrackingsystem.dto.LoginResponse;
+import com.wecp.medicalequipmentandtrackingsystem.dto.Mapper;
 import com.wecp.medicalequipmentandtrackingsystem.dto.UserDTO;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.User;
 import com.wecp.medicalequipmentandtrackingsystem.jwt.JwtUtil;
@@ -36,19 +37,15 @@ public class RegisterAndLoginController {
 
     // register user and return the registered user with status code 201 created
    
-  @PostMapping("/api/user/register")
+    @PostMapping("/api/user/register")
     public ResponseEntity<User> registerUser(@Valid @RequestBody UserDTO userDTO) {
         logger.info("Registering user: {}", userDTO.getUsername());
-
-        User user = new User();
-        user.setUsername(userDTO.getUsername());
-        user.setPassword(userDTO.getPassword());
-        user.setEmail(userDTO.getEmail());
-        user.setRole(userDTO.getRole());
-
+    
+        User user = Mapper.toEntity(userDTO); 
+    
         User createdUser = userService.createUser(user);
         logger.info("User registered successfully: {}", user.getUsername());
-
+    
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
 

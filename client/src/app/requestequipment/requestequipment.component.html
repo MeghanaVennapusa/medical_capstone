@@ -32,7 +32,7 @@
             <label for="equipment" class="form-label">Equipment</label>
             <select id="equipment" class="form-control" formControlName="equipment">
               <option value="">Select Equipment</option>
-              <option *ngFor="let e of equipmentList" [value]="e">{{ e.name }}</option>
+              <option *ngFor="let e of equipmentList" [value]="e.id">{{ e.name }}</option>
             </select>
             <div *ngIf="itemForm.get('equipment')?.invalid && itemForm.get('equipment')?.touched" class="text-danger">
               Equipment is required.
@@ -54,9 +54,9 @@
         <!-- Order Date -->
         <div class="mb-3">
           <label for="orderDate" class="form-label">Order Date</label>
-          <input type="date" id="orderDate" class="form-control" formControlName="orderDate" />
+          <input type="date" id="orderDate" class="form-control" formControlName="orderDate" [min]=""/>
           <div *ngIf="itemForm.get('orderDate')?.invalid && itemForm.get('orderDate')?.touched" class="text-danger">
-            Order Date is required and must be in the future.
+            Order Date is required.
           </div>
         </div>
 

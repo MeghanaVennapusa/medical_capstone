@@ -8,15 +8,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Optional;
 
 @Service
 public class UserService implements UserDetailsService {
+
+  
+  @Autowired
+  private OtpService otpService;
 
     @Autowired
     public UserRepository userRepository;
@@ -73,4 +79,30 @@ public User getUserByUsername(String username)
     return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), Collections.emptyList());
      
     }
+
+    
+    public boolean isUserExists(String email) {
+      String normalizedEmail = email.trim().toLowerCase();
+      return userRepository.findByEmail(normalizedEmail) != null;
+  }
+    public void resetPassword(String email, String otp, String newPassword) {
+
+      
+   
+
+      String normalizedEmail = email.trim().toLowerCase();
+  
+    
+  
+      User user = userRepository.findByEmail(normalizedEmail);
+      if (user == null) {
+          throw new RuntimeException("User not found");
+      }
+      if (!otpService.validateOtp(normalizedEmail, otp)) {
+        throw new RuntimeException("Invalid OTP");
+    }
+      user.setPassword(passwordEncoder.encode(newPassword));
+      userRepository.save(user);
+      otpService.clearOtp(normalizedEmail);
+  }
 }

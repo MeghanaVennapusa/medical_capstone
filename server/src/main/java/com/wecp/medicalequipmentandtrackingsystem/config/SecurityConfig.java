@@ -52,6 +52,8 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter{
             .antMatchers("/api/hospitals/**").hasAnyAuthority("HOSPITAL")
             .antMatchers("/api/supplier/**").hasAuthority("SUPPLIER")
             .antMatchers("/api/technician/**").hasAuthority("TECHNICIAN")
+            .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+            .antMatchers("/api/send-otp", "/api/reset-password","/api/verify-otp").permitAll()
             .anyRequest().authenticated()
             .and()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
