@@ -3,7 +3,8 @@
     import com.wecp.medicalequipmentandtrackingsystem.dto.MaintenanceUpdateDTO;
     import com.wecp.medicalequipmentandtrackingsystem.dto.Mapper;
     import com.wecp.medicalequipmentandtrackingsystem.entitiy.Maintenance;
-    import com.wecp.medicalequipmentandtrackingsystem.service.MaintenanceService;
+import com.wecp.medicalequipmentandtrackingsystem.entitiy.User;
+import com.wecp.medicalequipmentandtrackingsystem.service.MaintenanceService;
     import org.springframework.beans.factory.annotation.Autowired;
     import org.springframework.http.HttpStatus;
     import org.springframework.http.ResponseEntity;
@@ -57,6 +58,10 @@ public ResponseEntity<Maintenance> updateMaintenance(@PathVariable Long maintena
     Mapper.updateEntityFromDto(dto, maintenance);
     return ResponseEntity.ok(maintenanceService.updateMaintenance(maintenanceId, maintenance));
 }
-
-
+    @GetMapping("/api/technician")
+    public ResponseEntity<Integer> getAllTechnicians() {
+        return new ResponseEntity<>(maintenanceService.getAllTechnicians(), HttpStatus.OK);
     }
+
+
+}

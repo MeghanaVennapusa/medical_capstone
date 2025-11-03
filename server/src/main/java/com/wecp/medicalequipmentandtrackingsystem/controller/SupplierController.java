@@ -1,9 +1,12 @@
 package com.wecp.medicalequipmentandtrackingsystem.controller;
 
 import com.wecp.medicalequipmentandtrackingsystem.dto.OrderDTO;
+import com.wecp.medicalequipmentandtrackingsystem.dto.UserDTO;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Equipment;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Order;
+import com.wecp.medicalequipmentandtrackingsystem.entitiy.User;
 import com.wecp.medicalequipmentandtrackingsystem.repository.EquipmentRepository;
+import com.wecp.medicalequipmentandtrackingsystem.repository.UserRepository;
 import com.wecp.medicalequipmentandtrackingsystem.service.OrderService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +27,9 @@ public class SupplierController {
 
     @Autowired
     private EquipmentRepository equipmentRepository;
+
+    @Autowired 
+    private UserRepository userRepository;
 
     private final OrderService orderService;
 
@@ -48,6 +54,10 @@ public class SupplierController {
             log.error("Error fetching orders", e);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+    @GetMapping("/api/supplier")
+    public ResponseEntity<Integer> getAllSuppliers() {
+        return new ResponseEntity<>(orderService.getAllSuppliers(), HttpStatus.OK);
     }
 
     @PutMapping("/api/supplier/order/update/{orderId}")

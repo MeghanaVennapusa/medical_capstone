@@ -96,6 +96,12 @@ resetPassword(data: { email: string; otp: string; newPassword: string }): Observ
   requestEquipment(equipmentId:number, data: any){
     return this.http.post<any>(`${this.serverName}/api/hospital/order?equipmentId=${equipmentId}`, data);
   }
+  getSuppliers(): Observable<number> {
+    return this.http.get<number>(`${this.serverName}/api/supplier`);
+  }
+  getTechnicians(): Observable<number> {
+    return this.http.get<number>(`${this.serverName}/api/technician`);
+  }
   
 }
  

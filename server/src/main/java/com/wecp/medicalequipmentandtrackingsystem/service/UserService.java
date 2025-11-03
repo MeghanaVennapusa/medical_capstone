@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -105,4 +106,8 @@ public User getUserByUsername(String username)
       userRepository.save(user);
       otpService.clearOtp(normalizedEmail);
   }
+  public List<User> getAllUsers() {
+    return userRepository.findAll();
+  }
+
 }

@@ -1,9 +1,11 @@
 package com.wecp.medicalequipmentandtrackingsystem.service;
 
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Maintenance;
+import com.wecp.medicalequipmentandtrackingsystem.entitiy.User;
 import com.wecp.medicalequipmentandtrackingsystem.exceptions.ResourceNotFoundException;
 import com.wecp.medicalequipmentandtrackingsystem.repository.EquipmentRepository;
 import com.wecp.medicalequipmentandtrackingsystem.repository.MaintenanceRepository;
+import com.wecp.medicalequipmentandtrackingsystem.repository.UserRepository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,9 +17,11 @@ import java.util.List;
 public class MaintenanceService {
 
     @Autowired
-    MaintenanceRepository maintenanceRepository;
+    private MaintenanceRepository maintenanceRepository;
     @Autowired
-    EquipmentRepository equipmentRepository;
+    private EquipmentRepository equipmentRepository;
+    @Autowired
+    private  UserRepository userRepository;
 
     private static final Logger logger = LoggerFactory.getLogger(MaintenanceService.class);
 
@@ -74,5 +78,18 @@ public class MaintenanceService {
                 logger.error("Maintenance not found with ID: {}", maintenanceId);
                 return new ResourceNotFoundException("Maintenance not found with ID: " + maintenanceId);
             });
+    }
+    public Integer getAllTechnicians()
+    {
+        Integer count=0;
+        List<User> users = userRepository.findAll();
+            for (User user : users) {
+                if("TECHNICIAN".equals(user.getRole()))
+                {
+                    count=count+1;
+                }
+            }
+            return count;
+            
     }
 }

@@ -5,8 +5,11 @@ import com.wecp.medicalequipmentandtrackingsystem.entitiy.Equipment;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Hospital;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Maintenance;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Order;
+import com.wecp.medicalequipmentandtrackingsystem.entitiy.User;
 import com.wecp.medicalequipmentandtrackingsystem.repository.EquipmentRepository;
 import com.wecp.medicalequipmentandtrackingsystem.repository.OrderRepository;
+import com.wecp.medicalequipmentandtrackingsystem.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.jaxb.SpringDataJaxb.OrderDto;
 import org.springframework.stereotype.Service;
@@ -19,10 +22,11 @@ import java.util.List;
 public class OrderService {
 
     @Autowired
-    OrderRepository orderRepository;
+    private OrderRepository orderRepository;
     @Autowired
-    EquipmentRepository equipmentRepository;
-
+    private EquipmentRepository equipmentRepository;
+    @Autowired
+    private UserRepository userRepository;
     // Constructor DI
     public OrderService(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
@@ -74,6 +78,17 @@ public class OrderService {
         }
 
         return dto;
+    }
+    public Integer getAllSuppliers()
+    {
+        Integer count=0;
+        List<User> users = userRepository.findAll();
+
+            for (User user : users) {
+                if("SUPPLIER".equals(user.getRole()))
+                    count++;
+            }
+            return count;
     }
 
 }
