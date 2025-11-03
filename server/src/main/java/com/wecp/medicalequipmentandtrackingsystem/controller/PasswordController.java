@@ -32,6 +32,14 @@ public class PasswordController {
 
   @PostMapping("/send-otp")
 public ResponseEntity<Map<String, String>> sendOtp(@RequestBody OtpRequest request) {
+
+    String normalizedEmail = request.getEmail().trim().toLowerCase();
+        
+    if (!userService.isUserExists(normalizedEmail)) {
+      Map<String, String> error = new HashMap<>();
+      error.put("message", "Email not registered");
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+  }
     String otp = otpService.generateOtp(request.getEmail());
     emailService.sendOtpEmail(request.getEmail(), otp);
 
@@ -44,6 +52,8 @@ public ResponseEntity<Map<String, String>> sendOtp(@RequestBody OtpRequest reque
 @PostMapping("/reset-password")
 public ResponseEntity<Map<String, String>> resetPassword(@RequestBody ResetPasswordRequest request) {
     try {
+       
+
         userService.resetPassword(request.getEmail(), request.getOtp(), request.getNewPassword());
 
         Map<String, String> response = new HashMap<>();
@@ -54,6 +64,13 @@ public ResponseEntity<Map<String, String>> resetPassword(@RequestBody ResetPassw
         error.put("message", e.getMessage());
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
     }
+}
+@PostMapping("/verify-otp")
+public ResponseEntity<Map<String, String>> validateOtp(@RequestBody ResetPasswordRequest request) {
+    if (!otpService.validateOtp(request.getEmail(), request.getOtp())) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("message", "Invalid OTP"));
+    }
+    return ResponseEntity.ok(Map.of("message", "OTP validated successfully"));
 }
 
 }

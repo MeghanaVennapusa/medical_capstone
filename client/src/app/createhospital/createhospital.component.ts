@@ -38,8 +38,8 @@ export class CreatehospitalComponent implements OnInit {
  
   ngOnInit(): void {
     this.itemForm = this.itemFb.group({
-      name: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)]],
-      location: ['', [Validators.required]]
+      name: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/),Validators.minLength(3)]],
+      location: ['', [Validators.required,Validators.minLength(3)]]
     });
  
     this.getHospital();
@@ -53,7 +53,7 @@ export class CreatehospitalComponent implements OnInit {
           setTimeout(() => {
             this.itemForm.reset();
             this.responseMessage = "";
-          }, 3000);
+          }, 1500);
           this.getHospital();
         },
         error: () => {
@@ -64,11 +64,16 @@ export class CreatehospitalComponent implements OnInit {
             this.errorMessage = "";
             this.responseMessage = "";
             this.showError = false;
-          }, 3000);
+          }, 1500);
         }
       });
     }
   }
+  openModal() {
+    this.showEquipmentForm = true;
+    document.body.classList.add('modal-open');
+  }
+  
  
   getHospital() {
     this.httpService.getHospital().subscribe({

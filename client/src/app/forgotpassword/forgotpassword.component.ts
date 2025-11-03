@@ -14,6 +14,9 @@ export class ForgotpasswordComponent implements OnInit {
     otpSent = false;
   successMessage: any;
   errorMessage: any;
+  loading= false;
+  otpError=false;
+  MailError:any;
   
     constructor(private fb: FormBuilder, private httpService: HttpService, private router: Router) {}
   
@@ -24,17 +27,57 @@ export class ForgotpasswordComponent implements OnInit {
   
       this.resetForm = this.fb.group({
         otp: ['', Validators.required],
-        newPassword: ['', Validators.required]
+        newPassword : ['',[Validators.required,Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@$%&*?])[A-Za-z\d!@$%&*?]{8,}$/)]],
       });
     }
-  
+    get f(){
+      return this.resetForm.controls;
+     }
     sendOtp(): void {
       const email = this.forgotForm.value.email;
-      this.httpService.sendOtp(email).subscribe(() => {
-        this.otpSent = true;
+    
+      this.httpService.sendOtp(email).subscribe({
+        next: () => {
+          this.otpSent = true;
+  
+          this.loading = false;
+          this.MailError=null;
+        },
+        error: (err) => {
+          this.otpSent = false;
+          this.successMessage = null;
+          this.loading = false;
+      
+          this.MailError=err.MailError||'Email not registered';
+          
+  setTimeout(() => {
+    this.errorMessage = null;
+  }, 2000);
+
+        }
       });
     }
-  
+    
+    otpValidated = false;
+   
+
+    validateOtp(): void {
+      const email = this.forgotForm.value.email;
+      const otp = this.resetForm.value.otp;
+    
+      this.httpService.verifyOtp(email, otp).subscribe({
+        next: () => {
+          this.otpValidated = true;
+          this.errorMessage = null;
+        },
+        error: (err) => {
+          this.otpValidated = false;
+          this.errorMessage = err.error.message || 'Invalid OTP';
+          setTimeout(() => this.errorMessage = null, 2000);
+        }
+      });
+    }
+         
    
 resetPassword(): void {
   const email = this.forgotForm.value.email;
@@ -49,9 +92,15 @@ resetPassword(): void {
         this.router.navigate(['/login']);
       }, 2000);
     },
-    error: (err) => {
-      this.errorMessage = err.error.message || 'Failed to reset password';
-    }
+   
+// error: (err) => {
+//   if (err.error.message === 'Invalid OTP') {
+//     this.errorMessage = 'The OTP you entered is incorrect. Please try again.';
+//   } else {
+//     this.errorMessage = err.error.message || 'Failed to reset password';
+//   }
+// }
+
   });
 }
 }

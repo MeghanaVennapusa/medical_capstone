@@ -9,7 +9,6 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./orders.component.scss']
 })
 export class OrdersComponent implements OnInit {
-
   showError: boolean = false;
   errorMessage: any;
   showMessage: any;

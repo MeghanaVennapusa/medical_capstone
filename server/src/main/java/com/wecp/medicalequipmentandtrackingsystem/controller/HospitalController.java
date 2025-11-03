@@ -3,6 +3,7 @@ package com.wecp.medicalequipmentandtrackingsystem.controller;
 import com.wecp.medicalequipmentandtrackingsystem.dto.EquipmentDTO;
 import com.wecp.medicalequipmentandtrackingsystem.dto.HospitalDTO;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Equipment;
+import com.wecp.medicalequipmentandtrackingsystem.entitiy.Hospital;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Maintenance;
 import com.wecp.medicalequipmentandtrackingsystem.dto.MaintenanceScheduleDTO;
 import com.wecp.medicalequipmentandtrackingsystem.dto.Mapper;

@@ -81,18 +81,26 @@ public User getUserByUsername(String username)
     }
 
     
+    public boolean isUserExists(String email) {
+      String normalizedEmail = email.trim().toLowerCase();
+      return userRepository.findByEmail(normalizedEmail) != null;
+  }
     public void resetPassword(String email, String otp, String newPassword) {
+
+      
+   
+
       String normalizedEmail = email.trim().toLowerCase();
   
-      if (!otpService.validateOtp(normalizedEmail, otp)) {
-          throw new RuntimeException("Invalid OTP");
-      }
+    
   
       User user = userRepository.findByEmail(normalizedEmail);
       if (user == null) {
           throw new RuntimeException("User not found");
       }
-  
+      if (!otpService.validateOtp(normalizedEmail, otp)) {
+        throw new RuntimeException("Invalid OTP");
+    }
       user.setPassword(passwordEncoder.encode(newPassword));
       userRepository.save(user);
       otpService.clearOtp(normalizedEmail);

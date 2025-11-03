@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 POST http://localhost:5000/api/user/register
 Content-Type: application/json
@@ -9,10 +9,7 @@ Content-Type: application/json
   "email": "hospital@example.com",
   "role": "HOSPITAL"
 }
-=======
->>>>>>> origin/shobith
-=======
->>>>>>> origin/shreyas
+
 # POST http://localhost:5000/api/user/register
 # Content-Type: application/json
 
@@ -23,10 +20,6 @@ Content-Type: application/json
 #   "role": "HOSPITAL"
 # }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/shreyas
 # POST http://localhost:5000/api/user/register
 # Content-Type: application/json
 
