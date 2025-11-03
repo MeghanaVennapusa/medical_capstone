@@ -12,8 +12,10 @@ import com.wecp.medicalequipmentandtrackingsystem.service.EquipmentService;
 import com.wecp.medicalequipmentandtrackingsystem.service.HospitalService;
 import com.wecp.medicalequipmentandtrackingsystem.service.MaintenanceService;
 import com.wecp.medicalequipmentandtrackingsystem.service.OrderService;
+import com.wecp.medicalequipmentandtrackingsystem.utility.EquipmentMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,16 +32,19 @@ public class HospitalController {
     private MaintenanceService maintenanceService;
     private EquipmentService equipmentService;
     private OrderService orderService;
-    //Instantiating the Logger Object to use for Logging
+    private EquipmentMapper equipmentMapper;
     private static final Logger logger = LoggerFactory.getLogger(HospitalController.class);
 
     public HospitalController(HospitalService hospitalService, MaintenanceService maintenanceService,
-            OrderService orderService , EquipmentService equipmentService) {
+            OrderService orderService , EquipmentService equipmentService, EquipmentMapper equipmentMapper) {
         this.hospitalService = hospitalService;
         this.maintenanceService = maintenanceService;
         this.orderService = orderService;
         this.equipmentService = equipmentService;
+        this.equipmentMapper = equipmentMapper;
     }
+
+    
 
     // create hospital and return the created hospital with status code 201 =
     // CREATED;
@@ -82,8 +87,8 @@ public class HospitalController {
         String requestId = UUID.randomUUID().toString();
         logger.info("[{}] Request to add equipment: {}", requestId, equipmentDTO.getName());
 
-        Equipment equipment = mapToEntity(equipmentDTO);
-        Equipment savedEquipment = hospitalService.addEquipment(hospitalId, equipment);
+        Equipment equipment = equipmentMapper.mapToEntity(equipmentDTO);
+        Equipment savedEquipment = equipmentService.createEquipment(hospitalId, equipment);
 
         logger.info("[{}] Equipment '{}' added successfully for hospital ID: {}",
                 requestId, equipmentDTO.getName(), hospitalId);
@@ -92,19 +97,7 @@ public class HospitalController {
 
     }
 
-    private Equipment mapToEntity(EquipmentDTO equipmentDTO) {
-        Equipment equipment = new Equipment();
-        equipment.setName(equipmentDTO.getName());
-        equipment.setDescription(equipmentDTO.getDescription());
-        Hospital hospital = new Hospital();
-
-        hospital.setId(equipmentDTO.getHospitalId());
-
-        equipment.setHospital(hospital);
-
-        return equipment;
-
-    }
+  
 
     // return all equipments of hospital with response code = 200 OK
     @GetMapping("/api/hospital/equipment/{hospitalId}")
@@ -113,7 +106,7 @@ public class HospitalController {
         String requestId = UUID.randomUUID().toString();
         logger.info("[{}] Fetching all equipments for hospital ID: {}", requestId, hospitalId);
 
-        List<Equipment> equipments = hospitalService.getAllEquipmentsById(hospitalId);
+        List<Equipment> equipments = equipmentService.getEquipmentsByHospitalId(hospitalId);
         logger.info("[{}] Retrieved {} equipments for hospital ID: {}", 
                     requestId, equipments.size(), hospitalId);
 
@@ -124,17 +117,9 @@ public class HospitalController {
     // with status code 201 = CREATED;
     @PostMapping("/api/hospital/maintenance/schedule")
     public ResponseEntity<Maintenance> scheduleMaintenance(@Valid @RequestBody MaintenanceScheduleDTO dto) {
-
         Equipment equipment = equipmentService.getEquipmentById(dto.getEquipmentId());
-        logger.info("Fetched equipment details for ID: {}", dto.getEquipmentId());
-
         Maintenance maintenance = Mapper.mapToEntity(dto, equipment);
-        
-        Maintenance savedMaintenance = maintenanceService.createMaintenance(equipment.getId(), maintenance);
-        logger.info("Maintenance scheduled successfully with ID: {}", savedMaintenance.getId());
-        
-        return new ResponseEntity<>(savedMaintenance, HttpStatus.CREATED);
-
+        return new ResponseEntity<>(maintenanceService.createMaintenance(equipment.getId(), maintenance), HttpStatus.CREATED);
     }
 
     // place order for the equipment and return the placed order with status code

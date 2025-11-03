@@ -22,7 +22,8 @@ import { MaintenanceComponent } from './maintenance/maintenance.component';
 import { OrdersComponent } from './orders/orders.component';
 import { AuthInterceptor } from './auth.interceptors';
 import { PagenotfoundComponent } from './utilities/pagenotfound/pagenotfound.component';
-
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -30,11 +31,14 @@ import { PagenotfoundComponent } from './utilities/pagenotfound/pagenotfound.com
     LoginComponent,
       RegistrationComponent,
       DashbaordComponent,
-  CreatehospitalComponent,
+  
+    
+      CreatehospitalComponent,
       ScheduleMaintenanceComponent,
       RequestequipmentComponent,
       MaintenanceComponent,
       OrdersComponent,
+      ForgotpasswordComponent,
       PagenotfoundComponent
   ],
   imports: [
@@ -42,7 +46,8 @@ import { PagenotfoundComponent } from './utilities/pagenotfound/pagenotfound.com
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule 
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [HttpService,HttpClientModule,
     

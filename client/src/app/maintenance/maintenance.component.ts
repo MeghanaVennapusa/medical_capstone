@@ -62,9 +62,8 @@ export class MaintenanceComponent implements OnInit {
       },
       error: () => {
         this.showError = true;
-        this.errorMessage = 'Failed to load maintenance records';
-      }
-    });
+  }}
+);
   }
 
   filterMaintenance(): void {

@@ -19,7 +19,7 @@ export class RegistrationComponent
   responseMessage: any; 
     constructor(private fb:FormBuilder, private httpService: HttpService, private router:Router){
       this.itemForm = this.fb.group({
-        username : ['',[Validators.required]],
+        username : ['',[Validators.required,Validators.pattern(/^[A-Za-z_\d]+$/)]],
         email : ['',[Validators.required,Validators.email]],
         password : ['',[Validators.required,Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@$%&*?])[A-Za-z\d!@$%&*?]{8,}$/)]],
         role: ['',[Validators.required]]

@@ -1,5 +1,9 @@
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+
+<nav class="navbar navbar-expand-lg px-3" style="
+  background: linear-gradient(to right, #88f2b6, #8ebaf4);
+  /* color: #198754; */
+">
   <a class="navbar-brand" href="#">Medical E&T System</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -26,7 +30,7 @@
       </li>
     </ul>
  
-    <!-- Login/Logout buttons -->
+  
     <ul class="navbar-nav">
       <li *ngIf="!IsLoggin" class="nav-item">
         <a class="nav-link" [routerLink]="['/login']">Login</a>
@@ -37,12 +41,7 @@
     </ul>
   </div>
 </nav>
+<router-outlet></router-outlet>
 
-<body  >
-  <div class="container mt-4 mx-5">
-    <router-outlet>    
-    </router-outlet>
-  </div>
 
-</body>
 

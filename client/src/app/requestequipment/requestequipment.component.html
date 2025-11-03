@@ -54,9 +54,9 @@
         <!-- Order Date -->
         <div class="mb-3">
           <label for="orderDate" class="form-label">Order Date</label>
-          <input type="date" id="orderDate" class="form-control" formControlName="orderDate" />
+          <input type="date" id="orderDate" class="form-control" formControlName="orderDate" [min]=""/>
           <div *ngIf="itemForm.get('orderDate')?.invalid && itemForm.get('orderDate')?.touched" class="text-danger">
-            Order Date is required and must be in the future.
+            Order Date is required.
           </div>
         </div>
 

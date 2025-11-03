@@ -2,9 +2,11 @@ package com.wecp.medicalequipmentandtrackingsystem.dto;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.wecp.medicalequipmentandtrackingsystem.entitiy.Hospital;
+
 import lombok.Getter;
 import lombok.Setter;
-
 @Getter
 @Setter
 public class EquipmentDTO {
@@ -15,8 +17,7 @@ public class EquipmentDTO {
 
     @Size(max = 200, message = "Description can be up to 200 characters")
     private String description;
-
-    @NotNull(message = "Hospital ID is required")
+    
     private Long hospitalId;
 
     

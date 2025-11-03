@@ -13,6 +13,7 @@ import { ScheduleMaintenanceComponent } from './schedule-maintenance/schedule-ma
 import { RequestequipmentComponent } from './requestequipment/requestequipment.component';
 import { MaintenanceComponent } from './maintenance/maintenance.component';
 import { OrdersComponent } from './orders/orders.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { PagenotfoundComponent } from './utilities/pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
@@ -26,6 +27,8 @@ const routes: Routes = [
   { path: 'maintenance', component: MaintenanceComponent },  
   { path: 'orders', component: OrdersComponent },  
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'forgot-password', component: ForgotpasswordComponent },
+
   { path: '**', component : PagenotfoundComponent },
 ];
 

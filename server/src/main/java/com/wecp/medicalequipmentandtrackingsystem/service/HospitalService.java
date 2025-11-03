@@ -4,7 +4,7 @@ package com.wecp.medicalequipmentandtrackingsystem.service;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import com.wecp.medicalequipmentandtrackingsystem.dto.EquipmentDTO;
 import com.wecp.medicalequipmentandtrackingsystem.dto.HospitalDTO;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Equipment;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Hospital;
