@@ -111,7 +111,7 @@ export class CreatehospitalComponent implements OnInit {
           setTimeout(() => {
             this.showEquipmentForm = false;
             this.showMessage = '';
-          }, 3000);
+          }, 1500);
         },
         error: () => {
           this.showError = true;
@@ -119,7 +119,7 @@ export class CreatehospitalComponent implements OnInit {
           setTimeout(() => {
             this.showEquipmentForm = false;
             this.showError = false;
-          }, 3000);
+          }, 1500);
         }
       });
     }

@@ -37,7 +37,7 @@
 
         <tbody>
           <tr *ngIf="paginatedMaintenance.length === 0">
-            <td colspan="7" class="text-center text-light py-3">No records found</td>
+            <td colspan="7" class="text-center py-3"  >No records found</td>
           </tr>
 
           <tr *ngFor="let maintenance of paginatedMaintenance; let i = index">
@@ -130,6 +130,7 @@
                 Description is required.
               </div>
             </div>
+
             <div class="mb-3">
               <label>Status</label>
               <select class="form-control" formControlName="status">

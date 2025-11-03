@@ -15,13 +15,27 @@
       <!-- Hospital and Quantity -->
       <div class="row mb-3">
         <div class="col-md-6 mb-3 mb-md-0">
-          <label for="hospital" class="form-label">Hospitals</label>
-          <select id="hospital" class="form-control" formControlName="hospital"
-                  (change)="onHospitalSelect(itemForm.get('hospital')?.value)">
-            <option value="">Select Hospital</option>
-            <option *ngFor="let h of hospitalList" [value]="h.name">{{ h.name }}</option>
+          <label class="form-label">Hospitals</label>
+          <select
+            class="form-control form-select"
+            formControlName="hospitalId"
+            (change)="onHospitalSelect()"
+          >
+            <option value="">Please Choose</option>
+            <option
+              *ngFor="let hospital of hospitalList"
+              [value]="hospital.id"
+            >
+              {{ hospital.name }} - {{ hospital.location }}
+            </option>
           </select>
-          <div *ngIf="itemForm.get('hospital')?.invalid && itemForm.get('hospital')?.touched" class="text-danger small mt-1">
+          <div
+            *ngIf="
+              itemForm.get('hospitalId')?.touched &&
+              itemForm.get('hospitalId')?.errors?.['required']
+            "
+            class="text-danger"
+          >
             Hospital is required.
           </div>
         </div>

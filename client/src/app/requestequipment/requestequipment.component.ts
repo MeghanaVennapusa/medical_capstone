@@ -23,7 +23,7 @@ export class RequestequipmentComponent implements OnInit {
  
   ngOnInit(): void {
     this.itemForm = this.fb.group({
-      hospital: ['', Validators.required],
+      hospitalId: ['', Validators.required],
       quantity: [null, [Validators.required, Validators.min(1)]],
       equipment: ['', Validators.required],
       status: ['', Validators.required],
@@ -43,7 +43,7 @@ export class RequestequipmentComponent implements OnInit {
         setTimeout(() => {
           this.showError = true;
           this.errorMessage = 'Error loading hospital details';
-        }, 2000); // Delay of 2 seconds
+        }, 1500); // Delay of 2 seconds
       }
     });
   }
@@ -61,21 +61,17 @@ export class RequestequipmentComponent implements OnInit {
     return null;
   }
  
-  onHospitalSelect(hospital: string): void {
-    // Example logic: Load equipment based on hospital
-    console.log('Selected Hospital:', hospital);
-    this.httpService.getEquipmentsByHospitalName(hospital).subscribe({
-      next: (response: any[]) => {
-        this.equipmentList = response;
-      },
-      error: (err: any) => {
-        console.error(err);
-        setTimeout(() => {
+  onHospitalSelect(): void {
+    const hospitalId = this.itemForm.get('hospitalId')?.value;
+    if (hospitalId) {
+      this.httpService.getEquipmentByHospital(hospitalId).subscribe({
+        next: (data) => this.equipmentList = data,
+        error: () => {
           this.showError = true;
-          this.errorMessage = 'Error loading equipment list';
-        }, 1500); // Delay of 1.5 seconds
-      }
-    });
+          this.errorMessage = 'Failed to load equipment';
+        }
+      });
+    }
   }
  
   // onHospitalSelect(event: Event): void {
@@ -115,7 +111,7 @@ export class RequestequipmentComponent implements OnInit {
           this.showMessage = true;
           this.responseMessage = 'Equipment request submitted successfully!';          
           this.itemForm.reset({
-            hospital: '',
+            hospitalId: '',
             equipment: '',
             quantity: '',
             status: '',
@@ -125,7 +121,7 @@ export class RequestequipmentComponent implements OnInit {
             this.showMessage = false;
             this.responseMessage = '';
             this.router.navigate(['/requestequipment']);
-          }, 2000);
+          }, 1500);
  
         },
         error: (err) => {
