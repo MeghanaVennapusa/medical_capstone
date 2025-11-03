@@ -20,12 +20,10 @@ export class CreatehospitalComponent implements OnInit {
   showMessage: string = '';
  
   // Search and Sort
-  searchName: string = '';
-  searchLocation: string = '';
+  searchQuery: string = '';
   sortField: string = '';
   sortDirection: 'asc' | 'desc' = 'asc';
  
-  // Pagination
   currentPage: number = 1;
   itemsPerPage: number = 5;
  
@@ -38,8 +36,8 @@ export class CreatehospitalComponent implements OnInit {
  
   ngOnInit(): void {
     this.itemForm = this.itemFb.group({
-      name: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/),Validators.minLength(3)]],
-      location: ['', [Validators.required,Validators.minLength(3)]]
+      name: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/), Validators.minLength(3)]],
+      location: ['', [Validators.required, Validators.minLength(3)]]
     });
  
     this.getHospital();
@@ -69,11 +67,6 @@ export class CreatehospitalComponent implements OnInit {
       });
     }
   }
-  openModal() {
-    this.showEquipmentForm = true;
-    document.body.classList.add('modal-open');
-  }
-  
  
   getHospital() {
     this.httpService.getHospital().subscribe({
@@ -144,9 +137,11 @@ export class CreatehospitalComponent implements OnInit {
   }
  
   get filteredHospitals() {
+    if (!this.searchQuery) return this.hospitalList;
+    const query = this.searchQuery.toLowerCase();
     return this.hospitalList.filter(hospital =>
-      hospital.name.toLowerCase().includes(this.searchName.toLowerCase()) &&
-      hospital.location.toLowerCase().includes(this.searchLocation.toLowerCase())
+      hospital.name.toLowerCase().includes(query) ||
+      hospital.location.toLowerCase().includes(query)
     );
   }
  

@@ -20758,3 +20758,18 @@ Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionExcep
 2025-11-03 18:28:41.869  INFO 6771 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 5000 (http) with context path ''
 2025-11-03 18:28:41.872  INFO 6771 --- [restartedMain] calEquipmentAndTrackingSystemApplication : Started MedicalEquipmentAndTrackingSystemApplication in 0.695 seconds (JVM running for 6996.188)
 2025-11-03 18:28:41.872  INFO 6771 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-11-03 18:34:41.581  INFO 6771 --- [http-nio-0.0.0.0-5000-exec-1] o.a.c.c.C.[Tomcat-83].[localhost].[/]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-03 18:34:41.582  INFO 6771 --- [http-nio-0.0.0.0-5000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-03 18:34:41.583  INFO 6771 --- [http-nio-0.0.0.0-5000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-11-03 18:34:41.651  INFO 6771 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.controller.SupplierController      : Fetching all orders
+2025-11-03 18:34:41.653  INFO 6771 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 18:34:41.663  INFO 6771 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 18:34:41.669  INFO 6771 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : Fetched 1 maintenance records
+2025-11-03 18:34:41.669  INFO 6771 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 18:34:41.679  INFO 6771 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.controller.HospitalController      : Fetched 3 hospitals
+2025-11-03 18:34:47.297  INFO 6771 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 18:34:47.300  INFO 6771 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.controller.HospitalController      : Fetched 3 hospitals
+2025-11-03 18:35:04.770  INFO 6771 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.controller.HospitalController      : Creating hospital: hospitalnew
+2025-11-03 18:35:04.781  INFO 6771 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.controller.HospitalController      : Hospital created successfully with ID: 4
+2025-11-03 18:35:04.896  INFO 6771 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 18:35:04.899  INFO 6771 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.controller.HospitalController      : Fetched 4 hospitals
