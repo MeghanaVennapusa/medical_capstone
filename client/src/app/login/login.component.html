@@ -1,1 +1,187 @@
-//todo: complete missing code..
+<div class="vh-100" style="position: relative; overflow: hidden;">
+
+  <!-- Background Blur Image -->
+  <div style="
+
+  position: absolute;
+
+  top: 0; left: 0;
+
+  width: 100%; height: 100%;
+
+  background-image: url('assets/equipment2.jpg');
+
+  background-size: cover;
+
+  background-position: center;
+
+  filter: blur(8px);
+
+  z-index: 0;
+
+"></div>
+
+  <div style="
+
+    position: absolute;
+
+    top: 0; left: 0;
+
+    width: 100%; height: 100%;
+
+    background-image: url('assets/images/equipment2.jpg');
+
+    background-size: cover;
+
+    background-position: center;
+
+    filter: blur(8px);
+
+    z-index: 0;
+
+  "></div>
+
+  <!-- Foreground Container -->
+
+  <div class="container h-100 position-relative" style="z-index: 1;">
+
+    <div class="row d-flex justify-content-center align-items-center h-100">
+
+      <div class="col-lg-21 col-xl-11">
+
+        <div class="card shadow-lg border-0 rounded-4 p-4" style="background: rgba(255, 255, 255, 0.85);">
+
+          <div class="card-body p-md-5">
+
+            <div class="row justify-content-center align-items-center">
+
+              <!-- Login Form Section -->
+
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                
+
+                <!-- Logo and Title -->
+
+                <div class="text-center mb-2 mt-1">
+
+                  <img src="assets/image.png" alt="MediLink Logo" class="mb-2" style="width: 60px; height: 60px;">
+
+                  <h4 class="text-success fw-bold" style="font-size: 1.5rem;">MediLink</h4>
+                  <p class="text-center text-muted mb-2" style="font-size: 0.85rem;">
+
+                    Connecting Healthcare with Smart Technology
+
+                  </p><br>
+<!-- 
+                  <p class="text-muted mb-3" style="font-size: 0.9rem;">
+
+                    Please enter your credentials to log in
+
+                  </p> -->
+
+                </div>
+
+                <!-- Login Form -->
+
+                <form [formGroup]="itemForm" (ngSubmit)="onSubmit()" class="mx-1 mx-md-4">
+
+                  <!-- Username -->
+
+                  <div class="mb-3">
+
+                    <label class="form-label fw-semibold">Username <span class="text-danger">*</span></label>
+
+                    <input type="text" class="form-control form-control-sm" formControlName="username" placeholder="Enter username">
+
+                    <div *ngIf="itemForm.get('username')?.invalid && itemForm.get('username')?.touched" class="text-danger small mt-1">
+
+                      Username is required.
+
+                    </div>
+
+                  </div>
+
+                  <!-- Password -->
+
+                  <div class="mb-3">
+
+                    <label class="form-label fw-semibold">Password <span class="text-danger">*</span></label>
+
+                    <input type="password" class="form-control form-control-sm" formControlName="password" placeholder="Enter password">
+
+                    <div *ngIf="itemForm.get('password')?.invalid && itemForm.get('password')?.touched" class="text-danger small mt-1">
+
+                      Password is required.
+
+                    </div>
+
+                  </div>
+
+                  <!-- Submit Button -->
+
+                  <button type="submit" class="btn btn-success btn-sm w-100 rounded-3 shadow-sm mt-2"
+
+                          [disabled]="itemForm.invalid">
+
+                    Login
+
+                  </button>
+
+                  <!-- Success/Error Messages -->
+
+                  <div *ngIf="successMessage" class="alert alert-success text-center mt-3 rounded-3 shadow-sm py-2">
+
+                    ✅ Login successful!
+
+                  </div>
+
+                  <div *ngIf="errorMessage" class="alert alert-danger text-center mt-3 rounded-3 shadow-sm py-2">
+
+                    ❌ {{ errorMessage || 'Invalid credentials. Please try again.' }}
+
+                  </div>
+
+                  <!-- Links -->
+
+                  <p class="text-center small mt-3 mb-0">
+
+                    <a routerLink="/forgot-password" class="text-success fw-semibold text-decoration-none">Forgot Password?</a>
+
+                  </p>
+
+                  <p class="mt-2 text-center small mb-0">
+
+                    Don’t have an account?
+
+                    <a routerLink="/registration" class="text-decoration-none fw-semibold text-success">Sign up here</a>
+
+                  </p>
+
+                </form>
+
+              </div>
+
+              <!-- Image Section -->
+
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+
+                     class="img-fluid rounded-4" alt="Login Illustration">
+
+              </div>
+
+            </div> <!-- End Row -->
+
+          </div> <!-- End Card Body -->
+
+        </div> <!-- End Card -->
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

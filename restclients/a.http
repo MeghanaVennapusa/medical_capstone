@@ -1,0 +1,96 @@
+# POST http://localhost:5000/api/user/register
+# Content-Type: application/json
+
+# {
+#   "username": "Hospital",
+#   "password": "Hospital123",
+#   "email": "hospital@example.com",
+#   "role": "HOSPITAL"
+# }
+
+# POST http://localhost:5000/api/user/register
+# Content-Type: application/json
+
+# {
+#   "username": "Supplier1",
+#   "password": "Supplier123",
+#   "email": "supplier@example.com",
+#   "role": "SUPPLIER"
+# }
+
+# POST http://localhost:5000/api/user/login
+# Content-Type: application/json
+
+# {
+#     "username": "Hospital",
+#     "password": "Hospital123"
+# }
+# "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJIb3NwaXRhbCIsInJvbGUiOiJIT1NQSVRBTCIsImlhdCI6MTc2MTkxMTY2NywiZXhwIjoxNzYxOTk4MDY3fQ.gKjps9X9-94-_HX3qktMweBFOD1vd5w5DahjnBf6KMSCTc2efUNySsjIWdMtQTch5vAI_1BQVN7Ev_HV3BCzwA
+
+# POST http://localhost:5000/api/user/login
+# Content-Type: application/json
+
+# {
+#     "username": "Supplier1",
+#     "password": "Supplier123"
+# }
+
+# eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTdXBwbGllcjEiLCJyb2xlIjoiU1VQUExJRVIiLCJpYXQiOjE3NjE5MTE3MjcsImV4cCI6MTc2MTk5ODEyN30.rAOLZZvauf2MK_3ws1Kg8BRjmcd240SFfDX5GZCc3hfBTcbysrFiSdwrKsrBW9B69eQhiZtL2HTHb_g6mlG-4w
+
+# POST http://localhost:5000/api/hospital/create
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJIb3NwaXRhbCIsInJvbGUiOiJIT1NQSVRBTCIsImlhdCI6MTc2MTkxMTY2NywiZXhwIjoxNzYxOTk4MDY3fQ.gKjps9X9-94-_HX3qktMweBFOD1vd5w5DahjnBf6KMSCTc2efUNySsjIWdMtQTch5vAI_1BQVN7Ev_HV3BCzwA
+
+# {
+#   "name": "City Care Hospital",
+#   "location": "Bengaluru",
+#   "equipmentList": [
+#     {
+#       "name": "X-Ray Machine",
+#       "type": "Radiology",
+#       "status": "Operational"
+#     },
+#     {
+#       "name": "Ventilator",
+#       "type": "Respiratory",
+#       "status": "Under Maintenance"
+#     }
+#   ]
+# }
+
+# POST http://localhost:5000/api/hospital/equipment?hospitalId=1
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJIb3NwaXRhbCIsInJvbGUiOiJIT1NQSVRBTCIsImlhdCI6MTc2MTkxMTY2NywiZXhwIjoxNzYxOTk4MDY3fQ.gKjps9X9-94-_HX3qktMweBFOD1vd5w5DahjnBf6KMSCTc2efUNySsjIWdMtQTch5vAI_1BQVN7Ev_HV3BCzwA
+
+# {
+#   "name": "ECG",
+#   "description": "High-resolution MRI scanner for diagnostic imaging",
+#   "hospitalId": 1
+# }
+
+# POST http://localhost:5000/api/hospital/order?equipmentId=2
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJIb3NwaXRhbCIsInJvbGUiOiJIT1NQSVRBTCIsImlhdCI6MTc2MTkxMTY2NywiZXhwIjoxNzYxOTk4MDY3fQ.gKjps9X9-94-_HX3qktMweBFOD1vd5w5DahjnBf6KMSCTc2efUNySsjIWdMtQTch5vAI_1BQVN7Ev_HV3BCzwA
+
+# {
+#   "orderDate": "2025-10-31",
+#   "quantity": 7,
+#   "status": "PENDING",
+#   "equipmentId": 2
+# }
+
+# PUT http://localhost:5000/api/supplier/order/update/1
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTdXBwbGllcjEiLCJyb2xlIjoiU1VQUExJRVIiLCJpYXQiOjE3NjE5MTE3MjcsImV4cCI6MTc2MTk5ODEyN30.rAOLZZvauf2MK_3ws1Kg8BRjmcd240SFfDX5GZCc3hfBTcbysrFiSdwrKsrBW9B69eQhiZtL2HTHb_g6mlG-4w
+
+# {
+#   "id": 1,
+#   "orderDate": "2025-10-31",
+#   "quantity": 10,
+#   "status": "Delivered",
+#   "equipmentId": 1
+# }
+
+# GET http://localhost:5000/api/supplier/orders
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTdXBwbGllcjEiLCJyb2xlIjoiU1VQUExJRVIiLCJpYXQiOjE3NjE5ODE4NDIsImV4cCI6MTc2MjA2ODI0Mn0.EK7Pu02Q9WCu9ZwDEXK3sF27dIJrpWIkqkm4SAIevwNRxcAZ5KaJsj_0_KjntOdNY9z4jXYJKuOk8zv47ZTKOw

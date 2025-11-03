@@ -1,12 +1,31 @@
 package com.wecp.medicalequipmentandtrackingsystem.entitiy;
 
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
+import lombok.*;
 
-@Table(name = "hospital") // do not change table name
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "hospital")
 public class Hospital {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+    
+    private String location;
+
+    @OneToMany(mappedBy = "hospital", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<Equipment> equipmentList = new ArrayList<>();
    
 }

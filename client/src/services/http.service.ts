@@ -1,14 +1,101 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../environments/environment.development';
+import { environment } from '../environments/environment';
 import { AuthService } from './auth.service';
-
+ 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
-  public serverName=environment.apiUrl;
-//todo: complete missing code.. 
+  private serverName = `${environment.apiUrl}`;
+ 
+  constructor(private http: HttpClient) {}
+ 
+  
+ sendOtp(email: string): Observable<any> {
+  return this.http.post(`${this.serverName}/api/send-otp`, { email });
+}
+
+// ✅ Verify OTP
+verifyOtp(email: string, otp: string): Observable<any> {
+  return this.http.post(`${this.serverName}/api/verify-otp`, { email, otp });
+}
+
+// 🔄 Reset password
+
+resetPassword(data: { email: string; otp: string; newPassword: string }): Observable<any> {
+  return this.http.post(`${this.serverName}/api/reset-password`, data);
+}
+
+
+  register(credentials: any):Observable<any>{
+    return this.http.post<any>(`${this.serverName}/api/user/register`,credentials)
+  }
+  login(credentials: any): Observable<any> {
+    return this.http.post<any>(`${this.serverName}/api/user/login`, credentials);
+  }
+ 
+  createHospital(hospital:any) :Observable<any>
+  {
+   return this.http.post<any>(`${this.serverName}/api/hospital/create`,hospital);
+  }
+  getHospital() :Observable<any>
+  {
+    return this.http.get<any>(`${this.serverName}/api/hospitals`);
+  }
+ 
+  addEquipment(equipment: any, hospitalId: any): Observable<any> {
+    return this.http.post<any>(`${this.serverName}/api/hospital/equipment?hospitalId=${equipment.hospitalId}`, equipment);
+  }
+ 
+  // Get all maintenance records
+  getAllMaintenances(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.serverName}/api/technician/maintenance`);
+  }
+ 
+ 
+  // Update maintenance by ID
+  updateMaintenance(maintenanceId: number, maintenance: any): Observable<any> {
+    return this.http.put<any>(`${this.serverName}/api/technician/maintenance/update/${maintenanceId}`, maintenance);
+  }
+ 
+  // Optional: Get maintenance by ID (if needed later)
+  getMaintenanceById(maintenanceId: number): Observable<any> {
+    return this.http.get<any>(`${this.serverName}/api/technician/maintenance/${maintenanceId}`);
+  }
+  getAllHospitals(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.serverName}/api/hospitals`);
+  }
+ 
+  // Get equipment by hospital ID
+  getEquipmentByHospital(hospitalId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.serverName}/api/hospital/equipment/${hospitalId}`);
+  }
+ 
+  // Schedule maintenance
+  scheduleMaintenance(equipmentId : number , data: any): Observable<any> {
+    return this.http.post<any>(`${this.serverName}/api/hospital/maintenance/schedule?equipmentId=${equipmentId}`, data);
+  }
+ 
+
+  getorders():Observable<any>{
+    return this.http.get<any>(`${this.serverName}/api/supplier/orders`);
+  }
+
+  UpdateOrderStatus(orderId:number,orderDTO:any):Observable<any>{
+    return this.http.put<any>(`${this.serverName}/api/supplier/order/update/${orderId}`,orderDTO);
+  }
+
+  //get equipments by hospital
+  getEquipmentsByHospitalName(hospital:String):any{
+    return this.http.get<any[]>(`${this.serverName}/api/hospitalname/equipment/${hospital}`);
+  }
+
+  //post orders
+  requestEquipment(equipmentId:number, data: any){
+    return this.http.post<any>(`${this.serverName}/api/hospital/order?equipmentId=${equipmentId}`, data);
+  }
   
 }
+ 

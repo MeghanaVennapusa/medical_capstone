@@ -1,0 +1,157 @@
+/* Page background only for this component */
+.maintenance-wrapper {
+  height: calc(100vh - 60px); /* Adjust for navbar height */
+  padding: 20px;
+  position: relative;
+  background: url('/assets/sched.jpg') no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Segoe UI", Arial, sans-serif;
+  overflow: hidden; /* Prevent page scroll */
+}
+
+/* Glass container */
+.glass-container {
+  width: 95%;
+  max-height: calc(100vh - 100px); /* Adjust for heading + pagination */
+  backdrop-filter: blur(12px) saturate(200%);
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #f8f9fa;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Heading */
+h2 {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Search bar */
+.search-bar {
+  border-radius: 10px;
+  border: 1px solid rgba(25, 135, 84, 0.5);
+  padding: 12px;
+  font-size: 16px;
+  color: #212529;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Table container scroll */
+.table-responsive {
+  flex: 1;
+  overflow-y: auto;
+  max-height: calc(100vh - 220px); /* Adjust for header + search + pagination */
+}
+
+/* Table */
+.table {
+  color: #f1f1f1;
+  font-size: 14px;
+  border-collapse: separate;
+  border-spacing: 12px;
+  border-radius: 8px;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+}
+
+.table th {
+  background-color: rgba(25, 135, 84, 0.9);
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.table td {
+  background-color: rgba(255, 255, 255, 0.08);
+  vertical-align: middle;
+}
+
+.table tr:hover td {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Status badges */
+.status-completed {
+  background-color: #28a745 !important;
+  color: #fff !important;
+}
+
+.status-inprocess {
+  background-color: #ffc107 !important;
+  color: #212529 !important;
+}
+
+.status-initiated {
+  background-color: #6c757d !important;
+  color: #fff !important;
+}
+
+/* Buttons */
+.btn-warning {
+  background-color: #198754;
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.btn-warning:hover {
+  background-color: #157347;
+}
+
+.btn-primary {
+  background-color: #198754 !important;
+  border-color: #157347 !important;
+  font-size: 15px;
+}
+
+.btn-primary:hover {
+  background-color: #157347 !important;
+}
+
+/* Pagination */
+.page-link {
+  background-color: #198754;
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.page-item.active .page-link,
+.page-link:hover {
+  background-color: #157347;
+  color: #fff;
+}
+
+/* Modal */
+.glass-modal {
+  backdrop-filter: blur(25px);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 15px;
+}
+
+/* Input fields inside modal */
+.modal-content input,
+.modal-content select {
+  font-size: 15px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(25, 135, 84, 0.4);
+}
+
+.not-allowed {
+  cursor: not-allowed;
+}
