@@ -36,6 +36,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(UserAlreadyExists.class)
     public ResponseEntity<Map<String,String>> handleUserAlreadyExists(UserAlreadyExists e) {
         Map<String,String> error = new HashMap<>();
+        error.put("message", e.getMessage());
         return new ResponseEntity<>(error, HttpStatus.CONFLICT);
     }
 
