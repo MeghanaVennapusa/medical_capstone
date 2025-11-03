@@ -97,6 +97,7 @@
 2025-11-02 16:51:25.001  INFO 19264 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.controller.HospitalController      : Fetching all hospitals
 2025-11-02 16:51:25.004  INFO 19264 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.controller.HospitalController      : Fetched 0 hospitals
 <<<<<<< HEAD
+<<<<<<< HEAD
 2025-11-03 04:13:26.791  INFO 8129 --- [restartedMain] calEquipmentAndTrackingSystemApplication : Starting MedicalEquipmentAndTrackingSystemApplication using Java 11.0.26 on ip-172-31-30-229 with PID 8129 (/home/ubuntu/root/server/target/classes started by ubuntu in /home/ubuntu/root/server)
 2025-11-03 04:13:26.792  INFO 8129 --- [restartedMain] calEquipmentAndTrackingSystemApplication : No active profile set, falling back to 1 default profile: "default"
 2025-11-03 04:13:26.847  INFO 8129 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
@@ -1035,3 +1036,80 @@
 2025-11-03 07:58:08.174  INFO 2042 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-11-03 07:58:08.179  INFO 2042 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2025-11-03 07:58:08.192  INFO 2042 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+=======
+>>>>>>> dfe8fa37fca06d61528bce4b027dd8dd8cae2912
+2025-11-03 08:21:08.528  INFO 4218 --- [restartedMain] calEquipmentAndTrackingSystemApplication : Starting MedicalEquipmentAndTrackingSystemApplication using Java 11.0.26 on ip-172-31-30-229 with PID 4218 (/home/ubuntu/root/server/target/classes started by ubuntu in /home/ubuntu/root/server)
+2025-11-03 08:21:08.530  INFO 4218 --- [restartedMain] calEquipmentAndTrackingSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2025-11-03 08:21:08.574  INFO 4218 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-11-03 08:21:08.575  INFO 4218 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-11-03 08:21:09.137  INFO 4218 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-03 08:21:09.174  INFO 4218 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 5 JPA repository interfaces.
+2025-11-03 08:21:09.606  INFO 4218 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 5000 (http)
+2025-11-03 08:21:09.611  INFO 4218 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-03 08:21:09.612  INFO 4218 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.82]
+2025-11-03 08:21:09.648  INFO 4218 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-03 08:21:09.649  INFO 4218 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1074 ms
+2025-11-03 08:21:09.678  INFO 4218 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-03 08:21:09.867  INFO 4218 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-03 08:21:09.877  INFO 4218 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/medicalEquipmentSystemDb'
+2025-11-03 08:21:09.957  INFO 4218 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-03 08:21:09.999  INFO 4218 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2025-11-03 08:21:10.115  INFO 4218 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-11-03 08:21:10.213  INFO 4218 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2025-11-03 08:21:10.786  INFO 4218 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-11-03 08:21:10.792  INFO 4218 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-03 08:21:11.044  WARN 4218 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-03 08:21:11.354  INFO 4218 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4d9c5690, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1c934d41, org.springframework.security.web.context.SecurityContextPersistenceFilter@34e7fbd2, org.springframework.security.web.header.HeaderWriterFilter@25158176, org.springframework.web.filter.CorsFilter@506281fe, org.springframework.security.web.authentication.logout.LogoutFilter@477d4f6e, com.wecp.medicalequipmentandtrackingsystem.jwt.JwtRequestFilter@68b82751, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1029aa78, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@745ab99, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@54ba24a2, org.springframework.security.web.session.SessionManagementFilter@3503f667, org.springframework.security.web.access.ExceptionTranslationFilter@3cecfe0a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1095df03]
+2025-11-03 08:21:11.483  INFO 4218 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-11-03 08:21:11.522  INFO 4218 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 5000 (http) with context path ''
+2025-11-03 08:21:11.531  INFO 4218 --- [restartedMain] calEquipmentAndTrackingSystemApplication : Started MedicalEquipmentAndTrackingSystemApplication in 3.296 seconds (JVM running for 3.64)
+2025-11-03 08:34:00.525  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-1] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x030x010xa70x010x000x010xa30x030x03=0x010xa80x84?0x9e0xbe0xcf70x12^0xa30x130x9c0x12,0xa30xb30xb90x92h"0x1cg|0xf4b0x820x0d0xb00x88f ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:263) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.82.jar:9.0.82]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+
+2025-11-03 08:34:04.021  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-03 08:34:04.021  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-03 08:34:04.022  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-11-03 08:36:17.058  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.c.RegisterAndLoginController       : Registering user: Hospital
+2025-11-03 08:36:17.125  WARN 4218 --- [http-nio-0.0.0.0-5000-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.wecp.medicalequipmentandtrackingsystem.exceptions.UserAlreadyExists: Username already exists]
+2025-11-03 08:40:30.736  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.c.RegisterAndLoginController       : Registering user: Hospital
+2025-11-03 08:40:30.746  WARN 4218 --- [http-nio-0.0.0.0-5000-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.wecp.medicalequipmentandtrackingsystem.exceptions.UserAlreadyExists: Username already exists]
+2025-11-03 08:42:00.558  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.c.RegisterAndLoginController       : Registering user: Hospital
+2025-11-03 08:42:00.562  WARN 4218 --- [http-nio-0.0.0.0-5000-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.wecp.medicalequipmentandtrackingsystem.exceptions.UserAlreadyExists: Username already exists]
+2025-11-03 08:42:42.290  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.c.RegisterAndLoginController       : Registering user: Hospital
+2025-11-03 08:42:42.294  WARN 4218 --- [http-nio-0.0.0.0-5000-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.wecp.medicalequipmentandtrackingsystem.exceptions.UserAlreadyExists: Username already exists]
+2025-11-03 08:43:01.204  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.c.RegisterAndLoginController       : Registering user: Hospital1234
+2025-11-03 08:43:01.214  WARN 4218 --- [http-nio-0.0.0.0-5000-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.wecp.medicalequipmentandtrackingsystem.exceptions.UserAlreadyExists: Email already exists]
+2025-11-03 08:43:10.749  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.c.RegisterAndLoginController       : Registering user: Hospital1234
+2025-11-03 08:43:10.888  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.c.RegisterAndLoginController       : User registered successfully: Hospital1234
+2025-11-03 08:44:12.098  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.c.RegisterAndLoginController       : Registering user: Hospital
+2025-11-03 08:44:12.101  WARN 4218 --- [http-nio-0.0.0.0-5000-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.wecp.medicalequipmentandtrackingsystem.exceptions.UserAlreadyExists: Username already exists]
+2025-11-03 08:50:23.294  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.c.RegisterAndLoginController       : Registering user: Hospital
+2025-11-03 08:50:23.299  WARN 4218 --- [http-nio-0.0.0.0-5000-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.wecp.medicalequipmentandtrackingsystem.exceptions.UserAlreadyExists: Username already exists]
+2025-11-03 08:51:58.570  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.c.RegisterAndLoginController       : Registering user: Hospital
+2025-11-03 08:51:58.573  WARN 4218 --- [http-nio-0.0.0.0-5000-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.wecp.medicalequipmentandtrackingsystem.exceptions.UserAlreadyExists: Username already exists]
+2025-11-03 08:52:52.585  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.c.RegisterAndLoginController       : Registering user: Hospital
+2025-11-03 08:52:52.588  WARN 4218 --- [http-nio-0.0.0.0-5000-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.wecp.medicalequipmentandtrackingsystem.exceptions.UserAlreadyExists: Username already exists]
+2025-11-03 08:56:25.269  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.c.RegisterAndLoginController       : Registering user: Hospital
+2025-11-03 08:56:25.272  WARN 4218 --- [http-nio-0.0.0.0-5000-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.wecp.medicalequipmentandtrackingsystem.exceptions.UserAlreadyExists: Username already exists]
+2025-11-03 09:01:58.142  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.c.RegisterAndLoginController       : Registering user: Hospital
+2025-11-03 09:01:58.145  WARN 4218 --- [http-nio-0.0.0.0-5000-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.wecp.medicalequipmentandtrackingsystem.exceptions.UserAlreadyExists: Username already exists]
+2025-11-03 09:02:46.239  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.c.RegisterAndLoginController       : Registering user: Hospital
+2025-11-03 09:02:46.243  WARN 4218 --- [http-nio-0.0.0.0-5000-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.wecp.medicalequipmentandtrackingsystem.exceptions.UserAlreadyExists: Username already exists]
+2025-11-03 09:03:21.375  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.c.RegisterAndLoginController       : Registering user: Hospital23
+2025-11-03 09:03:21.458  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.c.RegisterAndLoginController       : User registered successfully: Hospital23
+2025-11-03 09:03:50.518  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.c.RegisterAndLoginController       : Registering user: jnjn
+2025-11-03 09:03:50.526  WARN 4218 --- [http-nio-0.0.0.0-5000-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.wecp.medicalequipmentandtrackingsystem.exceptions.UserAlreadyExists: Email already exists]
+2025-11-03 09:04:02.915  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.c.RegisterAndLoginController       : Registering user: jnjn
+2025-11-03 09:04:02.997  INFO 4218 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.c.RegisterAndLoginController       : User registered successfully: jnjn

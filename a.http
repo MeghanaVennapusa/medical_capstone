@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 POST http://localhost:5000/api/user/register
 Content-Type: application/json
 
@@ -7,6 +8,17 @@ Content-Type: application/json
   "email": "hospital@example.com",
   "role": "HOSPITAL"
 }
+=======
+# POST http://localhost:5000/api/user/register
+# Content-Type: application/json
+
+# {
+#   "username": "Hospital",
+#   "password": "Hospital123",
+#   "email": "hospital@example.com",
+#   "role": "HOSPITAL"
+# }
+>>>>>>> dfe8fa37fca06d61528bce4b027dd8dd8cae2912
 
 # POST http://localhost:5000/api/user/register
 # Content-Type: application/json
