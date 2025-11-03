@@ -12,6 +12,23 @@ export class HttpService {
  
   constructor(private http: HttpClient) {}
  
+  
+ sendOtp(email: string): Observable<any> {
+  return this.http.post(`${this.serverName}/api/send-otp`, { email });
+}
+
+// ✅ Verify OTP
+verifyOtp(email: string, otp: string): Observable<any> {
+  return this.http.post(`${this.serverName}/api/verify-otp`, { email, otp });
+}
+
+// 🔄 Reset password
+
+resetPassword(data: { email: string; otp: string; newPassword: string }): Observable<any> {
+  return this.http.post(`${this.serverName}/api/reset-password`, data);
+}
+
+
   register(credentials: any):Observable<any>{
     return this.http.post<any>(`${this.serverName}/api/user/register`,credentials)
   }

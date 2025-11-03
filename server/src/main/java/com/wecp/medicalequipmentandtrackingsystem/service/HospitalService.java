@@ -100,11 +100,6 @@ public class HospitalService {
     public List<Equipment> getAllEquipmentsByName(String name) {
         return hospitalRepository.findByName(name).getEquipmentList();
     }
-
-    public List<Equipment> getEquipmentById(Long hospitalId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getEquipmentById'");
-    }
 }
 
 

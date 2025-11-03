@@ -1,5 +1,6 @@
-
 package com.wecp.medicalequipmentandtrackingsystem.service;
+
+
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Equipment;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Hospital;
 import com.wecp.medicalequipmentandtrackingsystem.exceptions.ResourceNotFoundException;
@@ -11,6 +12,7 @@ import java.util.Optional;
 
 @Service
 public class EquipmentService {
+    
     private EquipmentRepository equipmentRepository;
     private HospitalRepository hospitalRepository;
 

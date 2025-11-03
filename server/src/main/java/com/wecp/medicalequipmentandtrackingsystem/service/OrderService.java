@@ -2,6 +2,7 @@ package com.wecp.medicalequipmentandtrackingsystem.service;
 
 import com.wecp.medicalequipmentandtrackingsystem.dto.OrderDTO;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Equipment;
+import com.wecp.medicalequipmentandtrackingsystem.entitiy.Hospital;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Maintenance;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.Order;
 import com.wecp.medicalequipmentandtrackingsystem.repository.EquipmentRepository;
@@ -57,9 +58,21 @@ public class OrderService {
         dto.setOrderDate(order.getOrderDate());
         dto.setStatus(order.getStatus());
         dto.setQuantity(order.getQuantity());
-        if (order.getEquipment() != null) {
-            dto.setEquipmentId(order.getEquipment().getId());
+        dto.setEquipmentId(order.getEquipment().getId());
+
+        Equipment equipment = order.getEquipment();
+        if (equipment != null) {
+            dto.setEquipmentName(equipment.getName());
+            dto.setEquipmentDescription(equipment.getDescription());
+
+            Hospital hospital = equipment.getHospital();
+            if (hospital != null) {
+                dto.setHospitalId(hospital.getId());
+                dto.setHospitalName(hospital.getName());
+                dto.setHospitalLocation(hospital.getLocation());
+            }
         }
+
         return dto;
     }
 

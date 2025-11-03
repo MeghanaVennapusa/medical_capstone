@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 // extend jpa repository and add method if needed
 @Repository
-public interface OrderRepository extends JpaRepository<Order , Long>{   
+public interface OrderRepository extends JpaRepository<Order, Long> {
 }

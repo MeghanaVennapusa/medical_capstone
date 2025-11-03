@@ -19,12 +19,13 @@ export class ScheduleMaintenanceComponent implements OnInit {
   showMessage: any;
   responseMessage: any;
   equipmentList: any[] = [];
+  today : string = new Date().toISOString().split('T')[0];
 
   constructor(private fb: FormBuilder, private httpService: HttpService) {
     this.itemForm = this.fb.group({
       hospitalId: ['', Validators.required],
       equipmentId: ['', Validators.required],
-      scheduledDate: ['', [Validators.required, this.dateValidator]],
+      scheduledDate: ['', [Validators.required]],
       completedDate: [{value : '' , disabled : true}],
       description: ['', Validators.required],
       status: ['', Validators.required]
@@ -35,7 +36,6 @@ export class ScheduleMaintenanceComponent implements OnInit {
     this.getHospital();
   }
 
-  // Validate date is not in the past
   dateValidator(control: any): { [key: string]: boolean } | null {
     const today = new Date().toISOString().split('T')[0];
     if (control.value && control.value < today) {

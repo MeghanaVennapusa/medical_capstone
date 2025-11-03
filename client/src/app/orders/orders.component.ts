@@ -18,6 +18,9 @@ export class OrdersComponent implements OnInit {
   status: any = '';
   statusList: string[] = [];
   showModal: boolean = false;
+  searchText: string = '';
+  page: number = 1;
+  sortAscending: boolean = true;
   constructor(private orderService: HttpService, private router: Router) { }
   ngOnInit(): void {
     this.getOrders();
@@ -26,6 +29,7 @@ export class OrdersComponent implements OnInit {
     this.orderService.getorders().subscribe({
       next: (response) => {
         this.orderList = response;
+        // console.log(this.orderList);
         this.showError = false;
       },
       error: (error) => {
@@ -60,7 +64,6 @@ export class OrdersComponent implements OnInit {
       this.errorMessage = 'Order not found.';
       return;
     }
-    
     // if (!order.equipment || !order.equipment.id) {
     //   this.showError = true;
     //   this.errorMessage = 'Equipment information is missing for this order.';
@@ -91,4 +94,21 @@ export class OrdersComponent implements OnInit {
       }
     });
   }
+
+  get filteredOrders() {
+    return this.orderList.filter(o =>
+      o.equipmentName?.toLowerCase().includes(this.searchText.toLowerCase())
+      || o.hospitalName?.toLowerCase().includes(this.searchText.toLowerCase())
+    );
+  }
+
+  sortOrderDate() {
+    this.orderList.sort((a, b) => {
+      const dateA = new Date(a.orderDate).getTime();
+      const dateB = new Date(b.orderDate).getTime();
+      return this.sortAscending ? dateA - dateB : dateB - dateA;
+    });
+    this.sortAscending = !this.sortAscending;
+  }
+
 }
