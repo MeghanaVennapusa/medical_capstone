@@ -18,6 +18,10 @@ export class RequestequipmentComponent implements OnInit {
   showMessage: any;
   responseMessage: any;
   equipmentList: any[] = [];
+<<<<<<< HEAD
+=======
+  today = new Date().toISOString().split('T')[0];
+>>>>>>> dfe8fa37fca06d61528bce4b027dd8dd8cae2912
 
   constructor(private fb: FormBuilder, private httpService: HttpService, private router:Router) {}
 
@@ -39,11 +43,17 @@ export class RequestequipmentComponent implements OnInit {
         this.hospitalList = response;
       },
       error: (err) => {
+<<<<<<< HEAD
         console.error(err);
         setTimeout(() => {
           this.showError = true;
           this.errorMessage = 'Error loading hospital details';
         }, 2000); // Delay of 2 seconds
+=======
+        this.showError = true;
+        this.errorMessage = 'Error loading hospital details';
+        console.error(err);
+>>>>>>> dfe8fa37fca06d61528bce4b027dd8dd8cae2912
       }
     });
   }
@@ -69,11 +79,17 @@ export class RequestequipmentComponent implements OnInit {
         this.equipmentList = response;
       },
       error: (err: any) => {
+<<<<<<< HEAD
         console.error(err);
         setTimeout(() => {
           this.showError = true;
           this.errorMessage = 'Error loading equipment list';
         }, 1500); // Delay of 1.5 seconds
+=======
+        this.showError = true;
+        this.errorMessage = 'Error loading in equipment list';
+        console.error(err);
+>>>>>>> dfe8fa37fca06d61528bce4b027dd8dd8cae2912
       }
     });
   }
@@ -81,6 +97,7 @@ export class RequestequipmentComponent implements OnInit {
   // onHospitalSelect(event: Event): void {
   //   const selectedHospital = (event.target as HTMLSelectElement).value;
   //   console.log('Selected Hospital:', selectedHospital);
+<<<<<<< HEAD
   
   //   // Call your logic here
   //   this.httpService.getEquipmentsByHospitalName(selectedHospital).subscribe({
@@ -109,11 +126,42 @@ export class RequestequipmentComponent implements OnInit {
   
       console.log('Submitting:', formData);
   
+=======
+  
+  //   // Call your logic here
+  //   this.httpService.getEquipmentsByHospitalName(selectedHospital).subscribe({
+  //     next: (response: any[]) => {
+  //       this.equipmentList = response;
+  //     },
+  //     error: (err: any) => {
+  //       this.showError = true;
+  //       this.errorMessage = 'Error loading equipment list';
+  //       console.error(err);
+  //     }
+  //   });
+  // }
+
+
+  onSubmit(): void {
+    if (this.itemForm.valid) {
+      const formData = {
+        //hospitalName: this.itemForm.get('hospital')?.value,
+        quantity: this.itemForm.get('quantity')?.value,
+        //equipmentId: this.itemForm.get('equipment')?.value,
+        status: this.itemForm.get('status')?.value,
+        orderDate:this.itemForm.get('orderDate')?.value
+        //orderDate: this.formatDate(this.itemForm.get('orderDate')?.value) // optional formatting
+      };
+  
+      console.log('Submitting:', formData);
+  
+>>>>>>> dfe8fa37fca06d61528bce4b027dd8dd8cae2912
       //this.httpService.requestEquipment(formData.equipmentId, formData).subscribe({
         this.httpService.requestEquipment(this.itemForm.get('equipment')?.value, formData).subscribe({
         next: () => {
           this.showMessage = true;
           this.responseMessage = 'Equipment request submitted successfully!';          
+<<<<<<< HEAD
           this.itemForm.reset({
             hospital: '',
             equipment: '',
@@ -127,11 +175,24 @@ export class RequestequipmentComponent implements OnInit {
             this.router.navigate(['/requestequipment']);
           }, 2000);
 
+=======
+         this.itemForm.reset();
+         setTimeout(() => {
+          this.showMessage = false;
+         }, 2000);
+          // this.router.navigate(['/requestequipment']);
+>>>>>>> dfe8fa37fca06d61528bce4b027dd8dd8cae2912
         },
         error: (err) => {
           console.error('Error details:', err);
           this.showError = true;
           this.errorMessage = 'Failed to request equipment';
+<<<<<<< HEAD
+=======
+          setTimeout(() => {
+            this.errorMessage = false;
+           }, 2000);
+>>>>>>> dfe8fa37fca06d61528bce4b027dd8dd8cae2912
         }
       });
     } else {
