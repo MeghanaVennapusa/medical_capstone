@@ -4000,3 +4000,95 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 2025-11-03 10:01:05.837  INFO 19261 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.controller.HospitalController      : Fetched 0 hospitals
 2025-11-03 10:03:53.322  INFO 19261 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.controller.HospitalController      : Fetching all hospitals
 2025-11-03 10:03:53.325  INFO 19261 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.controller.HospitalController      : Fetched 0 hospitals
+2025-11-03 11:09:56.275  INFO 12604 --- [restartedMain] calEquipmentAndTrackingSystemApplication : Starting MedicalEquipmentAndTrackingSystemApplication using Java 11.0.26 on ip-172-31-37-203 with PID 12604 (/home/ubuntu/root/server/target/classes started by ubuntu in /home/ubuntu/root/server)
+2025-11-03 11:09:56.279  INFO 12604 --- [restartedMain] calEquipmentAndTrackingSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2025-11-03 11:09:56.373  INFO 12604 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-11-03 11:09:56.373  INFO 12604 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-11-03 11:09:57.140  INFO 12604 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-03 11:09:57.187  INFO 12604 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41 ms. Found 5 JPA repository interfaces.
+2025-11-03 11:09:58.244  INFO 12604 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 5000 (http)
+2025-11-03 11:09:58.254  INFO 12604 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-03 11:09:58.255  INFO 12604 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.82]
+2025-11-03 11:09:58.365  INFO 12604 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-03 11:09:58.370  INFO 12604 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1996 ms
+2025-11-03 11:09:58.418  INFO 12604 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-03 11:09:58.818  INFO 12604 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-03 11:09:58.827  INFO 12604 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/medicalEquipmentSystemDb'
+2025-11-03 11:09:58.964  INFO 12604 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-03 11:09:59.082  INFO 12604 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2025-11-03 11:09:59.269  INFO 12604 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-11-03 11:09:59.418  INFO 12604 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2025-11-03 11:10:00.184  INFO 12604 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-11-03 11:10:00.194  INFO 12604 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-03 11:10:00.951  WARN 12604 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-03 11:10:01.551  INFO 12604 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@71cc959a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@709e7526, org.springframework.security.web.context.SecurityContextPersistenceFilter@67359931, org.springframework.security.web.header.HeaderWriterFilter@41db6f61, org.springframework.web.filter.CorsFilter@2a8516b7, org.springframework.security.web.authentication.logout.LogoutFilter@64c02a98, com.wecp.medicalequipmentandtrackingsystem.jwt.JwtRequestFilter@9ab5e15, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@20f75025, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@711fd88, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4df73ca7, org.springframework.security.web.session.SessionManagementFilter@3db295a1, org.springframework.security.web.access.ExceptionTranslationFilter@52c9b80a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6ad52d55]
+2025-11-03 11:10:01.697  INFO 12604 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-11-03 11:10:01.722  INFO 12604 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 5000 (http) with context path ''
+2025-11-03 11:10:01.732  INFO 12604 --- [restartedMain] calEquipmentAndTrackingSystemApplication : Started MedicalEquipmentAndTrackingSystemApplication in 5.884 seconds (JVM running for 6.614)
+2025-11-03 11:19:08.645  INFO 12604 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-03 11:19:08.665  INFO 12604 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-03 11:19:08.695  INFO 12604 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-03 12:25:18.028  INFO 8531 --- [restartedMain] calEquipmentAndTrackingSystemApplication : Starting MedicalEquipmentAndTrackingSystemApplication using Java 11.0.26 on ip-172-31-37-203 with PID 8531 (/home/ubuntu/root/server/target/classes started by ubuntu in /home/ubuntu/root/server)
+2025-11-03 12:25:18.032  INFO 8531 --- [restartedMain] calEquipmentAndTrackingSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2025-11-03 12:25:18.160  INFO 8531 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-11-03 12:25:18.161  INFO 8531 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-11-03 12:25:19.641  INFO 8531 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-03 12:25:19.708  INFO 8531 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 5 JPA repository interfaces.
+2025-11-03 12:25:20.432  INFO 8531 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 5000 (http)
+2025-11-03 12:25:20.439  INFO 8531 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-03 12:25:20.439  INFO 8531 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.82]
+2025-11-03 12:25:20.478  INFO 8531 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-03 12:25:20.478  INFO 8531 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2316 ms
+2025-11-03 12:25:20.504  INFO 8531 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-03 12:25:20.861  INFO 8531 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-03 12:25:20.876  INFO 8531 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/medicalEquipmentSystemDb'
+2025-11-03 12:25:21.101  INFO 8531 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-03 12:25:21.204  INFO 8531 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2025-11-03 12:25:21.403  INFO 8531 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-11-03 12:25:21.466  INFO 8531 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2025-11-03 12:25:22.212  INFO 8531 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-11-03 12:25:22.219  INFO 8531 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-03 12:25:22.886  WARN 8531 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-03 12:25:23.634  INFO 8531 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6a7a5ad7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5865bc34, org.springframework.security.web.context.SecurityContextPersistenceFilter@51572756, org.springframework.security.web.header.HeaderWriterFilter@7feda13e, org.springframework.web.filter.CorsFilter@77890f90, org.springframework.security.web.authentication.logout.LogoutFilter@4310d831, com.wecp.medicalequipmentandtrackingsystem.jwt.JwtRequestFilter@5857a6d8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2612b51c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@41f56e71, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5320f705, org.springframework.security.web.session.SessionManagementFilter@dd52f1f, org.springframework.security.web.access.ExceptionTranslationFilter@78f7a141, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@270b9edb]
+2025-11-03 12:25:24.158  INFO 8531 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-11-03 12:25:24.294  INFO 8531 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 5000 (http) with context path ''
+2025-11-03 12:25:24.313  INFO 8531 --- [restartedMain] calEquipmentAndTrackingSystemApplication : Started MedicalEquipmentAndTrackingSystemApplication in 6.878 seconds (JVM running for 7.374)
+2025-11-03 12:26:25.916  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-03 12:26:25.917  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-03 12:26:25.918  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-11-03 12:26:26.071  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.c.RegisterAndLoginController       : Registering user: hospital
+2025-11-03 12:26:26.227  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.c.RegisterAndLoginController       : User registered successfully: hospital
+2025-11-03 12:26:46.698  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.c.RegisterAndLoginController       : Login attempt for username: hospital
+2025-11-03 12:26:46.871  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.c.RegisterAndLoginController       : Login successful for username: hospital
+2025-11-03 12:26:47.021  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 12:26:47.029  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.controller.HospitalController      : Fetched 0 hospitals
+2025-11-03 12:26:51.559  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 12:26:51.562  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.controller.HospitalController      : Fetched 0 hospitals
+2025-11-03 12:27:05.410  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 12:27:05.413  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.controller.HospitalController      : Fetched 0 hospitals
+2025-11-03 12:27:11.613  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 12:27:11.615  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.controller.HospitalController      : Fetched 0 hospitals
+2025-11-03 12:27:25.883  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 12:27:25.893  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.controller.HospitalController      : Fetched 0 hospitals
+2025-11-03 12:27:29.868  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 12:27:29.871  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.controller.HospitalController      : Fetched 0 hospitals
+2025-11-03 12:28:18.715  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 12:28:18.718  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.controller.HospitalController      : Fetched 0 hospitals
+2025-11-03 12:28:22.237  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 12:28:22.240  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.controller.HospitalController      : Fetched 0 hospitals
+2025-11-03 12:29:14.440  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 12:29:14.443  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.controller.HospitalController      : Fetched 0 hospitals
+2025-11-03 12:30:30.367  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 12:30:30.374  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.controller.HospitalController      : Fetched 0 hospitals
+2025-11-03 12:30:39.738  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 12:30:39.740  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.controller.HospitalController      : Fetched 0 hospitals
+2025-11-03 12:31:04.491  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.controller.HospitalController      : Creating hospital: Custome
+2025-11-03 12:31:04.511  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.controller.HospitalController      : Hospital created successfully with ID: 1
+2025-11-03 12:31:04.577  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 12:31:04.586  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.controller.HospitalController      : Fetched 1 hospitals
+2025-11-03 12:31:14.261  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 12:31:14.265  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.controller.HospitalController      : Fetched 1 hospitals
+2025-11-03 12:35:44.707  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 12:35:44.711  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.controller.HospitalController      : Fetched 1 hospitals
+2025-11-03 12:35:59.901  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 12:35:59.905  INFO 8531 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.controller.HospitalController      : Fetched 1 hospitals
