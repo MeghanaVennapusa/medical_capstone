@@ -12,6 +12,23 @@ export class HttpService {
  
   constructor(private http: HttpClient) {}
  
+  
+ sendOtp(email: string): Observable<any> {
+  return this.http.post(`${this.serverName}/api/send-otp`, { email });
+}
+
+// ✅ Verify OTP
+verifyOtp(email: string, otp: string): Observable<any> {
+  return this.http.post(`${this.serverName}/api/verify-otp`, { email, otp });
+}
+
+// 🔄 Reset password
+
+resetPassword(data: { email: string; otp: string; newPassword: string }): Observable<any> {
+  return this.http.post(`${this.serverName}/api/reset-password`, data);
+}
+
+
   register(credentials: any):Observable<any>{
     return this.http.post<any>(`${this.serverName}/api/user/register`,credentials)
   }
@@ -63,11 +80,11 @@ export class HttpService {
  
 
   getorders():Observable<any>{
-    return this.http.get<any>(`${this.serverName}/orders`);
+    return this.http.get<any>(`${this.serverName}/api/supplier/orders`);
   }
 
-  UpdateOrderStatus(orderId:number,newStatus:string):Observable<any>{
-    return this.http.put<any>(`${this.serverName}/order/update/${orderId}`,{status:newStatus});
+  UpdateOrderStatus(orderId:number,orderDTO:any):Observable<any>{
+    return this.http.put<any>(`${this.serverName}/api/supplier/order/update/${orderId}`,orderDTO);
   }
 
   //get equipments by hospital

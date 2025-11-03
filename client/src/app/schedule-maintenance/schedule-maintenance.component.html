@@ -1,9 +1,8 @@
 <div class="container mt-4"></div>
-    <h2 class="mb-3">Scheduled Maintenance</h2>
-  
+    
     <!-- Info Box -->
     <div class="info-box mb-3">
-      <span class="info-text">Scheduled Maintenance of Equipment</span>
+      <span class="info-text">Schedule Maintenance of Equipment</span>
     </div>
   
     <!-- Success Message -->
@@ -34,12 +33,9 @@
         <!-- Scheduled Date -->
         <div class="col-md-6 mb-3">
           <label>Scheduled Date</label>
-          <input type="date" class="form-control" formControlName="scheduledDate" />
-          <div *ngIf="itemForm.get('scheduledDate')?.touched &&itemForm.get('scheduledDate')?.errors?.['required']" class="text-danger">
+          <input type="date" class="form-control" formControlName="scheduledDate" [min]="today"/>
+          <div *ngIf="itemForm.get('scheduledDate')?.touched && itemForm.get('scheduledDate')?.errors?.['required']" class="text-danger">
             Scheduled date is required.
-          </div>
-          <div *ngIf="itemForm.get('scheduledDate')?.errors?.['invalidDate']" class="text-danger">
-            Scheduled date cannot be in the past.
           </div>
         </div>
       </div>
@@ -79,11 +75,6 @@
         <select class="form-control" formControlName="status">
           <option value="">Choose Status</option>
           <option value="Initiated">Initiated</option>
-<<<<<<< HEAD
-          <option value="Pending">Pending</option>
-          <option value="Completed">Completed</option>
-=======
->>>>>>> origin/shreyas
         </select>
         <div *ngIf="itemForm.get('status')?.touched && itemForm.get('status')?.errors?.['required']" class="text-danger">
           Status is required.

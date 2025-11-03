@@ -21,7 +21,9 @@ import { RequestequipmentComponent } from './requestequipment/requestequipment.c
 import { MaintenanceComponent } from './maintenance/maintenance.component';
 import { OrdersComponent } from './orders/orders.component';
 import { AuthInterceptor } from './auth.interceptors';
-
+import { PagenotfoundComponent } from './utilities/pagenotfound/pagenotfound.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -35,14 +37,17 @@ import { AuthInterceptor } from './auth.interceptors';
       ScheduleMaintenanceComponent,
       RequestequipmentComponent,
       MaintenanceComponent,
-      OrdersComponent
+      OrdersComponent,
+      ForgotpasswordComponent,
+      PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule 
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [HttpService,HttpClientModule,
     

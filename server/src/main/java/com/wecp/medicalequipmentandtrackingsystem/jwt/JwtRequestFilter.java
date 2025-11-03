@@ -62,6 +62,11 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             }
         }
 
+        if (request.getMethod().equalsIgnoreCase("OPTIONS")) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+        
         filterChain.doFilter(request, response);
     }
 }

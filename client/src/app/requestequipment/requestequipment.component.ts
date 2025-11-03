@@ -39,9 +39,11 @@ export class RequestequipmentComponent implements OnInit {
         this.hospitalList = response;
       },
       error: (err) => {
-        this.showError = true;
-        this.errorMessage = 'Error loading hospital details';
         console.error(err);
+        setTimeout(() => {
+          this.showError = true;
+          this.errorMessage = 'Error loading hospital details';
+        }, 2000); // Delay of 2 seconds
       }
     });
   }
@@ -67,9 +69,11 @@ export class RequestequipmentComponent implements OnInit {
         this.equipmentList = response;
       },
       error: (err: any) => {
-        this.showError = true;
-        this.errorMessage = 'Error loading in equipment list';
         console.error(err);
+        setTimeout(() => {
+          this.showError = true;
+          this.errorMessage = 'Error loading equipment list';
+        }, 1500); // Delay of 1.5 seconds
       }
     });
   }
@@ -117,7 +121,12 @@ export class RequestequipmentComponent implements OnInit {
             status: '',
             orderDate: ''
           });
-          this.router.navigate(['/requestequipment']);
+          setTimeout(() => {
+            this.showMessage = false;
+            this.responseMessage = '';
+            this.router.navigate(['/requestequipment']);
+          }, 2000);
+
         },
         error: (err) => {
           console.error('Error details:', err);

@@ -103,12 +103,6 @@
               <small *ngIf="equipmentForm.get('description')?.hasError('minlength')">Minimum 2 characters required.</small>
             </div>
           </div>
- 
-          <!-- Hospital ID -->
-          <div class="mb-3">
-            <label for="hospitalId" class="form-label fw-bold">Hospital ID</label>
-            <input id="hospitalId" formControlName="hospitalId" type="text" class="form-control" readonly />
-          </div>
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-success px-4" [disabled]="equipmentForm.invalid">

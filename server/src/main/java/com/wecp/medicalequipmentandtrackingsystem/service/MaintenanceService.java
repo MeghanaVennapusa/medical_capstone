@@ -4,10 +4,12 @@ import com.wecp.medicalequipmentandtrackingsystem.entitiy.Maintenance;
 import com.wecp.medicalequipmentandtrackingsystem.exceptions.ResourceNotFoundException;
 import com.wecp.medicalequipmentandtrackingsystem.repository.EquipmentRepository;
 import com.wecp.medicalequipmentandtrackingsystem.repository.MaintenanceRepository;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class MaintenanceService {
@@ -17,40 +19,60 @@ public class MaintenanceService {
     @Autowired
     EquipmentRepository equipmentRepository;
 
-    // Constructor Injection for the repository
+    private static final Logger logger = LoggerFactory.getLogger(MaintenanceService.class);
+
     public MaintenanceService(MaintenanceRepository maintenanceRepository){
         this.maintenanceRepository = maintenanceRepository;
     }
 
-    // finds all the maintenances using the in-built method of JpaRepository (done by technician) 
+    // finds all the maintenances
     public List<Maintenance> getAllMaintenances(){
-        return maintenanceRepository.findAll();
+        logger.info("Fetching all maintenance records");
+        List<Maintenance> maintenances = maintenanceRepository.findAll();
+        logger.info("Fetched {} maintenance records", maintenances.size());
+        return maintenances;
     }
 
-    //update's the maintenance using maintenanceId (done by technician)
+    // update maintenance
     public Maintenance updateMaintenance(long maintenanceId, Maintenance updatedMaintenance) {
+        logger.info("Attempting to update maintenance with ID: {}", maintenanceId);
         Maintenance existingMaintenance = maintenanceRepository.findById(maintenanceId)
-            .orElseThrow(() -> new ResourceNotFoundException("Maintenance not found!"));
+            .orElseThrow(() -> {
+                logger.error("Maintenance not found with ID: {}", maintenanceId);
+                return new ResourceNotFoundException("Maintenance not found!");
+            });
 
+        logger.info("Maintenance found. Updating details for ID: {}", maintenanceId);
         existingMaintenance.setDescription(updatedMaintenance.getDescription());
         existingMaintenance.setCompletedDate(updatedMaintenance.getCompletedDate());
         existingMaintenance.setStatus(updatedMaintenance.getStatus());
 
-        return maintenanceRepository.save(existingMaintenance);
+        Maintenance savedMaintenance = maintenanceRepository.save(existingMaintenance);
+        logger.info("Maintenance updated successfully for ID: {}", maintenanceId);
+        return savedMaintenance;
     }
     
-    //create a maintenance (done by hospital)
+    // create maintenance
     public Maintenance createMaintenance(Long equipmentId, Maintenance maintenance) {
+        logger.info("Creating maintenance for equipment ID: {}", equipmentId);
         maintenance.setEquipment(equipmentRepository.findById(equipmentId)
-            .orElseThrow(() -> new ResourceNotFoundException("Equipment not found with ID: " + equipmentId)));
-        return maintenanceRepository.save(maintenance);
+            .orElseThrow(() -> {
+                logger.error("Equipment not found with ID: {}", equipmentId);
+                return new ResourceNotFoundException("Equipment not found with ID: " + equipmentId);
+            }));
+
+        Maintenance savedMaintenance = maintenanceRepository.save(maintenance);
+        logger.info("Maintenance created successfully with ID: {}", savedMaintenance.getId());
+        return savedMaintenance;
     }
 
-    //find maintenance by id (extra method)
+    // find maintenance by ID
     public Maintenance findById(Long maintenanceId) {
+        logger.info("Fetching maintenance with ID: {}", maintenanceId);
         return maintenanceRepository.findById(maintenanceId)
-        .orElseThrow(() -> new ResourceNotFoundException("Maintenance not found with ID: " + maintenanceId));
+            .orElseThrow(() -> {
+                logger.error("Maintenance not found with ID: {}", maintenanceId);
+                return new ResourceNotFoundException("Maintenance not found with ID: " + maintenanceId);
+            });
     }
-
-    
 }

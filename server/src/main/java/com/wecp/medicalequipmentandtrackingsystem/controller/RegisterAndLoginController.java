@@ -6,7 +6,6 @@ import com.wecp.medicalequipmentandtrackingsystem.dto.LoginResponse;
 import com.wecp.medicalequipmentandtrackingsystem.dto.UserDTO;
 import com.wecp.medicalequipmentandtrackingsystem.entitiy.User;
 import com.wecp.medicalequipmentandtrackingsystem.jwt.JwtUtil;
-import com.wecp.medicalequipmentandtrackingsystem.service.MaintenanceService;
 import com.wecp.medicalequipmentandtrackingsystem.service.UserService;
 
 import org.slf4j.Logger;
