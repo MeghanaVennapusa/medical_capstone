@@ -1428,3 +1428,383 @@ java.lang.IllegalArgumentException: Invalid character found in method name [0x16
 2025-11-03 09:13:50.085  INFO 1790 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.controller.HospitalController      : Fetched 1 hospitals
 2025-11-03 09:15:42.314  INFO 1790 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.controller.HospitalController      : Fetching all hospitals
 2025-11-03 09:15:42.316  INFO 1790 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.controller.HospitalController      : Fetched 1 hospitals
+2025-11-03 09:19:44.777  INFO 1790 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-03 09:19:44.780  INFO 1790 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-03 09:19:44.787  INFO 1790 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-03 09:22:07.805  INFO 26470 --- [restartedMain] calEquipmentAndTrackingSystemApplication : Starting MedicalEquipmentAndTrackingSystemApplication using Java 11.0.27 on ip-172-31-22-95 with PID 26470 (/home/ubuntu/root/server/target/classes started by ubuntu in /home/ubuntu/root/server)
+2025-11-03 09:22:07.809  INFO 26470 --- [restartedMain] calEquipmentAndTrackingSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2025-11-03 09:22:07.855  INFO 26470 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-11-03 09:22:07.856  INFO 26470 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-11-03 09:22:08.471  INFO 26470 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-03 09:22:08.512  INFO 26470 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 5 JPA repository interfaces.
+2025-11-03 09:22:08.937  INFO 26470 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 5000 (http)
+2025-11-03 09:22:08.943  INFO 26470 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-03 09:22:08.943  INFO 26470 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.82]
+2025-11-03 09:22:08.983  INFO 26470 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-03 09:22:08.984  INFO 26470 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1127 ms
+2025-11-03 09:22:09.009  INFO 26470 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-03 09:22:09.202  INFO 26470 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-03 09:22:09.209  INFO 26470 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/medicalEquipmentSystemDb'
+2025-11-03 09:22:09.279  INFO 26470 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-03 09:22:09.371  INFO 26470 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2025-11-03 09:22:09.515  INFO 26470 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-11-03 09:22:09.577  INFO 26470 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2025-11-03 09:22:10.021  INFO 26470 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-11-03 09:22:10.028  INFO 26470 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-03 09:22:10.284  WARN 26470 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-03 09:22:10.584  INFO 26470 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@379ac342, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@33b18749, org.springframework.security.web.context.SecurityContextPersistenceFilter@18b345db, org.springframework.security.web.header.HeaderWriterFilter@12279131, org.springframework.web.filter.CorsFilter@5dbba73a, org.springframework.security.web.authentication.logout.LogoutFilter@3a38e54e, com.wecp.medicalequipmentandtrackingsystem.jwt.JwtRequestFilter@6e59d58a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6b9ccaf0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@36439b7a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@18345877, org.springframework.security.web.session.SessionManagementFilter@59891148, org.springframework.security.web.access.ExceptionTranslationFilter@279a1d6f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@31fa2024]
+2025-11-03 09:22:10.722  INFO 26470 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-11-03 09:22:10.759  INFO 26470 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 5000 (http) with context path ''
+2025-11-03 09:22:10.772  INFO 26470 --- [restartedMain] calEquipmentAndTrackingSystemApplication : Started MedicalEquipmentAndTrackingSystemApplication in 3.285 seconds (JVM running for 3.626)
+2025-11-03 09:23:44.492  INFO 26470 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-03 09:23:44.495  INFO 26470 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-03 09:23:44.508  INFO 26470 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-03 09:24:03.082  INFO 27525 --- [restartedMain] calEquipmentAndTrackingSystemApplication : Starting MedicalEquipmentAndTrackingSystemApplication using Java 11.0.27 on ip-172-31-22-95 with PID 27525 (/home/ubuntu/root/server/target/classes started by ubuntu in /home/ubuntu/root/server)
+2025-11-03 09:24:03.084  INFO 27525 --- [restartedMain] calEquipmentAndTrackingSystemApplication : No active profile set, falling back to 1 default profile: "default"
+2025-11-03 09:24:03.157  INFO 27525 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-11-03 09:24:03.157  INFO 27525 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-11-03 09:24:03.759  INFO 27525 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-03 09:24:03.797  INFO 27525 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 34 ms. Found 5 JPA repository interfaces.
+2025-11-03 09:24:04.256  INFO 27525 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 5000 (http)
+2025-11-03 09:24:04.262  INFO 27525 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-03 09:24:04.262  INFO 27525 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.82]
+2025-11-03 09:24:04.304  INFO 27525 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-03 09:24:04.304  INFO 27525 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1146 ms
+2025-11-03 09:24:04.331  INFO 27525 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-03 09:24:04.510  INFO 27525 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-03 09:24:04.517  INFO 27525 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/medicalEquipmentSystemDb'
+2025-11-03 09:24:04.586  INFO 27525 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-03 09:24:04.651  INFO 27525 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2025-11-03 09:24:04.800  INFO 27525 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-11-03 09:24:04.843  INFO 27525 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2025-11-03 09:24:05.285  INFO 27525 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-11-03 09:24:05.290  INFO 27525 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-03 09:24:05.575  WARN 27525 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-03 09:24:06.010  INFO 27525 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6b3dc3cd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@41f19d1, org.springframework.security.web.context.SecurityContextPersistenceFilter@4df23b81, org.springframework.security.web.header.HeaderWriterFilter@75a9479e, org.springframework.web.filter.CorsFilter@4ee742fa, org.springframework.security.web.authentication.logout.LogoutFilter@5ec99b35, com.wecp.medicalequipmentandtrackingsystem.jwt.JwtRequestFilter@737b10dc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@791e56fa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@a9a5a5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7145fa17, org.springframework.security.web.session.SessionManagementFilter@6853aa01, org.springframework.security.web.access.ExceptionTranslationFilter@17ce42ee, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@15fdd487]
+2025-11-03 09:24:06.136  INFO 27525 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-11-03 09:24:06.157  INFO 27525 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 5000 (http) with context path ''
+2025-11-03 09:24:06.166  INFO 27525 --- [restartedMain] calEquipmentAndTrackingSystemApplication : Started MedicalEquipmentAndTrackingSystemApplication in 3.421 seconds (JVM running for 3.769)
+2025-11-03 09:25:35.061  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-03 09:25:35.062  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-03 09:25:35.063  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-11-03 09:25:35.253  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.c.RegisterAndLoginController       : Registering user: oyeshreyas
+2025-11-03 09:25:35.413  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.c.RegisterAndLoginController       : User registered successfully: oyeshreyas
+2025-11-03 09:26:26.063  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.c.RegisterAndLoginController       : Registering user: oyeshreyas
+2025-11-03 09:26:26.073  WARN 27525 --- [http-nio-0.0.0.0-5000-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.wecp.medicalequipmentandtrackingsystem.exceptions.UserAlreadyExists: oyeshreyasAlready exists]
+2025-11-03 09:26:45.606  WARN 27525 --- [http-nio-0.0.0.0-5000-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.wecp.medicalequipmentandtrackingsystem.entitiy.User> com.wecp.medicalequipmentandtrackingsystem.controller.RegisterAndLoginController.registerUser(com.wecp.medicalequipmentandtrackingsystem.dto.UserDTO): [Field error in object 'userDTO' on field 'username': rejected value [ram]; codes [Size.userDTO.username,Size.username,Size.java.lang.String,Size]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [userDTO.username,username]; arguments []; default message [username],20,4]; default message [Username must be between 4 and 20 characters]] ]
+2025-11-03 09:26:49.954  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.c.RegisterAndLoginController       : Registering user: rama
+2025-11-03 09:26:50.038  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.c.RegisterAndLoginController       : User registered successfully: rama
+2025-11-03 09:27:16.057  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.c.RegisterAndLoginController       : Registering user: rama
+2025-11-03 09:27:16.061  WARN 27525 --- [http-nio-0.0.0.0-5000-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.wecp.medicalequipmentandtrackingsystem.exceptions.UserAlreadyExists: ramaAlready exists]
+2025-11-03 09:27:38.842  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.c.RegisterAndLoginController       : Registering user: ramaa
+2025-11-03 09:27:38.926  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.c.RegisterAndLoginController       : User registered successfully: ramaa
+2025-11-03 09:27:59.074  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.c.RegisterAndLoginController       : Registering user: radhe
+2025-11-03 09:27:59.158  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.c.RegisterAndLoginController       : User registered successfully: radhe
+2025-11-03 09:38:12.509  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.c.RegisterAndLoginController       : Registering user: hospital
+2025-11-03 09:38:12.593  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.c.RegisterAndLoginController       : User registered successfully: hospital
+2025-11-03 09:38:31.728  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.c.RegisterAndLoginController       : Registering user: technician
+2025-11-03 09:38:31.813  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.c.RegisterAndLoginController       : User registered successfully: technician
+2025-11-03 09:39:50.027  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.c.RegisterAndLoginController       : Login attempt for username: hospital
+2025-11-03 09:39:50.198  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.c.RegisterAndLoginController       : Login successful for username: hospital
+2025-11-03 09:39:54.077  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 09:39:54.084  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.controller.HospitalController      : Fetched 0 hospitals
+2025-11-03 09:40:22.397  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.c.RegisterAndLoginController       : Login attempt for username: technician
+2025-11-03 09:40:22.478  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.c.RegisterAndLoginController       : Login successful for username: technician
+2025-11-03 09:40:23.857  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 09:40:23.863  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : Fetched 0 maintenance records
+2025-11-03 09:40:23.863  WARN 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : No maintenance records found.
+2025-11-03 09:41:13.026  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.c.RegisterAndLoginController       : Registering user: supplier
+2025-11-03 09:41:13.111  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.c.RegisterAndLoginController       : User registered successfully: supplier
+2025-11-03 09:41:33.837  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.c.RegisterAndLoginController       : Login attempt for username: supplier
+2025-11-03 09:41:33.915  WARN 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.c.RegisterAndLoginController       : Login failed for username: supplier
+2025-11-03 09:41:33.915 ERROR 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.c.RegisterAndLoginController       : AuthenticationException: Bad credentials 
+2025-11-03 09:42:15.605  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.c.RegisterAndLoginController       : Login attempt for username: supplier
+2025-11-03 09:42:15.688  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.c.RegisterAndLoginController       : Login successful for username: supplier
+2025-11-03 09:42:17.169  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.controller.SupplierController      : Fetching all orders
+2025-11-03 09:45:30.490  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.c.RegisterAndLoginController       : Login attempt for username: hospital
+2025-11-03 09:45:30.572  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.c.RegisterAndLoginController       : Login successful for username: hospital
+2025-11-03 09:45:32.305  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 09:45:32.308  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.controller.HospitalController      : Fetched 0 hospitals
+2025-11-03 09:46:23.297  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.c.RegisterAndLoginController       : Login attempt for username: hospital
+2025-11-03 09:46:23.378  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.c.RegisterAndLoginController       : Login successful for username: hospital
+2025-11-03 09:46:24.412  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 09:46:24.415  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.controller.HospitalController      : Fetched 0 hospitals
+2025-11-03 09:46:28.519  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 09:46:28.522  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.controller.HospitalController      : Fetched 0 hospitals
+2025-11-03 09:46:33.750  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.controller.HospitalController      : Creating hospital: Apollo
+2025-11-03 09:46:33.766  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.controller.HospitalController      : Hospital created successfully with ID: 2
+2025-11-03 09:46:33.875  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 09:46:33.885  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.controller.HospitalController      : Fetched 1 hospitals
+2025-11-03 09:46:42.481  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.controller.HospitalController      : Creating hospital: Apollo
+2025-11-03 09:46:42.483 ERROR 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.controller.HospitalController      : Hospital creation failed: Hospital already with same name.
+2025-11-03 09:46:52.470  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.controller.HospitalController      : Creating hospital: Apollo
+2025-11-03 09:46:52.472 ERROR 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.controller.HospitalController      : Hospital creation failed: Hospital already with same name.
+2025-11-03 09:47:01.754  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.controller.HospitalController      : Creating hospital: Apollo
+2025-11-03 09:47:01.756 ERROR 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.controller.HospitalController      : Hospital creation failed: Hospital already with same name.
+2025-11-03 09:47:15.325  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.controller.HospitalController      : Creating hospital: Sancheti
+2025-11-03 09:47:15.332  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.controller.HospitalController      : Hospital created successfully with ID: 3
+2025-11-03 09:47:15.435  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 09:47:15.440  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.controller.HospitalController      : Fetched 2 hospitals
+2025-11-03 09:47:28.785  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.controller.HospitalController      : Creating hospital: Apollo
+2025-11-03 09:47:28.787 ERROR 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.controller.HospitalController      : Hospital creation failed: Hospital already with same name.
+2025-11-03 09:48:12.442  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.controller.HospitalController      : Creating hospital: Apollo
+2025-11-03 09:48:12.443 ERROR 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.controller.HospitalController      : Hospital creation failed: Hospital already with same name.
+2025-11-03 09:48:21.217  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.controller.HospitalController      : Creating hospital: Apollo
+2025-11-03 09:48:21.218 ERROR 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.controller.HospitalController      : Hospital creation failed: Hospital already with same name.
+2025-11-03 09:51:16.192  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.controller.HospitalController      : Creating hospital: Rameshwaram
+2025-11-03 09:51:16.199  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.controller.HospitalController      : Hospital created successfully with ID: 4
+2025-11-03 09:51:16.306  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 09:51:16.311  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.controller.HospitalController      : Fetched 3 hospitals
+2025-11-03 09:51:31.940  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.controller.HospitalController      : Creating hospital: Sahyadri
+2025-11-03 09:51:31.946  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.controller.HospitalController      : Hospital created successfully with ID: 5
+2025-11-03 09:51:32.056  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 09:51:32.062  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.controller.HospitalController      : Fetched 4 hospitals
+2025-11-03 09:51:44.309  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.controller.HospitalController      : Creating hospital: RamHospitals
+2025-11-03 09:51:44.316  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.controller.HospitalController      : Hospital created successfully with ID: 6
+2025-11-03 09:51:44.426  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 09:51:44.433  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.controller.HospitalController      : Fetched 5 hospitals
+2025-11-03 09:52:44.796  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.controller.HospitalController      : [7742bfee-1443-4adf-9dfd-963d18026b77] Request to add equipment: Soap Dispenser
+2025-11-03 09:52:44.810  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.controller.HospitalController      : [7742bfee-1443-4adf-9dfd-963d18026b77] Equipment 'Soap Dispenser' added successfully for hospital ID: 2
+2025-11-03 09:53:09.644  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.controller.HospitalController      : [3e18154e-b1ee-4417-add5-06e212347c49] Request to add equipment: Xray
+2025-11-03 09:53:09.652  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.controller.HospitalController      : [3e18154e-b1ee-4417-add5-06e212347c49] Equipment 'Xray' added successfully for hospital ID: 2
+2025-11-03 09:53:19.995  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.controller.HospitalController      : [264ebb6b-494b-4832-89fe-d6c1c7cc8e1e] Request to add equipment: Soap Dispenser
+2025-11-03 09:53:20.003  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.controller.HospitalController      : [264ebb6b-494b-4832-89fe-d6c1c7cc8e1e] Equipment 'Soap Dispenser' added successfully for hospital ID: 4
+2025-11-03 09:53:32.694  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.controller.HospitalController      : [c93d2155-9fbe-40ec-b5a6-504c04df10a3] Request to add equipment: MRI
+2025-11-03 09:53:32.703  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.controller.HospitalController      : [c93d2155-9fbe-40ec-b5a6-504c04df10a3] Equipment 'MRI' added successfully for hospital ID: 5
+2025-11-03 09:53:57.815  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.controller.HospitalController      : [25bd8887-93a0-4190-a457-9cf6e147760d] Request to add equipment: Stretcher
+2025-11-03 09:53:57.824  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.controller.HospitalController      : [25bd8887-93a0-4190-a457-9cf6e147760d] Equipment 'Stretcher' added successfully for hospital ID: 6
+2025-11-03 09:54:14.258  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.controller.HospitalController      : [a4c074e0-4df6-4859-9920-e78d229657e8] Request to add equipment: CCTV
+2025-11-03 09:54:14.266  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.controller.HospitalController      : [a4c074e0-4df6-4859-9920-e78d229657e8] Equipment 'CCTV' added successfully for hospital ID: 5
+2025-11-03 09:54:18.867  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 09:54:18.875  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.controller.HospitalController      : Fetched 5 hospitals
+2025-11-03 09:54:20.074  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 09:54:20.082  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.controller.HospitalController      : Fetched 5 hospitals
+2025-11-03 09:54:21.519  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 09:54:21.526  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.controller.HospitalController      : Fetched 5 hospitals
+2025-11-03 09:54:27.872  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.controller.HospitalController      : [fd6ac188-0df5-4bfb-9fd8-86a0d391deb9] Fetching all equipments for hospital ID: 2
+2025-11-03 09:54:27.876  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.controller.HospitalController      : [fd6ac188-0df5-4bfb-9fd8-86a0d391deb9] Retrieved 2 equipments for hospital ID: 2
+2025-11-03 09:54:41.780  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : Creating maintenance for equipment ID: 3
+2025-11-03 09:54:41.790  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : Maintenance created successfully with ID: 23
+2025-11-03 09:54:47.831  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.controller.HospitalController      : [48427327-0bd8-4433-b619-01fff6d0f51f] Fetching all equipments for hospital ID: 5
+2025-11-03 09:54:47.835  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.controller.HospitalController      : [48427327-0bd8-4433-b619-01fff6d0f51f] Retrieved 2 equipments for hospital ID: 5
+2025-11-03 09:55:00.740  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.service.MaintenanceService         : Creating maintenance for equipment ID: 8
+2025-11-03 09:55:00.747  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.service.MaintenanceService         : Maintenance created successfully with ID: 24
+2025-11-03 09:55:22.774  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.controller.HospitalController      : [19844eef-09da-47df-8a26-27cf56960809] Fetching all equipments for hospital ID: 3
+2025-11-03 09:55:22.783  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.controller.HospitalController      : [19844eef-09da-47df-8a26-27cf56960809] Retrieved 0 equipments for hospital ID: 3
+2025-11-03 09:55:32.245  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.controller.HospitalController      : [20ea7cad-4638-4cfa-8665-cd56c1721ce3] Fetching all equipments for hospital ID: 4
+2025-11-03 09:55:32.249  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.controller.HospitalController      : [20ea7cad-4638-4cfa-8665-cd56c1721ce3] Retrieved 1 equipments for hospital ID: 4
+2025-11-03 09:56:10.719  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.c.RegisterAndLoginController       : Login attempt for username: technician
+2025-11-03 09:56:10.799  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.c.RegisterAndLoginController       : Login successful for username: technician
+2025-11-03 09:56:11.510  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 09:56:11.516  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : Fetched 2 maintenance records
+2025-11-03 09:56:11.516  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 09:56:54.403  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 09:56:54.414  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : Fetched 2 maintenance records
+2025-11-03 09:56:54.414  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 09:57:02.085  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 09:57:02.090  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.service.MaintenanceService         : Fetched 2 maintenance records
+2025-11-03 09:57:02.090  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 09:57:07.766  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 09:57:07.771  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : Fetched 2 maintenance records
+2025-11-03 09:57:07.771  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 09:57:51.293  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : Fetching maintenance with ID: 23
+2025-11-03 09:57:51.296  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : Attempting to update maintenance with ID: 23
+2025-11-03 09:57:51.298  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : Maintenance found. Updating details for ID: 23
+2025-11-03 09:57:51.313  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : Maintenance updated successfully for ID: 23
+2025-11-03 09:57:51.435  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 09:57:51.440  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : Fetched 2 maintenance records
+2025-11-03 09:57:51.440  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 09:58:07.045  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.c.RegisterAndLoginController       : Login attempt for username: hospital
+2025-11-03 09:58:07.125  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.c.RegisterAndLoginController       : Login successful for username: hospital
+2025-11-03 09:58:08.084  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.controller.HospitalController      : Fetching all hospitals
+2025-11-03 09:58:08.091  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.controller.HospitalController      : Fetched 5 hospitals
+2025-11-03 09:58:10.094  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.controller.HospitalController      : [f64ac63b-8d07-4bcb-83d5-01071ae60f8e] Fetching all equipments for hospital ID: 6
+2025-11-03 09:58:10.097  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.controller.HospitalController      : [f64ac63b-8d07-4bcb-83d5-01071ae60f8e] Retrieved 1 equipments for hospital ID: 6
+2025-11-03 09:58:23.041  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.service.MaintenanceService         : Creating maintenance for equipment ID: 7
+2025-11-03 09:58:23.048  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.service.MaintenanceService         : Maintenance created successfully with ID: 25
+2025-11-03 09:58:29.286  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.controller.HospitalController      : [9d29d6c5-8cf8-433c-98d5-6ec70b8b52d0] Fetching all equipments for hospital ID: 6
+2025-11-03 09:58:29.290  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.controller.HospitalController      : [9d29d6c5-8cf8-433c-98d5-6ec70b8b52d0] Retrieved 1 equipments for hospital ID: 6
+2025-11-03 09:58:51.131  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.service.MaintenanceService         : Creating maintenance for equipment ID: 7
+2025-11-03 09:58:51.138  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.service.MaintenanceService         : Maintenance created successfully with ID: 26
+2025-11-03 09:58:57.684  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.controller.HospitalController      : [497e896b-ab22-4f8f-973a-a54b676c10de] Fetching all equipments for hospital ID: 2
+2025-11-03 09:58:57.687  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.controller.HospitalController      : [497e896b-ab22-4f8f-973a-a54b676c10de] Retrieved 2 equipments for hospital ID: 2
+2025-11-03 09:59:02.844  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.controller.HospitalController      : [97dbd81e-7eaa-4a55-96ca-203005a85658] Fetching all equipments for hospital ID: 3
+2025-11-03 09:59:02.847  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.controller.HospitalController      : [97dbd81e-7eaa-4a55-96ca-203005a85658] Retrieved 0 equipments for hospital ID: 3
+2025-11-03 09:59:06.279  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.controller.HospitalController      : [de94463c-2e26-4a88-8b31-0b54dd260d40] Fetching all equipments for hospital ID: 5
+2025-11-03 09:59:06.282  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.controller.HospitalController      : [de94463c-2e26-4a88-8b31-0b54dd260d40] Retrieved 2 equipments for hospital ID: 5
+2025-11-03 09:59:19.920  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.service.MaintenanceService         : Creating maintenance for equipment ID: 6
+2025-11-03 09:59:19.927  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.service.MaintenanceService         : Maintenance created successfully with ID: 27
+2025-11-03 09:59:28.089  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.c.RegisterAndLoginController       : Login attempt for username: technician
+2025-11-03 09:59:28.169  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.c.RegisterAndLoginController       : Login successful for username: technician
+2025-11-03 09:59:29.058  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 09:59:29.065  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 09:59:29.065  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:00:36.437  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : Fetching maintenance with ID: 25
+2025-11-03 10:00:36.439  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : Attempting to update maintenance with ID: 25
+2025-11-03 10:00:36.440  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : Maintenance found. Updating details for ID: 25
+2025-11-03 10:00:36.445  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : Maintenance updated successfully for ID: 25
+2025-11-03 10:00:36.551  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:00:36.556  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:00:36.557  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:01:45.477  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:01:45.490  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:01:45.490  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:01:56.684  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:01:56.691  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:01:56.696  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:06:49.899  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:06:49.905  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:06:49.905  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:07:00.059  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:07:00.065  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:07:00.066  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:08:09.273  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:08:09.281  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:08:09.281  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:08:17.131  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:08:17.137  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:08:17.138  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:08:22.517  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:08:22.526  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:08:22.526  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:09:01.012  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:09:01.038  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:09:01.039  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:09:33.241  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:09:33.246  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:09:33.247  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:10:49.134  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:10:49.140  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:10:49.141  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:12:53.699  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:12:53.706  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:12:53.706  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:13:30.920  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:13:30.927  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:13:30.927  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:14:18.001  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:14:18.007  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:14:18.007  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:15:16.263  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:15:16.268  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:15:16.268  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:15:24.338  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:15:24.344  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:15:24.345  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:16:34.707  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:16:34.713  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:16:34.713  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:16:55.497  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:16:55.502  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:16:55.502  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:17:43.315  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:17:43.323  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:17:43.323  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:17:45.288  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:17:45.297  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:17:45.297  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:18:21.583  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:18:21.592  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:18:21.592  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:19:18.726  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:19:18.730  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:19:18.730  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:19:27.863  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:19:27.870  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:19:27.870  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:19:35.721  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:19:35.743  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:19:35.743  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:19:47.931  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:19:47.936  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:19:47.936  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:20:43.353  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:20:43.359  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:20:43.359  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:21:18.250  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:21:18.254  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:21:18.255  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:21:24.103  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:21:24.107  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:21:24.108  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:22:11.306  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:22:11.311  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:22:11.311  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:23:51.994  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:23:51.998  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:23:51.998  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:24:05.220  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:24:05.224  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:24:05.225  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:24:09.633  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:24:09.638  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:24:09.639  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:24:19.077  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:24:19.082  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:24:19.082  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:25:10.109  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:25:10.134  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:25:10.134  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:25:12.846  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:25:12.852  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:25:12.853  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:25:24.664  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:25:24.668  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:25:24.669  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:25:28.986  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:25:28.990  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:25:28.990  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:25:32.395  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:25:32.408  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:25:32.409  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-3] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:25:57.392  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:25:57.397  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:25:57.397  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:26:07.299  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:26:07.304  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:26:07.305  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:26:08.896  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:26:08.900  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:26:08.900  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:26:10.516  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:26:10.544  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:26:10.550  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:26:14.466  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:26:14.471  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:26:14.471  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-8] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:26:32.099  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:26:32.106  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:26:32.106  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:26:33.243  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:26:33.248  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:26:33.249  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:26:39.362  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:26:39.368  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:26:39.368  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:32:08.129  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:32:08.133  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:32:08.133  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-2] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:32:51.466  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : Fetching maintenance with ID: 24
+2025-11-03 10:32:51.468  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : Attempting to update maintenance with ID: 24
+2025-11-03 10:32:51.469  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : Maintenance found. Updating details for ID: 24
+2025-11-03 10:32:51.474  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-5] c.w.m.service.MaintenanceService         : Maintenance updated successfully for ID: 24
+2025-11-03 10:32:51.600  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:32:51.604  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:32:51.604  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-6] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:32:56.323  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : Fetching maintenance with ID: 24
+2025-11-03 10:32:56.324  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : Attempting to update maintenance with ID: 24
+2025-11-03 10:32:56.325  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : Maintenance found. Updating details for ID: 24
+2025-11-03 10:32:56.330  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-4] c.w.m.service.MaintenanceService         : Maintenance updated successfully for ID: 24
+2025-11-03 10:32:56.406  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:32:56.410  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:32:56.410  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-7] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:33:43.336  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.service.MaintenanceService         : Fetching maintenance with ID: 23
+2025-11-03 10:33:43.338  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.service.MaintenanceService         : Attempting to update maintenance with ID: 23
+2025-11-03 10:33:43.339  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.service.MaintenanceService         : Maintenance found. Updating details for ID: 23
+2025-11-03 10:33:43.343  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-10] c.w.m.service.MaintenanceService         : Maintenance updated successfully for ID: 23
+2025-11-03 10:33:43.459  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:33:43.463  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:33:43.463  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-9] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
+2025-11-03 10:34:02.718  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : Fetching all maintenance records
+2025-11-03 10:34:02.723  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : Fetched 5 maintenance records
+2025-11-03 10:34:02.724  INFO 27525 --- [http-nio-0.0.0.0-5000-exec-1] c.w.m.service.MaintenanceService         : All the maintenances are retrieved successfully!
