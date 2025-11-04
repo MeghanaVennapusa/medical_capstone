@@ -102,6 +102,9 @@ resetPassword(data: { email: string; otp: string; newPassword: string }): Observ
   getTechnicians(): Observable<number> {
     return this.http.get<number>(`${this.serverName}/api/technician`);
   }
+  getEquipments(): Observable<number> {
+    return this.http.get<number>(`${this.serverName}/api/equipment`);
+  }
   
 }
  

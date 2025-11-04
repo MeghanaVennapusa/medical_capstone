@@ -56,5 +56,8 @@ public class EquipmentService {
         }
         return hospital.getEquipmentList();
     }
+    public Integer getAllEquipments() {
+        return equipmentRepository.findAll().size();
+    }
 
 }

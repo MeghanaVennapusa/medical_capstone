@@ -135,4 +135,9 @@ public class HospitalController {
         // return all equipments of hospital with response code = 200 OK
         return new ResponseEntity<>(hospitalService.getAllEquipmentsByName(name), HttpStatus.OK);
     }
+    @GetMapping("/api/equipment")
+    public ResponseEntity<Integer> getAllEquipments() {
+        return new ResponseEntity<>(equipmentService.getAllEquipments(), HttpStatus.OK);
+    }
+
 }

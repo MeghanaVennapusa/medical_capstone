@@ -13,6 +13,7 @@ export class DashbaordComponent {
   countServices: number=0;
   countSuppliers: number=0;
   countTechnicians: number=0;
+  countEquipments: number=0;
   constructor(private http: HttpService){}
 
  ngOnInit(): void {
@@ -28,6 +29,8 @@ this.http.getSuppliers().subscribe((data) =>
   this.countSuppliers=data);
 this.http.getTechnicians().subscribe((data) =>
   this.countTechnicians=data);
+this.http.getEquipments().subscribe((data) =>
+  this.countEquipments=data);
 
 
 

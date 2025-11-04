@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 
@@ -15,7 +16,28 @@
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  padding: 20px;
+  max-height: 90vh;
+  // padding: 20px;
+}
+// .glass-bg {
+//   height: 100vh;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   overflow: hidden; /* prevent page scroll */
+// }
+
+// .glass-card {
+//   display: flex;
+//   flex-direction: column;
+//   max-height: 90vh; /* limit card height */
+//   width: 100%;
+//   max-width: 700px;
+// }
+
+.table-responsive {
+  max-height: 40vh; /* limit table height */
+  overflow-y: auto; /* enable scroll inside table */
 }
 
 .glass-table {
